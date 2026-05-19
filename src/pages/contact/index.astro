@@ -3,50 +3,20 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHero from "../../components/PageHero.astro";
 
 const faqs = [
-  {
-    q: "옵션 1 (RS) 구조는 누구에게 적합한가요?",
-    a: "광고비 부담이 큰 신규·검증 단계 브랜드에 가장 적합합니다. 매출 발생 시점부터 N% 수익을 공유하므로 초기 부담이 없습니다.",
-  },
-  {
-    q: "계약 기간은 어떻게 되나요?",
-    a: "옵션 1·4는 12개월 이상 권장, 옵션 2는 6~12개월, 옵션 3은 캠페인 단위입니다. 계약 중 단계 변화 시 옵션 조정도 가능합니다.",
-  },
-  {
-    q: "신규 상품 소싱도 해주시나요?",
-    a: "본 솔루션은 신규 상품 소싱은 진행하지 않습니다. 다만 고객사 보유 제품의 온라인 상품화 발굴과 협력사 연계 안내(별도 컨설팅)는 가능합니다.",
-  },
-  {
-    q: "첫 매출까지 얼마나 걸리나요?",
-    a: "타겟 유형별로 다릅니다. Type A는 즉시~1개월, Type B·D는 30~60일, Type C는 상품 확보 후 60~90일이 일반적입니다.",
-  },
-  {
-    q: "어떤 카테고리에 강점이 있나요?",
-    a: "F&B · 건강기능식품 · 헬스케어 · 네이버 생태계에 검증된 운영 경험을 보유하고 있습니다.",
-  },
-  {
-    q: "매체만 단독으로 진행할 수 있나요?",
-    a: "옵션 3 (매체 단독)으로 가능합니다. 10개 매체 라인업 중 캠페인 단위로 자유롭게 선택해 집행할 수 있습니다.",
-  },
-  {
-    q: "기존 운영대행사가 있는데 매체만 추가할 수 있나요?",
-    a: "가능합니다. 옵션 3 매체 단독 또는 옵션 4 혼합 구조로 진행됩니다.",
-  },
-  {
-    q: "정산은 어떻게 이루어지나요?",
-    a: "옵션별로 다릅니다. RS는 월말 매출 정산, 정액은 월 고정 청구, 매체는 캠페인 종료 시 단가 정산, 혼합은 옵션별 분리 정산입니다.",
-  },
-  {
-    q: "계약 종료 후 자체 운영으로 전환할 수 있나요?",
-    a: "가능합니다. 오프보딩 절차로 채널 권한·데이터·운영 매뉴얼을 모두 이관해드리며, 필요 시 1~2주 인수인계 교육도 지원합니다.",
-  },
-  {
-    q: "영상·사진 촬영도 함께 해주시나요?",
-    a: "본 솔루션의 콘텐츠 모듈은 기획·디자인·텍스트 중심입니다. 영상·사진 촬영은 별도 서비스로 안내드리며, 통합 견적 시 함께 안내됩니다.",
-  },
+  { q: "옵션 1 (RS) 구조는 누구에게 적합한가요?", a: "광고비 부담이 큰 신규·검증 단계 브랜드에 가장 적합합니다. 매출 발생 시점부터 N% 수익을 공유하므로 초기 부담이 없습니다." },
+  { q: "계약 기간은 어떻게 되나요?", a: "옵션 1·4는 12개월 이상 권장, 옵션 2는 6~12개월, 옵션 3은 캠페인 단위입니다. 계약 중 단계 변화 시 옵션 조정도 가능합니다." },
+  { q: "신규 상품 소싱도 해주시나요?", a: "본 솔루션은 신규 상품 소싱은 진행하지 않습니다. 다만 고객사 보유 제품의 온라인 상품화 발굴과 협력사 연계 안내(별도 컨설팅)는 가능합니다." },
+  { q: "첫 매출까지 얼마나 걸리나요?", a: "타겟 유형별로 다릅니다. Type A는 즉시~1개월, Type B·D는 30~60일, Type C는 상품 확보 후 60~90일이 일반적입니다." },
+  { q: "어떤 카테고리에 강점이 있나요?", a: "F&B · 건강기능식품 · 헬스케어 · 네이버 생태계에 검증된 운영 경험을 보유하고 있습니다." },
+  { q: "매체만 단독으로 진행할 수 있나요?", a: "옵션 3 (매체 단독)으로 가능합니다. 10개 매체 라인업 중 캠페인 단위로 자유롭게 선택해 집행할 수 있습니다." },
+  { q: "기존 운영대행사가 있는데 매체만 추가할 수 있나요?", a: "가능합니다. 옵션 3 매체 단독 또는 옵션 4 혼합 구조로 진행됩니다." },
+  { q: "정산은 어떻게 이루어지나요?", a: "옵션별로 다릅니다. RS는 월말 매출 정산, 정액은 월 고정 청구, 매체는 캠페인 종료 시 단가 정산, 혼합은 옵션별 분리 정산입니다." },
+  { q: "계약 종료 후 자체 운영으로 전환할 수 있나요?", a: "가능합니다. 오프보딩 절차로 채널 권한·데이터·운영 매뉴얼을 모두 이관해드리며, 필요 시 1~2주 인수인계 교육도 지원합니다." },
+  { q: "영상·사진 촬영도 함께 해주시나요?", a: "본 솔루션의 콘텐츠 모듈은 기획·디자인·텍스트 중심입니다. 영상·사진 촬영은 별도 서비스로 안내드리며, 통합 견적 시 함께 안내됩니다." },
 ];
 
 const procedure = [
-  { num: "01", title: "문의 접수", desc: "본 폼 제출 또는 이메일·전화 문의" },
+  { num: "01", title: "문의 접수", desc: "본 폼 제출 또는 이메일 문의" },
   { num: "02", title: "초기 상담", desc: "30분 ~ 1시간 / 4유형 진단 · 솔루션 방향 안내" },
   { num: "03", title: "제안서·견적 제공", desc: "5~7영업일 이내 맞춤 견적서" },
   { num: "04", title: "조정·확정", desc: "1~2주 / 세부 조건 협의" },
@@ -65,7 +35,6 @@ const procedure = [
     sub="30분 ~ 1시간 상담으로 현재 단계를 진단하고, 5~7영업일 이내 맞춤 견적을 제공해드립니다."
   />
 
-  <!-- 진행 절차 -->
   <section class="py-12 bg-bg-light">
     <div class="container-page">
       <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
@@ -80,7 +49,6 @@ const procedure = [
     </div>
   </section>
 
-  <!-- 상담 신청 폼 -->
   <section class="py-16 lg:py-20">
     <div class="container-page max-w-3xl">
       <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">INQUIRY FORM</div>
@@ -88,13 +56,13 @@ const procedure = [
       <p class="text-sm text-ink-body mb-10">
         아래 폼을 제출하시면 영업일 기준 24시간 이내 입력하신 이메일로 답변드립니다.
       </p>
-      
-<form id="inquiry-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6 bg-white border border-gray-200 rounded-md p-6 lg:p-8">
-  <input type="hidden" name="access_key" value="58570e0f-e3d3-49ca-8571-b5b86e5f494f">
-  <input type="hidden" name="subject" value="[골드넥스 커머스 솔루션] 새로운 상담 신청">
-  <input type="hidden" name="from_name" value="Goldenax Website">
-  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-<!-- 필수 영역 -->
+
+      <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 bg-white border border-gray-200 rounded-md p-6 lg:p-8">
+        <input type="hidden" name="access_key" value="58570e0f-e3d3-49ca-8571-b5b86e5f494f" />
+        <input type="hidden" name="subject" value="[골드넥스 커머스 솔루션] 새로운 상담 신청" />
+        <input type="hidden" name="from_name" value="Goldenax Website" />
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
         <div>
           <h3 class="text-sm font-bold text-red mb-4 pb-2 border-b border-gray-100">기본 정보 (필수)</h3>
           <div class="grid sm:grid-cols-2 gap-4">
@@ -110,19 +78,18 @@ const procedure = [
               <label class="block text-xs font-bold text-ink-dark mb-1.5">직책 *</label>
               <input type="text" name="직책" required placeholder="예) 대표 / 마케팅 / MD" class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
             </div>
-<div class="sm:col-span-2">
-  <label class="block text-xs font-bold text-ink-dark mb-1.5">이메일 *</label>
-  <input type="email" name="email" required placeholder="example@company.com" class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
-  <p class="text-xs text-ink-mute mt-1">모든 답변은 이 이메일로 발송됩니다</p>
-</div>
-<div class="sm:col-span-2">
-  <label class="block text-xs font-bold text-ink-dark mb-1.5">연락처 (선택)</label>
-  <input type="tel" placeholder="필요 시에만 입력해주세요" class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
-</div>
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-bold text-ink-dark mb-1.5">이메일 *</label>
+              <input type="email" name="email" required placeholder="example@company.com" class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
+              <p class="text-xs text-ink-mute mt-1">모든 답변은 이 이메일로 발송됩니다</p>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-bold text-ink-dark mb-1.5">연락처 (선택)</label>
+              <input type="tel" name="연락처" placeholder="필요 시에만 입력해주세요" class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
+            </div>
           </div>
         </div>
-        
-        <!-- 현재 상황 -->
+
         <div>
           <h3 class="text-sm font-bold text-red mb-4 pb-2 border-b border-gray-100">현재 상황</h3>
           <div class="space-y-4">
@@ -155,7 +122,7 @@ const procedure = [
               <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {["자사몰", "네이버 스토어", "쿠팡", "오픈마켓", "버티컬 (무신사·올리브영 등)", "없음 / 신규 진입"].map(c => (
                   <label class="flex items-center gap-2 text-sm text-ink-body cursor-pointer">
-                    <input type="checkbox" class="rounded" />
+                    <input type="checkbox" name="운영채널" value={c} class="rounded" />
                     {c}
                   </label>
                 ))}
@@ -163,8 +130,7 @@ const procedure = [
             </div>
           </div>
         </div>
-        
-        <!-- 관심 솔루션 -->
+
         <div>
           <h3 class="text-sm font-bold text-red mb-4 pb-2 border-b border-gray-100">관심 솔루션</h3>
           <div class="space-y-4">
@@ -173,7 +139,7 @@ const procedure = [
               <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {["쇼핑몰 세팅", "운영관리", "물류", "CS·평판관리", "콘텐츠 제작", "매체 운영"].map(m => (
                   <label class="flex items-center gap-2 text-sm text-ink-body cursor-pointer">
-                    <input type="checkbox" class="rounded" />
+                    <input type="checkbox" name="관심모듈" value={m} class="rounded" />
                     {m}
                   </label>
                 ))}
@@ -203,17 +169,15 @@ const procedure = [
             </div>
           </div>
         </div>
-        
-        <!-- 추가 문의 -->
+
         <div>
           <h3 class="text-sm font-bold text-red mb-4 pb-2 border-b border-gray-100">추가 문의 사항</h3>
           <textarea name="추가문의사항" rows="5" placeholder="구체적인 상황, 기대 결과, 일정 등 자유롭게 작성해주세요." class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red"></textarea>
         </div>
-        
-        <!-- 개인정보 동의 -->
+
         <div class="pt-4 border-t border-gray-100">
           <label class="flex items-start gap-2 text-sm text-ink-body cursor-pointer">
-            <input type="checkbox" required class="mt-1 rounded" />
+            <input type="checkbox" name="개인정보동의" required class="mt-1 rounded" />
             <span>
               <strong class="text-ink-dark">개인정보 수집·이용에 동의합니다.</strong> *<br />
               <span class="text-xs text-ink-mute">
@@ -222,19 +186,18 @@ const procedure = [
             </span>
           </label>
         </div>
-        
+
         <button type="submit" class="btn-primary w-full justify-center !py-4 text-base">
           상담 신청하기 →
         </button>
-        
+
         <p class="text-xs text-ink-light text-center italic">
-            * 제출하신 정보는 안전하게 암호화되어 전송됩니다.
+          * 제출하신 정보는 안전하게 암호화되어 전송됩니다.
         </p>
       </form>
     </div>
   </section>
 
-  <!-- FAQ -->
   <section class="bg-bg-light py-16 lg:py-20">
     <div class="container-page max-w-3xl">
       <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">FAQ</div>
