@@ -1,0 +1,209 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import CtaBlock from "../../components/CtaBlock.astro";
+
+const conversionMedia = [
+  { num: "①", name: "네이버 클립", desc: "네이버 통합검색 1페이지에 30초 숏폼을 노출하는 검색 매칭형 광고. 영상 하단 제품 링크로 원스톱 쇼핑 동선 형성.", kpi: "1p 노출 · CTR · 매출", recover: "1개월 차" },
+  { num: "②", name: "블로그 시딩", desc: "네이버 블로그 후기형 콘텐츠를 다수 확보하여 검색 결과를 점유. 월 50명 운영 → 3개월 누적 150건+ 후기 자산 형성.", kpi: "후기 누적 · 구매 전환", recover: "2개월 차" },
+  { num: "③", name: "맘카페 시딩", desc: "고관여 지역 커뮤니티에 직접·간접 홍보형 게시글로 구매 전환을 유도. 이벤트 · 공동구매 · 한정 특가에 최적.", kpi: "게시글 CTR · 구매", recover: "1~2주" },
+  { num: "④", name: "인스타 릴스 10/20 PKG", desc: "1회 촬영으로 10~20개 콘텐츠를 제작해 푸드 전문 계정에 분산 노출. 영상당 단가 30~50만원 절감.", kpi: "도달 · 저장 · 공유", recover: "2~4주" },
+  { num: "⑤", name: "인플루언서 체험단", desc: "인스타·유튜브·틱톡·블로그 인플루언서의 실체험 후기로 도달과 신뢰를 동시에 확보. 인플루언서별 매출 정량 비교.", kpi: "매체별 매출 비교", recover: "1~3주" },
+  { num: "⑥", name: "라이브커머스", desc: "네이버 쇼핑라이브 · 쿠팡 라이브 · 카카오 쇼핑라이브. 사전 기획 · 라이브 실행 · 사후 클립 활용까지 일괄.", kpi: "시청자 · 매출 · ROAS", recover: "직후~7일" },
+];
+
+const assetMedia = [
+  { num: "⑦", name: "브랜드 랜딩페이지", desc: "매체 트래픽의 도착지로 작동하며 검색 자산 및 브랜드 이미지 자산을 동시에 누적. 워드프레스 기반 반응형 웹 · SEO · AIO (Schema Markup) 대응.", kpi: "전환율 · 회원가입", recover: "지속 누적" },
+  { num: "⑧", name: "나무위키 세팅", desc: "AI 검색 시대의 디지털 평판 기준점. Google · Naver 전통 검색뿐 아니라 Perplexity · ChatGPT · Gemini 등 생성형 AI 검색의 답변 근거 데이터로 활용.", kpi: "검색 노출 · AI 인용", recover: "1~3개월" },
+];
+
+const awarenessMedia = [
+  { num: "⑨", name: "푸망 프리미엄 심리테스트 PKG", desc: "MZ세대 참여형 콘텐츠로 브랜드 메시지를 '놀이'로 전환하는 인지 확산 매체. MAU 362만 · 월간 PV 200만 · 누적 제작 550건+ · 협업 고객사 260곳+.", kpi: "플레이수 · 결과 CTR", recover: "2~8주" },
+  { num: "⑩", name: "영화따라가기 광고 (롯데시네마)", desc: "흥행 기대작 상영관에 따라붙는 효율형 스크린 광고로 대중 인지 확보. Great-Zone 109개 극장 / 772개 스크린 / 116,080개 좌석.", kpi: "도달 · 검색량 증가", recover: "개봉 후 4주" },
+];
+
+const scenarios = [
+  {
+    name: "시나리오 A", target: "Type A·B 진입 단계",
+    goal: "Conversion 집중 — 판매·ROAS 검증",
+    media: "네이버 클립 + 블로그 시딩 + 맘카페 + 인스타 릴스 10PKG",
+  },
+  {
+    name: "시나리오 B", target: "Type B·D 안정·확장 단계",
+    goal: "Conversion + Asset — 매출 + 회원 DB + 검색 자산",
+    media: "A 매체 + 랜딩페이지 + 나무위키 + 인플루언서",
+  },
+  {
+    name: "시나리오 C", target: "Type D 신규 브랜드 런칭",
+    goal: "전 포지션 통합 — 매출 + 자산 + 대중 인지",
+    media: "B 매체 + 릴스 20PKG 업그레이드 + 푸망 + 영화따라가기",
+  },
+];
+---
+
+<BaseLayout
+  title="매체 라인업 10종"
+  description="Conversion 6 · Asset 2 · Awareness 2 — 매출·자산·인지를 동시에 누적하는 10가지 매체."
+  current="/media/"
+>
+  <PageHero
+    eyebrow="MEDIA LINEUP"
+    title="매체 본연의 역할에 따라 3분류."
+    sub="10개 매체는 우선순위가 아닌 '매체가 무엇을 만드는가'로 분류됩니다. Conversion · Asset · Awareness 세 포지션이 함께 작동할 때 매출·자산·인지가 동시에 누적됩니다."
+  />
+
+  <!-- 3분류 박스 -->
+  <section class="py-16 lg:py-20">
+    <div class="container-page">
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="bg-white border-t-4 border-conversion rounded-md p-6">
+          <div class="font-en font-bold text-conversion text-sm tracking-wide-en mb-2">CONVERSION</div>
+          <div class="text-base font-bold text-ink-dark mb-2">전환 · 구매 직결</div>
+          <div class="text-sm text-ink-body mb-4">매체 노출이 구매·매출로 직결</div>
+          <div class="text-3xl font-black text-conversion">6종</div>
+        </div>
+        <div class="bg-white border-t-4 border-asset rounded-md p-6">
+          <div class="font-en font-bold text-asset text-sm tracking-wide-en mb-2">ASSET</div>
+          <div class="text-base font-bold text-ink-dark mb-2">자산 누적</div>
+          <div class="text-sm text-ink-body mb-4">시간이 지날수록 자산 가치 누적</div>
+          <div class="text-3xl font-black text-asset">2종</div>
+        </div>
+        <div class="bg-white border-t-4 border-awareness rounded-md p-6">
+          <div class="font-en font-bold text-awareness text-sm tracking-wide-en mb-2">AWARENESS</div>
+          <div class="text-base font-bold text-ink-dark mb-2">대중 인지</div>
+          <div class="text-sm text-ink-body mb-4">단일 매체로 광범위한 도달</div>
+          <div class="text-3xl font-black text-awareness">2종</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10개 매체 KPI 매트릭스 -->
+  <section class="bg-bg-light py-16 lg:py-20">
+    <div class="container-page">
+      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">KPI MATRIX</div>
+      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-3">10개 매체 — 측정 KPI와 회수 시점</h2>
+      <p class="text-sm text-ink-body mb-8">모든 매체에 고유 쿠폰 코드와 UTM을 적용하여 정량 비교 가능합니다.</p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm bg-white">
+          <thead>
+            <tr class="bg-red text-white">
+              <th class="px-3 py-2 text-left">포지션</th>
+              <th class="px-3 py-2 text-left">매체</th>
+              <th class="px-3 py-2 text-left">측정 KPI</th>
+              <th class="px-3 py-2 text-left">회수 시점</th>
+            </tr>
+          </thead>
+          <tbody class="text-ink-body">
+            {conversionMedia.map(m => (
+              <tr class="border-b border-gray-100">
+                <td class="px-3 py-2 font-en font-bold text-conversion text-xs">Conv.</td>
+                <td class="px-3 py-2 font-bold text-ink-dark">{m.name}</td>
+                <td class="px-3 py-2">{m.kpi}</td>
+                <td class="px-3 py-2">{m.recover}</td>
+              </tr>
+            ))}
+            {assetMedia.map(m => (
+              <tr class="border-b border-gray-100">
+                <td class="px-3 py-2 font-en font-bold text-asset text-xs">Asset</td>
+                <td class="px-3 py-2 font-bold text-ink-dark">{m.name}</td>
+                <td class="px-3 py-2">{m.kpi}</td>
+                <td class="px-3 py-2">{m.recover}</td>
+              </tr>
+            ))}
+            {awarenessMedia.map(m => (
+              <tr class="border-b border-gray-100">
+                <td class="px-3 py-2 font-en font-bold text-awareness text-xs">Aware.</td>
+                <td class="px-3 py-2 font-bold text-ink-dark">{m.name}</td>
+                <td class="px-3 py-2">{m.kpi}</td>
+                <td class="px-3 py-2">{m.recover}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conversion 매체 6종 -->
+  <section class="py-16 lg:py-20">
+    <div class="container-page">
+      <div class="font-en font-bold text-conversion text-sm tracking-wide-en mb-3">CONVERSION 매체 6종</div>
+      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">매체 노출이 구매·매출로 직결되는 매체</h2>
+      <div class="space-y-4">
+        {conversionMedia.map(m => (
+          <div class="bg-bg-card border-l-[3px] border-conversion p-5 rounded-r-md">
+            <div class="flex items-baseline gap-3 mb-2">
+              <span class="text-conversion text-xl font-black">{m.num}</span>
+              <h3 class="text-lg font-bold text-ink-dark">{m.name}</h3>
+            </div>
+            <p class="text-sm text-ink-body leading-relaxed mb-2">{m.desc}</p>
+            <div class="text-xs text-conversion font-bold">KPI: {m.kpi}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Asset 매체 2종 -->
+  <section class="bg-bg-light py-16 lg:py-20">
+    <div class="container-page">
+      <div class="font-en font-bold text-asset text-sm tracking-wide-en mb-3">ASSET 매체 2종</div>
+      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">시간이 지날수록 자산 가치가 누적되는 매체</h2>
+      <div class="space-y-4">
+        {assetMedia.map(m => (
+          <div class="bg-white border-l-[3px] border-asset p-6 rounded-r-md">
+            <div class="flex items-baseline gap-3 mb-3">
+              <span class="text-asset text-2xl font-black">{m.num}</span>
+              <h3 class="text-xl font-bold text-ink-dark">{m.name}</h3>
+            </div>
+            <p class="text-sm text-ink-body leading-relaxed mb-3">{m.desc}</p>
+            <div class="text-xs text-asset font-bold">KPI: {m.kpi}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Awareness 매체 2종 -->
+  <section class="py-16 lg:py-20">
+    <div class="container-page">
+      <div class="font-en font-bold text-awareness text-sm tracking-wide-en mb-3">AWARENESS 매체 2종</div>
+      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">카테고리 인지를 한 단계 점프시키는 대중 매체</h2>
+      <div class="space-y-4">
+        {awarenessMedia.map(m => (
+          <div class="bg-bg-card border-l-[3px] border-awareness p-6 rounded-r-md">
+            <div class="flex items-baseline gap-3 mb-3">
+              <span class="text-awareness text-2xl font-black">{m.num}</span>
+              <h3 class="text-xl font-bold text-ink-dark">{m.name}</h3>
+            </div>
+            <p class="text-sm text-ink-body leading-relaxed mb-3">{m.desc}</p>
+            <div class="text-xs text-awareness font-bold">KPI: {m.kpi}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 추천 시나리오 -->
+  <section class="bg-bg-light py-16 lg:py-20">
+    <div class="container-page">
+      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">SCENARIOS</div>
+      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">매체 추천 조합 시나리오</h2>
+      <div class="space-y-4">
+        {scenarios.map(s => (
+          <div class="bg-white border-l-[3px] border-red p-6">
+            <div class="flex items-baseline justify-between gap-3 mb-3 flex-wrap">
+              <h3 class="text-lg font-black text-red">{s.name}</h3>
+              <div class="text-xs text-ink-mute italic">{s.target}</div>
+            </div>
+            <div class="text-base font-bold text-ink-dark mb-2">{s.goal}</div>
+            <div class="text-sm text-ink-body">{s.media}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBlock title="매체만 단독으로 진행하고 싶으신가요?" primary="매체 단독 견적 받기" primaryHref="/contact/" />
+</BaseLayout>

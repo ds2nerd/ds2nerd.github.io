@@ -1,0 +1,118 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import CtaBlock from "../../components/CtaBlock.astro";
+
+const strengths = [
+  { label: "F&B", desc: "지역 노포·푸드 브랜드의 전국 온라인 진입 운영 경험" },
+  { label: "건강기능식품", desc: "식약처 광고법·심의 기준 준수 운영, 카테고리 전문 콘텐츠" },
+  { label: "헬스케어", desc: "제약·헬스케어 카테고리 라이브커머스 + Conversion 매체 통합 운영" },
+  { label: "네이버 생태계", desc: "네이버 쇼핑·페이·톡톡·도착보장·쇼핑광고 풀스택 연동" },
+];
+
+const brands = [
+  { name: "휴온스엔", category: "헬스케어" },
+  { name: "세라블룸", category: "건강기능식품" },
+  { name: "봉포머구리집", category: "F&B" },
+  { name: "미스터밀크", category: "F&B" },
+  { name: "마켓리치팜", category: "건강기능식품" },
+];
+---
+
+<BaseLayout
+  title="회사 소개 — GOLDENAX 그룹"
+  description="GOLDENAX 그룹의 커머스 운영 솔루션 라인업. 이커머스 운영의 모든 영역을 풀스택으로."
+  current="/about/"
+>
+  <PageHero
+    eyebrow="ABOUT"
+    title="GOLDENAX 그룹의 커머스 운영 솔루션."
+    sub="이커머스 운영에 필요한 모든 영역을 하나의 솔루션 라인업으로 통합 제공합니다."
+  />
+
+  <!-- 그룹 소개 -->
+  <section class="py-16 lg:py-20">
+    <div class="container-page max-w-3xl">
+      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">GOLDENAX GROUP</div>
+      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-6">우리는 누구인가</h2>
+      <div class="space-y-4 text-base text-ink-body leading-relaxed">
+        <p>
+          <strong class="text-red">골드넥스 커머스 솔루션</strong>은 GOLDENAX 그룹의 커머스 운영 솔루션 라인업입니다.
+          쇼핑몰 진입부터 매출까지, 이커머스 운영에 필요한 모든 영역을 하나의 솔루션으로 제공합니다.
+        </p>
+        <p>
+          단발성 프로젝트가 아닌, 클라이언트의 단계에 맞춘 풀스택 운영을 지향합니다.
+          6대 운영 모듈과 10개 매체를 4가지 비용 구조로 자유롭게 조합해
+          진입 부담은 낮추고 운영 효율은 높입니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 강점 영역 -->
+  <section class="bg-bg-light py-16 lg:py-20">
+    <div class="container-page">
+      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">STRENGTHS</div>
+      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">검증된 카테고리 강점</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {strengths.map(s => (
+          <div class="bg-white border-l-[3px] border-red p-6 rounded-r-md">
+            <div class="text-lg font-bold text-red mb-2">{s.label}</div>
+            <div class="text-sm text-ink-body leading-relaxed">{s.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 주요 운영 브랜드 -->
+  <section class="py-16 lg:py-20">
+    <div class="container-page">
+      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">PORTFOLIO</div>
+      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">주요 운영 브랜드</h2>
+      <div class="grid sm:grid-cols-3 lg:grid-cols-5 gap-3">
+        {brands.map(b => (
+          <div class="bg-bg-card rounded-md p-5 text-center card-hover">
+            <div class="text-2xl font-black text-ink-dark mb-1">{b.name}</div>
+            <div class="text-xs text-red font-bold">{b.category}</div>
+          </div>
+        ))}
+      </div>
+      <div class="mt-8 text-center">
+        <a href="/cases/" class="btn-secondary">사례 자세히 보기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 회사 정보 -->
+  <section class="bg-bg-light py-16 lg:py-20">
+    <div class="container-page max-w-3xl">
+      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">COMPANY INFO</div>
+      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">회사 정보</h2>
+      <dl class="bg-white rounded-md p-6 lg:p-8 space-y-4">
+        <div class="grid sm:grid-cols-4 gap-2 pb-4 border-b border-gray-100">
+          <dt class="text-sm font-bold text-red">상호</dt>
+          <dd class="sm:col-span-3 text-sm text-ink-dark font-bold">골드넥스 커머스 솔루션 (GOLDENAX 그룹)</dd>
+        </div>
+        <div class="grid sm:grid-cols-4 gap-2 pb-4 border-b border-gray-100">
+          <dt class="text-sm font-bold text-red">사업 영역</dt>
+          <dd class="sm:col-span-3 text-sm text-ink-body">이커머스 운영대행 · 매체 집행 · 커머스 컨설팅</dd>
+        </div>
+        <div class="grid sm:grid-cols-4 gap-2 pb-4 border-b border-gray-100">
+          <dt class="text-sm font-bold text-red">주요 카테고리</dt>
+          <dd class="sm:col-span-3 text-sm text-ink-body">F&B · 건강기능식품 · 헬스케어 · 네이버 생태계</dd>
+        </div>
+        <div class="grid sm:grid-cols-4 gap-2 pb-4 border-b border-gray-100">
+          <dt class="text-sm font-bold text-red">전화</dt>
+          <dd class="sm:col-span-3 text-sm text-ink-dark font-bold">010-XXXX-XXXX</dd>
+        </div>
+        <div class="grid sm:grid-cols-4 gap-2">
+          <dt class="text-sm font-bold text-red">이메일</dt>
+          <dd class="sm:col-span-3 text-sm text-ink-dark font-bold">XXX@goldenax.co.kr</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <CtaBlock />
+</BaseLayout>

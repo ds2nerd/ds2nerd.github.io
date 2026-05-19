@@ -1,0 +1,109 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import CtaBlock from "../../components/CtaBlock.astro";
+
+const cases = [
+  {
+    slug: "bongpo",
+    brand: "봉포머구리집",
+    category: "F&B",
+    tagline: "지역 노포의 전국 온라인 진입",
+    modules: ["운영관리", "콘텐츠", "매체"],
+    summary: "오프라인 단일 매장에서 전국 단위 온라인 판매 채널로 확장. 자사몰 + 네이버 스마트스토어 동시 진입 후 블로그 시딩·맘카페·인플루언서 매체로 후기 자산 누적.",
+    result: "운영 결과 수치 [추후 업데이트]",
+  },
+  {
+    slug: "mrmilk",
+    brand: "미스터밀크",
+    category: "F&B",
+    tagline: "유제품 옴니채널 운영 효율화",
+    modules: ["쇼핑몰 세팅", "운영관리", "매체"],
+    summary: "복수 채널 운영의 인하우스 부담 해소. 네이버·쿠팡·자사몰 통합 운영 체계 구축 후 가격 정합성·재고 동기화·정산 검증을 자동화.",
+    result: "운영 결과 수치 [추후 업데이트]",
+  },
+  {
+    slug: "serabloom",
+    brand: "세라블룸",
+    category: "건강기능식품",
+    tagline: "광고법 컴플라이언스 + 매체 효율 동시 확보",
+    modules: ["콘텐츠", "매체", "광고법 대응"],
+    summary: "식약처 건강기능식품 광고 심의 기준에 맞춰 상세페이지·매체 소재를 일괄 재구성. Conversion 매체와 Asset 매체를 병행해 매출 + 검색 자산 동시 누적.",
+    result: "운영 결과 수치 [추후 업데이트]",
+  },
+  {
+    slug: "richfarm",
+    brand: "마켓리치팜",
+    category: "건강기능식품",
+    tagline: "프리미엄 라인 진입과 안착",
+    modules: ["운영관리", "콘텐츠"],
+    summary: "프리미엄 가격대 SKU의 채널별 페이지 재구성. 상세페이지·썸네일·옵션 패키지 재설계로 객단가 개선 + 리뷰 자산 누적.",
+    result: "운영 결과 수치 [추후 업데이트]",
+  },
+  {
+    slug: "huonsn",
+    brand: "휴온스엔",
+    category: "헬스케어 · 라이브",
+    tagline: "라이브커머스 + 헬스케어 매체 통합",
+    modules: ["라이브커머스", "매체"],
+    summary: "헬스케어 카테고리 특성에 맞춘 라이브커머스 기획·실행·사후 클립 활용까지 일괄. 네이버 쇼핑라이브 + Conversion 매체로 시청자 → 구매 동선 정량 측정.",
+    result: "운영 결과 수치 [추후 업데이트]",
+  },
+];
+
+const categories = ["전체", "F&B", "건강기능식품", "헬스케어 · 라이브"];
+---
+
+<BaseLayout
+  title="사례 — 실제 운영 사례"
+  description="F&B · 건강기능식품 · 헬스케어 · 네이버 생태계 — 카테고리별 검증된 운영 사례."
+  current="/cases/"
+>
+  <PageHero
+    eyebrow="CASES"
+    title="실제 운영 사례로 검증된 솔루션."
+    sub="F&B · 건강기능식품 · 헬스케어 · 네이버 생태계 — 카테고리별 검증된 운영 경험을 결과 수치와 함께 공개합니다."
+  />
+
+  <!-- 카테고리 필터 -->
+  <section class="py-10 border-b border-gray-100">
+    <div class="container-page">
+      <div class="flex flex-wrap gap-2">
+        {categories.map((c, i) => (
+          <button class={`px-4 py-2 rounded-full text-sm font-bold transition-colors ${i === 0 ? "bg-red text-white" : "bg-bg-light text-ink-body hover:bg-red/10"}`}>
+            {c}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 사례 카드 그리드 -->
+  <section class="py-16 lg:py-20">
+    <div class="container-page">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {cases.map(c => (
+          <article class="bg-white rounded-md overflow-hidden border border-gray-100 card-hover">
+            <div class="bg-bg-light h-40 flex items-center justify-center">
+              <div class="text-3xl font-black text-ink-light">{c.brand[0]}</div>
+            </div>
+            <div class="p-5">
+              <div class="font-en text-red text-xs font-bold tracking-wide-en mb-2">{c.category}</div>
+              <h3 class="text-xl font-black text-ink-dark mb-2">{c.brand}</h3>
+              <div class="text-sm text-ink-mute mb-3">{c.tagline}</div>
+              <div class="flex flex-wrap gap-1 mb-3">
+                {c.modules.map(m => (
+                  <span class="text-xs bg-bg-light text-ink-body px-2 py-0.5 rounded">{m}</span>
+                ))}
+              </div>
+              <p class="text-sm text-ink-body leading-relaxed mb-4 line-clamp-3">{c.summary}</p>
+              <a href={`/cases/${c.slug}/`} class="text-sm font-bold text-red hover:underline">사례 보기 →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBlock title="우리 브랜드와 유사한 사례를 보고 싶다면?" primary="유사 카테고리 문의" primaryHref="/contact/" />
+</BaseLayout>

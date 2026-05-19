@@ -1,0 +1,254 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+
+const faqs = [
+  {
+    q: "옵션 1 (RS) 구조는 누구에게 적합한가요?",
+    a: "광고비 부담이 큰 신규·검증 단계 브랜드에 가장 적합합니다. 매출 발생 시점부터 N% 수익을 공유하므로 초기 부담이 없습니다.",
+  },
+  {
+    q: "계약 기간은 어떻게 되나요?",
+    a: "옵션 1·4는 12개월 이상 권장, 옵션 2는 6~12개월, 옵션 3은 캠페인 단위입니다. 계약 중 단계 변화 시 옵션 조정도 가능합니다.",
+  },
+  {
+    q: "신규 상품 소싱도 해주시나요?",
+    a: "본 솔루션은 신규 상품 소싱은 진행하지 않습니다. 다만 고객사 보유 제품의 온라인 상품화 발굴과 협력사 연계 안내(별도 컨설팅)는 가능합니다.",
+  },
+  {
+    q: "첫 매출까지 얼마나 걸리나요?",
+    a: "타겟 유형별로 다릅니다. Type A는 즉시~1개월, Type B·D는 30~60일, Type C는 상품 확보 후 60~90일이 일반적입니다.",
+  },
+  {
+    q: "어떤 카테고리에 강점이 있나요?",
+    a: "F&B · 건강기능식품 · 헬스케어 · 네이버 생태계에 검증된 운영 경험을 보유하고 있습니다.",
+  },
+  {
+    q: "매체만 단독으로 진행할 수 있나요?",
+    a: "옵션 3 (매체 단독)으로 가능합니다. 10개 매체 라인업 중 캠페인 단위로 자유롭게 선택해 집행할 수 있습니다.",
+  },
+  {
+    q: "기존 운영대행사가 있는데 매체만 추가할 수 있나요?",
+    a: "가능합니다. 옵션 3 매체 단독 또는 옵션 4 혼합 구조로 진행됩니다.",
+  },
+  {
+    q: "정산은 어떻게 이루어지나요?",
+    a: "옵션별로 다릅니다. RS는 월말 매출 정산, 정액은 월 고정 청구, 매체는 캠페인 종료 시 단가 정산, 혼합은 옵션별 분리 정산입니다.",
+  },
+  {
+    q: "계약 종료 후 자체 운영으로 전환할 수 있나요?",
+    a: "가능합니다. 오프보딩 절차로 채널 권한·데이터·운영 매뉴얼을 모두 이관해드리며, 필요 시 1~2주 인수인계 교육도 지원합니다.",
+  },
+  {
+    q: "영상·사진 촬영도 함께 해주시나요?",
+    a: "본 솔루션의 콘텐츠 모듈은 기획·디자인·텍스트 중심입니다. 영상·사진 촬영은 별도 서비스로 안내드리며, 통합 견적 시 함께 안내됩니다.",
+  },
+];
+
+const procedure = [
+  { num: "01", title: "문의 접수", desc: "본 폼 제출 또는 이메일·전화 문의" },
+  { num: "02", title: "초기 상담", desc: "30분 ~ 1시간 / 4유형 진단 · 솔루션 방향 안내" },
+  { num: "03", title: "제안서·견적 제공", desc: "5~7영업일 이내 맞춤 견적서" },
+  { num: "04", title: "조정·확정", desc: "1~2주 / 세부 조건 협의" },
+  { num: "05", title: "계약·온보딩 시작", desc: "계약 체결 즉시 온보딩" },
+];
+---
+
+<BaseLayout
+  title="상담 신청 — 무료 진단"
+  description="30분~1시간 무료 상담으로 4유형 진단 + 5~7영업일 내 맞춤 견적 안내."
+  current="/contact/"
+>
+  <PageHero
+    eyebrow="CONTACT"
+    title="무료 상담 신청."
+    sub="30분 ~ 1시간 상담으로 현재 단계를 진단하고, 5~7영업일 이내 맞춤 견적을 제공해드립니다."
+  />
+
+  <!-- 진행 절차 -->
+  <section class="py-12 bg-bg-light">
+    <div class="container-page">
+      <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+        {procedure.map(p => (
+          <div class="bg-white border-l-[3px] border-red p-4 rounded-r-md">
+            <div class="font-en text-red text-xs font-bold tracking-wide-en mb-2">STEP {p.num}</div>
+            <div class="text-sm font-bold text-ink-dark mb-1">{p.title}</div>
+            <div class="text-xs text-ink-body leading-relaxed">{p.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 상담 신청 폼 -->
+  <section class="py-16 lg:py-20">
+    <div class="container-page max-w-3xl">
+      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">INQUIRY FORM</div>
+      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-3">상담 신청서</h2>
+      <p class="text-sm text-ink-body mb-10">
+        아래 폼을 제출하시면 영업일 기준 24시간 이내 담당자가 연락드립니다.
+      </p>
+      
+      <form id="inquiry-form" class="space-y-6 bg-white border border-gray-200 rounded-md p-6 lg:p-8">
+        <!-- 필수 영역 -->
+        <div>
+          <h3 class="text-sm font-bold text-red mb-4 pb-2 border-b border-gray-100">기본 정보 (필수)</h3>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-ink-dark mb-1.5">회사명 / 브랜드명 *</label>
+              <input type="text" required class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-ink-dark mb-1.5">담당자 이름 *</label>
+              <input type="text" required class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-ink-dark mb-1.5">직책 *</label>
+              <input type="text" required placeholder="예) 대표 / 마케팅 / MD" class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-ink-dark mb-1.5">연락처 (휴대폰) *</label>
+              <input type="tel" required placeholder="010-XXXX-XXXX" class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-bold text-ink-dark mb-1.5">이메일 *</label>
+              <input type="email" required class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
+            </div>
+          </div>
+        </div>
+        
+        <!-- 현재 상황 -->
+        <div>
+          <h3 class="text-sm font-bold text-red mb-4 pb-2 border-b border-gray-100">현재 상황</h3>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-ink-dark mb-1.5">현재 단계 *</label>
+              <select required class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red bg-white">
+                <option value="">선택해주세요</option>
+                <option>Type A · 매출 정체형 (판매 중이나 매출 정체)</option>
+                <option>Type B · 첫 진입형 (제품 보유, 채널 첫 진입)</option>
+                <option>Type C · 무에서 유 창조형 (제품·채널 모두 없음)</option>
+                <option>Type D · 신규 브랜드 런칭형 (기존 운영 + 신규 추가)</option>
+                <option>잘 모르겠음 / 상담 후 결정</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-ink-dark mb-1.5">카테고리</label>
+              <select class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red bg-white">
+                <option value="">선택해주세요</option>
+                <option>F&B</option>
+                <option>건강기능식품</option>
+                <option>헬스케어</option>
+                <option>뷰티</option>
+                <option>패션</option>
+                <option>생활용품</option>
+                <option>기타</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-ink-dark mb-2">현재 운영 채널 (복수 선택 가능)</label>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {["자사몰", "네이버 스토어", "쿠팡", "오픈마켓", "버티컬 (무신사·올리브영 등)", "없음 / 신규 진입"].map(c => (
+                  <label class="flex items-center gap-2 text-sm text-ink-body cursor-pointer">
+                    <input type="checkbox" class="rounded" />
+                    {c}
+                  </label>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 관심 솔루션 -->
+        <div>
+          <h3 class="text-sm font-bold text-red mb-4 pb-2 border-b border-gray-100">관심 솔루션</h3>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-ink-dark mb-2">관심 모듈 (복수 선택 가능)</label>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {["쇼핑몰 세팅", "운영관리", "물류", "CS·평판관리", "콘텐츠 제작", "매체 운영"].map(m => (
+                  <label class="flex items-center gap-2 text-sm text-ink-body cursor-pointer">
+                    <input type="checkbox" class="rounded" />
+                    {m}
+                  </label>
+                ))}
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-ink-dark mb-1.5">관심 비용 구조</label>
+              <select class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red bg-white">
+                <option value="">선택해주세요</option>
+                <option>옵션 1 · 순수 RS (광고비 부담 0원)</option>
+                <option>옵션 2 · 월 정액</option>
+                <option>옵션 3 · 매체 단독</option>
+                <option>옵션 4 · 혼합</option>
+                <option>잘 모르겠음 / 상담 후 결정</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-ink-dark mb-1.5">월 예상 광고 예산</label>
+              <select class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red bg-white">
+                <option value="">선택해주세요</option>
+                <option>없음 (옵션 1 RS 고려)</option>
+                <option>500만원 미만</option>
+                <option>500 ~ 1,000만원</option>
+                <option>1,000 ~ 3,000만원</option>
+                <option>3,000만원 이상</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 추가 문의 -->
+        <div>
+          <h3 class="text-sm font-bold text-red mb-4 pb-2 border-b border-gray-100">추가 문의 사항</h3>
+          <textarea rows="5" placeholder="구체적인 상황, 기대 결과, 일정 등 자유롭게 작성해주세요." class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red"></textarea>
+        </div>
+        
+        <!-- 개인정보 동의 -->
+        <div class="pt-4 border-t border-gray-100">
+          <label class="flex items-start gap-2 text-sm text-ink-body cursor-pointer">
+            <input type="checkbox" required class="mt-1 rounded" />
+            <span>
+              <strong class="text-ink-dark">개인정보 수집·이용에 동의합니다.</strong> *<br />
+              <span class="text-xs text-ink-mute">
+                수집 항목: 회사명, 담당자, 직책, 연락처, 이메일, 운영 상황 정보 / 이용 목적: 상담 및 견적 제공 / 보유 기간: 상담 종료 후 1년 (관련 법령에 따른 보존 기간이 우선 적용됩니다)
+              </span>
+            </span>
+          </label>
+        </div>
+        
+        <button type="submit" class="btn-primary w-full justify-center !py-4 text-base">
+          상담 신청하기 →
+        </button>
+        
+        <p class="text-xs text-ink-light text-center italic">
+          * 본 폼은 데모입니다. 실제 운영 시 Formspree·Web3Forms·Netlify Forms 등의 무료 폼 서비스를 연동해 사용합니다.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-bg-light py-16 lg:py-20">
+    <div class="container-page max-w-3xl">
+      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">FAQ</div>
+      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">자주 묻는 질문</h2>
+      <div class="space-y-3">
+        {faqs.map((f, i) => (
+          <details class="bg-white rounded-md p-5 cursor-pointer group">
+            <summary class="flex items-start gap-3 list-none">
+              <span class="font-en text-red text-sm font-bold tracking-wide-en flex-shrink-0">Q{i + 1}.</span>
+              <span class="flex-1 text-base font-bold text-ink-dark">{f.q}</span>
+              <span class="text-red flex-shrink-0 transition-transform group-open:rotate-45 text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-4 pt-4 border-t border-gray-100 text-sm text-ink-body leading-relaxed flex gap-3">
+              <span class="font-en font-bold text-ink-mute flex-shrink-0">A.</span>
+              <span>{f.a}</span>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
