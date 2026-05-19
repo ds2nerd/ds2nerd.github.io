@@ -106,14 +106,15 @@ const procedure = [
               <label class="block text-xs font-bold text-ink-dark mb-1.5">직책 *</label>
               <input type="text" required placeholder="예) 대표 / 마케팅 / MD" class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
             </div>
-            <div>
-              <label class="block text-xs font-bold text-ink-dark mb-1.5">연락처 (휴대폰) *</label>
-              <input type="tel" required placeholder="010-XXXX-XXXX" class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
-            </div>
-            <div class="sm:col-span-2">
-              <label class="block text-xs font-bold text-ink-dark mb-1.5">이메일 *</label>
-              <input type="email" required class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
-            </div>
+<div class="sm:col-span-2">
+  <label class="block text-xs font-bold text-ink-dark mb-1.5">이메일 *</label>
+  <input type="email" name="email" required placeholder="example@company.com" class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
+  <p class="text-xs text-ink-mute mt-1">모든 답변은 이 이메일로 발송됩니다</p>
+</div>
+<div class="sm:col-span-2">
+  <label class="block text-xs font-bold text-ink-dark mb-1.5">연락처 (선택)</label>
+  <input type="tel" placeholder="필요 시에만 입력해주세요" class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
+</div>
           </div>
         </div>
         
