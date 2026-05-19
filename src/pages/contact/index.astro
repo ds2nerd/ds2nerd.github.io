@@ -100,15 +100,15 @@ const procedure = [
           <div class="grid sm:grid-cols-2 gap-4">
             <div>
               <label class="block text-xs font-bold text-ink-dark mb-1.5">회사명 / 브랜드명 *</label>
-              <input type="text" required class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
+              <input type="text" name="회사명" required class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
             </div>
             <div>
               <label class="block text-xs font-bold text-ink-dark mb-1.5">담당자 이름 *</label>
-              <input type="text" required class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
+              <input type="text" name="담당자" required class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
             </div>
             <div>
               <label class="block text-xs font-bold text-ink-dark mb-1.5">직책 *</label>
-              <input type="text" required placeholder="예) 대표 / 마케팅 / MD" class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
+              <input type="text" name="직책" required placeholder="예) 대표 / 마케팅 / MD" class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red" />
             </div>
 <div class="sm:col-span-2">
   <label class="block text-xs font-bold text-ink-dark mb-1.5">이메일 *</label>
@@ -128,7 +128,7 @@ const procedure = [
           <div class="space-y-4">
             <div>
               <label class="block text-xs font-bold text-ink-dark mb-1.5">현재 단계 *</label>
-              <select required class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red bg-white">
+              <select name="현재단계" required class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red bg-white">
                 <option value="">선택해주세요</option>
                 <option>Type A · 매출 정체형 (판매 중이나 매출 정체)</option>
                 <option>Type B · 첫 진입형 (제품 보유, 채널 첫 진입)</option>
@@ -139,7 +139,7 @@ const procedure = [
             </div>
             <div>
               <label class="block text-xs font-bold text-ink-dark mb-1.5">카테고리</label>
-              <select class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red bg-white">
+              <select name="카테고리" class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red bg-white">
                 <option value="">선택해주세요</option>
                 <option>F&B</option>
                 <option>건강기능식품</option>
@@ -181,7 +181,7 @@ const procedure = [
             </div>
             <div>
               <label class="block text-xs font-bold text-ink-dark mb-1.5">관심 비용 구조</label>
-              <select class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red bg-white">
+              <select name="관심비용구조" class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red bg-white">
                 <option value="">선택해주세요</option>
                 <option>옵션 1 · 순수 RS (광고비 부담 0원)</option>
                 <option>옵션 2 · 월 정액</option>
@@ -192,7 +192,7 @@ const procedure = [
             </div>
             <div>
               <label class="block text-xs font-bold text-ink-dark mb-1.5">월 예상 광고 예산</label>
-              <select class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red bg-white">
+              <select name="광고예산" class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red bg-white">
                 <option value="">선택해주세요</option>
                 <option>없음 (옵션 1 RS 고려)</option>
                 <option>500만원 미만</option>
@@ -207,7 +207,7 @@ const procedure = [
         <!-- 추가 문의 -->
         <div>
           <h3 class="text-sm font-bold text-red mb-4 pb-2 border-b border-gray-100">추가 문의 사항</h3>
-          <textarea rows="5" placeholder="구체적인 상황, 기대 결과, 일정 등 자유롭게 작성해주세요." class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red"></textarea>
+          <textarea name="추가문의사항" rows="5" placeholder="구체적인 상황, 기대 결과, 일정 등 자유롭게 작성해주세요." class="w-full px-3 py-2.5 border border-gray-300 rounded text-sm focus:outline-none focus:border-red"></textarea>
         </div>
         
         <!-- 개인정보 동의 -->
@@ -228,7 +228,7 @@ const procedure = [
         </button>
         
         <p class="text-xs text-ink-light text-center italic">
-          * 본 폼은 데모입니다. 실제 운영 시 Formspree·Web3Forms·Netlify Forms 등의 무료 폼 서비스를 연동해 사용합니다.
+            * 제출하신 정보는 안전하게 암호화되어 전송됩니다.
         </p>
       </form>
     </div>
