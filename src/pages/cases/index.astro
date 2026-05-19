@@ -80,8 +80,6 @@ const cases = [
     ],
   },
 ];
-
-const categories = ["전체", "F&B", "건강기능식품", "헬스케어"];
 ---
 
 <BaseLayout
@@ -98,15 +96,19 @@ const categories = ["전체", "F&B", "건강기능식품", "헬스케어"];
   <!-- 카테고리 필터 -->
   <section class="py-10 border-b border-gray-100">
     <div class="container-page">
-      <div id="category-filters" class="flex flex-wrap gap-2">
-        {categories.map((c, i) => (
-          <button
-            data-filter={c}
-            class={`filter-btn px-4 py-2 rounded-full text-sm font-bold transition-colors ${i === 0 ? "active bg-red text-white" : "bg-bg-light text-ink-body hover:bg-red/10"}`}
-          >
-            {c}
-          </button>
-        ))}
+      <div class="flex flex-wrap gap-2">
+        <button id="btn-all" onclick="filterCases('all')" class="px-4 py-2 rounded-full text-sm font-bold transition-colors bg-red text-white">
+          전체
+        </button>
+        <button id="btn-fnb" onclick="filterCases('fnb')" class="px-4 py-2 rounded-full text-sm font-bold transition-colors bg-bg-light text-ink-body">
+          F&amp;B
+        </button>
+        <button id="btn-health" onclick="filterCases('health')" class="px-4 py-2 rounded-full text-sm font-bold transition-colors bg-bg-light text-ink-body">
+          건강기능식품
+        </button>
+        <button id="btn-care" onclick="filterCases('care')" class="px-4 py-2 rounded-full text-sm font-bold transition-colors bg-bg-light text-ink-body">
+          헬스케어
+        </button>
       </div>
     </div>
   </section>
@@ -114,56 +116,96 @@ const categories = ["전체", "F&B", "건강기능식품", "헬스케어"];
   <!-- 사례 카드 그리드 -->
   <section class="py-16 lg:py-20">
     <div class="container-page">
-      <div id="cases-grid" class="space-y-8">
-        {cases.map(c => (
-          <article class="case-card" data-category={c.category}>
-            <div class="bg-white rounded-md overflow-hidden border border-gray-100 card-hover">
-              <div class="grid lg:grid-cols-12 gap-0">
-                <!-- 좌측 — 브랜드 정보 -->
-                <div class="lg:col-span-4 bg-bg-light p-8 flex flex-col justify-between">
-                  <div>
-                    <div class="font-en text-red text-xs font-bold tracking-wide-en mb-2">{c.category}</div>
-                    <h3 class="text-2xl lg:text-3xl font-black text-ink-dark mb-3">{c.brand}</h3>
-                    <div class="text-sm text-ink-mute mb-4">{c.tagline}</div>
+      <div class="space-y-8">
+        {cases.map(c => {
+          let typeKey = "fnb";
+          if (c.category === "건강기능식품") typeKey = "health";
+          else if (c.category === "헬스케어") typeKey = "care";
+          
+          return (
+            <article class={`case-item case-${typeKey}`}>
+              <div class="bg-white rounded-md overflow-hidden border border-gray-100 card-hover">
+                <div class="grid lg:grid-cols-12 gap-0">
+                  <div class="lg:col-span-4 bg-bg-light p-8 flex flex-col justify-between">
+                    <div>
+                      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-2">{c.category}</div>
+                      <h3 class="text-2xl lg:text-3xl font-black text-ink-dark mb-3">{c.brand}</h3>
+                      <div class="text-sm text-ink-mute mb-4">{c.tagline}</div>
+                    </div>
+                    <div>
+                      <div class="text-xs text-ink-mute mb-2">운영 기간</div>
+                      <div class="text-base font-bold text-red">{c.period}</div>
+                      <div class="flex flex-wrap gap-1 mt-4">
+                        {c.modules.map(m => (
+                          <span class="text-xs bg-white text-ink-body px-2 py-1 rounded border border-gray-200">{m}</span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <div class="text-xs text-ink-mute mb-2">운영 기간</div>
-                    <div class="text-base font-bold text-red">{c.period}</div>
-                    <div class="flex flex-wrap gap-1 mt-4">
-                      {c.modules.map(m => (
-                        <span class="text-xs bg-white text-ink-body px-2 py-1 rounded border border-gray-200">{m}</span>
+                  
+                  <div class="lg:col-span-8 p-8">
+                    <div class="text-xs font-bold text-red tracking-wide-en mb-2 font-en">APPROACH</div>
+                    <p class="text-sm text-ink-body leading-relaxed mb-6">{c.summary}</p>
+                    
+                    <div class="text-xs font-bold text-red tracking-wide-en mb-3 font-en">RESULTS</div>
+                    <div class="grid grid-cols-2 gap-4">
+                      {c.results.map(r => (
+                        <div class="border-l-[3px] border-red pl-3">
+                          <div class="text-xs text-ink-mute mb-1">{r.label}</div>
+                          <div class="text-base font-black text-ink-dark">{r.value}</div>
+                        </div>
                       ))}
                     </div>
                   </div>
                 </div>
-                
-                <!-- 우측 — 요약 + 결과 -->
-                <div class="lg:col-span-8 p-8">
-                  <div class="text-xs font-bold text-red tracking-wide-en mb-2 font-en">APPROACH</div>
-                  <p class="text-sm text-ink-body leading-relaxed mb-6">{c.summary}</p>
-                  
-                  <div class="text-xs font-bold text-red tracking-wide-en mb-3 font-en">RESULTS</div>
-                  <div class="grid grid-cols-2 gap-4">
-                    {c.results.map(r => (
-                      <div class="border-l-[3px] border-red pl-3">
-                        <div class="text-xs text-ink-mute mb-1">{r.label}</div>
-                        <div class="text-base font-black text-ink-dark">{r.value}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </div>
       
-      <!-- 검색 결과 없음 메시지 (필터로 모두 숨겨졌을 때 표시) -->
-      <div id="no-results" class="hidden text-center py-16">
-        <p class="text-base text-ink-mute">해당 카테고리의 사례가 없습니다.</p>
-      </div>
-      
-      <!-- 안내 박스 -->
       <div class="mt-12 bg-bg-light rounded-md p-6 text-center">
         <p class="text-sm text-ink-body italic">
-          * 본 사례의 정량 수치는 운영 데이터 기반의 대표 수치이며, 클라이언
+          * 본 사례의 정량 수치는 운영 데이터 기반의 대표 수치이며, 클라이언트별 NDA에 따라 일부 수치는 가공·익명화되어 있습니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBlock title="우리 브랜드와 유사한 사례를 보고 싶다면?" primary="유사 카테고리 문의" primaryHref="/contact/" />
+</BaseLayout>
+
+<script is:inline>
+  function filterCases(type) {
+    // 모든 카드 처리
+    var items = document.getElementsByClassName("case-item");
+    for (var i = 0; i < items.length; i++) {
+      if (type === "all") {
+        items[i].style.display = "";
+      } else {
+        if (items[i].classList.contains("case-" + type)) {
+          items[i].style.display = "";
+        } else {
+          items[i].style.display = "none";
+        }
+      }
+    }
+    
+    // 버튼 색상 전환
+    var buttons = ["btn-all", "btn-fnb", "btn-health", "btn-care"];
+    for (var j = 0; j < buttons.length; j++) {
+      var b = document.getElementById(buttons[j]);
+      if (b) {
+        b.classList.remove("bg-red", "text-white");
+        b.classList.add("bg-bg-light", "text-ink-body");
+      }
+    }
+    
+    // 선택된 버튼 활성화
+    var activeBtn = document.getElementById("btn-" + type);
+    if (activeBtn) {
+      activeBtn.classList.remove("bg-bg-light", "text-ink-body");
+      activeBtn.classList.add("bg-red", "text-white");
+    }
+  }
+</script>
