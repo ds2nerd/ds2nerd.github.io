@@ -6,7 +6,7 @@ import tailwind from "@astrojs/tailwind";
 // 커스텀 도메인 사용 시: site: 'https://goldenax.co.kr', base: '/'
 export default defineConfig({
   site: "https://ds2nerd.github.io",
-  base: "/goldenax-site",
+  base: "/",
   output: "static",
   integrations: [tailwind()],
   build: {
