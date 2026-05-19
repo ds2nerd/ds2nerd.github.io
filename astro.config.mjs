@@ -5,8 +5,8 @@ import tailwind from "@astrojs/tailwind";
 // 예: site: 'https://username.github.io', base: '/goldenax-commerce'
 // 커스텀 도메인 사용 시: site: 'https://goldenax.co.kr', base: '/'
 export default defineConfig({
-  site: "https://goldenax.github.io",
-  base: "/",
+  site: "https://ds2nerd.github.io",
+  base: "/goldenax-site",
   output: "static",
   integrations: [tailwind()],
   build: {
