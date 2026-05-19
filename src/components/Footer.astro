@@ -46,15 +46,42 @@ const year = new Date().getFullYear();
       
       <!-- 회사 정보 -->
       <div class="lg:col-span-1 text-sm">
-<div class="font-bold text-white/90 mb-3">Contact</div>
-<ul class="space-y-2 text-white/60">
-  <li>이메일 : nb@goldenax.co.kr</li>
-  <li class="text-white/40 text-xs">모든 문의는 이메일로 받습니다</li>
-</ul>
+        <div class="font-bold text-white/90 mb-3">Contact</div>
+        <ul class="space-y-2 text-white/60">
+          <li>이메일 : nb@goldenax.co.kr</li>
+          <li class="text-white/40 text-xs">모든 문의는 이메일로 받습니다</li>
+        </ul>
       </div>
     </div>
     
-    <div class="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row justify-between gap-4 text-xs text-white/40">
+    <!-- 사업자 정보 (법적 권장) -->
+    <div class="border-t border-white/10 mt-10 pt-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs text-white/50 mb-6">
+        <div>
+          <span class="text-white/40">상호</span>  
+          <span class="ml-2 text-white/70">골드넥스 (GOLDENAX)</span>
+        </div>
+        <div>
+          <span class="text-white/40">대표자</span>  
+          <span class="ml-2 text-white/70">김성모</span>
+        </div>
+        <div>
+          <span class="text-white/40">사업자등록번호</span>  
+          <span class="ml-2 text-white/70">211-88-46910</span>
+        </div>
+        <div>
+          <span class="text-white/40">이메일</span>  
+          <span class="ml-2 text-white/70">nb@goldenax.co.kr</span>
+        </div>
+      </div>
+      <div class="text-xs text-white/40">
+        <span class="text-white/40">소재지</span>  
+        <span class="ml-2 text-white/60">서울특별시 성동구 상원길 62, 6층</span>
+      </div>
+    </div>
+    
+    <!-- 저작권 & 법적 링크 -->
+    <div class="border-t border-white/10 mt-6 pt-6 flex flex-col sm:flex-row justify-between gap-4 text-xs text-white/40">
       <div>
         © {year} GOLDENAX Co., Ltd. All rights reserved.
       </div>
