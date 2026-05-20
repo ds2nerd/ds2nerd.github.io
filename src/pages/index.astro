@@ -3,55 +3,55 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CtaBlock from "../components/CtaBlock.astro";
 
 const stats = [
-  { value: "272조원", label: "2025년 거래액", sub: "국가데이터처" },
-  { value: "4.9%", label: "YoY 증가율", sub: "2024 대비 2025" },
-  { value: "43.4%", label: "쿠팡·네이버 점유율", sub: "양강 합계" },
-  { value: "77.4%", label: "모바일 비중", sub: "온라인쇼핑" },
+  { value: "272조원", label: "2025년 거래액", sub: "국가데이터처", emoji: "💰" },
+  { value: "4.9%", label: "YoY 증가율", sub: "2024 대비 2025", emoji: "📈" },
+  { value: "43.4%", label: "쿠팡·네이버 점유율", sub: "양강 합계", emoji: "🏆" },
+  { value: "77.4%", label: "모바일 비중", sub: "온라인쇼핑", emoji: "📱" },
 ];
 
 const modules = [
-  { num: "01", name: "쇼핑몰 세팅", desc: "자사몰·포털·오픈마켓·버티컬·네이버 생태계 연동" },
-  { num: "02", name: "운영관리", desc: "상품·가격·재고·정산·광고·발굴·보고서" },
-  { num: "03", name: "물류", desc: "풀필먼트·자체물류·3PL 매칭" },
-  { num: "04", name: "CS·평판관리", desc: "옴니채널 CS·반품·악성리뷰 대응" },
-  { num: "05", name: "콘텐츠 제작", desc: "상세페이지·썸네일·배너 기획·제작" },
-  { num: "06", name: "매체 운영", desc: "Conversion 6 · Asset 2 · Awareness 2" },
+  { num: "01", name: "쇼핑몰 세팅", desc: "자사몰·포털·오픈마켓·버티컬·네이버 생태계 연동", emoji: "🛒" },
+  { num: "02", name: "운영관리", desc: "상품·가격·재고·정산·광고·발굴·보고서", emoji: "⚙️" },
+  { num: "03", name: "물류", desc: "풀필먼트·자체물류·3PL 매칭", emoji: "📦" },
+  { num: "04", name: "CS·평판관리", desc: "옴니채널 CS·반품·악성리뷰 대응", emoji: "💬" },
+  { num: "05", name: "콘텐츠 제작", desc: "상세페이지·썸네일·배너 기획·제작", emoji: "🎨" },
+  { num: "06", name: "매체 운영", desc: "Conversion 6 · Asset 2 · Awareness 2", emoji: "📡" },
 ];
 
 const targets = [
-  { type: "TYPE A", name: "매출 정체형", desc: "판매 중이나 매출 부진·하락", action: "옵션 2 또는 4", color: "bg-typeA" },
-  { type: "TYPE B", name: "첫 진입형", desc: "제품 보유 / 채널 첫 진입", action: "옵션 1 RS 또는 4", color: "bg-typeB" },
-  { type: "TYPE C", name: "무에서 유 창조형", desc: "제품·온라인 경험 모두 없음", action: "별도 컨설팅 → Type B", color: "bg-typeC" },
-  { type: "TYPE D", name: "신규 브랜드 런칭형", desc: "기존 운영 + 신규 추가", action: "옵션 4 혼합 풀스택", color: "bg-typeD" },
+  { type: "TYPE A", name: "매출 정체형", desc: "판매 중이나 매출 부진·하락", action: "옵션 2 또는 4", color: "bg-typeA", emoji: "📉" },
+  { type: "TYPE B", name: "첫 진입형", desc: "제품 보유 / 채널 첫 진입", action: "옵션 1 RS 또는 4", color: "bg-typeB", emoji: "🚀" },
+  { type: "TYPE C", name: "무에서 유 창조형", desc: "제품·온라인 경험 모두 없음", action: "별도 컨설팅 → Type B", color: "bg-typeC", emoji: "💡" },
+  { type: "TYPE D", name: "신규 브랜드 런칭형", desc: "기존 운영 + 신규 추가", action: "옵션 4 혼합 풀스택", color: "bg-typeD", emoji: "✨" },
 ];
 
 const pricingOptions = [
-  { tag: "옵션 1", name: "순수 RS", desc: "광고·운영비 부담 0원, 매출 발생 시점부터 N% 공유", highlight: true },
-  { tag: "옵션 2", name: "월 정액", desc: "월 고정비로 풀스택 운영 위탁, 매출 분배 없음" },
-  { tag: "옵션 3", name: "매체 단독", desc: "운영대행 없이 캠페인·매체만 단건 집행" },
-  { tag: "옵션 4", name: "혼합", desc: "1~3 자유 조합 — 종합 계약의 대다수" },
+  { tag: "옵션 1", name: "순수 RS", desc: "광고·운영비 부담 0원, 매출 발생 시점부터 N% 공유", highlight: true, emoji: "🎯" },
+  { tag: "옵션 2", name: "월 정액", desc: "월 고정비로 풀스택 운영 위탁, 매출 분배 없음", emoji: "📊" },
+  { tag: "옵션 3", name: "매체 단독", desc: "운영대행 없이 캠페인·매체만 단건 집행", emoji: "📺" },
+  { tag: "옵션 4", name: "혼합", desc: "1~3 자유 조합 — 종합 계약의 대다수", emoji: "🔀" },
 ];
 
 const cases = [
-  { brand: "봉포머구리집", category: "F&B", desc: "운영 + 콘텐츠 + 매체" },
-  { brand: "세라블룸", category: "건강기능식품", desc: "콘텐츠 + 매체 + 광고법 대응" },
-  { brand: "휴온스엔", category: "헬스케어 · 라이브", desc: "라이브커머스 + 매체" },
+  { brand: "봉포머구리집", category: "F&B", desc: "운영 + 콘텐츠 + 매체", emoji: "🍱" },
+  { brand: "세라블룸", category: "건강기능식품", desc: "콘텐츠 + 매체 + 광고법 대응", emoji: "💊" },
+  { brand: "휴온스엔", category: "헬스케어 · 라이브", desc: "라이브커머스 + 매체", emoji: "🎥" },
 ];
 
 const processSteps = [
-  { num: "01", name: "온보딩", desc: "초기 진단·KPI·매핑", period: "2~4주" },
-  { num: "02", name: "실행", desc: "6대 모듈 가동", period: "월 단위" },
-  { num: "03", name: "정산", desc: "옵션별 정산", period: "월말" },
-  { num: "04", name: "리포팅", desc: "매체별 ROAS", period: "정기" },
-  { num: "05", name: "오프보딩", desc: "권한·데이터 이관", period: "계약 만료" },
+  { num: "01", name: "온보딩", desc: "초기 진단·KPI·매핑", period: "2~4주", emoji: "🎯" },
+  { num: "02", name: "실행", desc: "6대 모듈 가동", period: "월 단위", emoji: "⚡" },
+  { num: "03", name: "정산", desc: "옵션별 정산", period: "월말", emoji: "💳" },
+  { num: "04", name: "리포팅", desc: "매체별 ROAS", period: "정기", emoji: "📋" },
+  { num: "05", name: "오프보딩", desc: "권한·데이터 이관", period: "계약 만료", emoji: "🤝" },
 ];
 
 const reasons = [
-  { num: "01", title: "단계별 진단·처방", desc: "일률적 패키지가 아닌 단계 맞춤 설계" },
-  { num: "02", title: "유연한 비용 구조", desc: "클라이언트 부담 0원부터 시작 가능 (옵션 1)" },
-  { num: "03", title: "정량 측정 운영", desc: "모든 매체 고유 쿠폰 코드·UTM 적용" },
-  { num: "04", title: "검증된 카테고리 강점", desc: "F&B · 건기식 · 헬스케어 · 네이버 생태계" },
-  { num: "05", title: "AI 검색 시대 대응", desc: "나무위키 · Schema 적용 랜딩페이지" },
+  { num: "01", title: "단계별 진단·처방", desc: "일률적 패키지가 아닌 단계 맞춤 설계", emoji: "🔍" },
+  { num: "02", title: "유연한 비용 구조", desc: "클라이언트 부담 0원부터 시작 가능", emoji: "💰" },
+  { num: "03", title: "정량 측정 운영", desc: "모든 매체 고유 쿠폰 코드·UTM 적용", emoji: "📊" },
+  { num: "04", title: "검증된 카테고리 강점", desc: "F&B · 건기식 · 헬스케어 · 네이버 생태계", emoji: "🏆" },
+  { num: "05", title: "AI 검색 시대 대응", desc: "나무위키 · Schema 적용 랜딩페이지", emoji: "🤖" },
 ];
 ---
 
@@ -61,30 +61,37 @@ const reasons = [
   current="/"
 >
   <!-- S1: HERO -->
-  <section class="relative bg-white overflow-hidden">
+  <section class="relative bg-gradient-soft overflow-hidden">
     <div class="absolute top-0 right-0 w-3 h-full bg-red"></div>
-    <div class="container-page py-20 lg:py-28">
-      <div class="font-en text-red text-sm font-bold tracking-wide-en mb-5">
-        GOLDENAX · Commerce Solution
+    <div class="container-page py-20 lg:py-28 relative">
+      <div class="font-en text-red text-sm font-bold tracking-wide-en mb-5 slide-down slide-down-1">
+        ✦ GOLDENAX · Commerce Solution
       </div>
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-ink-black leading-tight mb-3">
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-ink-black leading-tight mb-3 slide-down slide-down-2">
         입점부터 매출까지,
       </h1>
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight mb-3">
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight mb-3 slide-down slide-down-3">
         <span class="text-ink-black">이커머스의 모든 문제,</span>
       </h1>
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-red leading-tight mb-8">
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-red leading-tight mb-8 slide-down slide-down-4">
         한 곳에서.
       </h1>
-      <p class="text-base sm:text-lg text-ink-mute max-w-2xl leading-relaxed mb-10">
+      <p class="text-base sm:text-lg text-ink-mute max-w-2xl leading-relaxed mb-10 fade-up fade-up-delay-2">
         6대 운영 모듈 × 10개 매체 × 4가지 비용 구조로 클라이언트의 단계에 맞춰 풀스택 운영합니다.
       </p>
-      <div class="flex flex-col sm:flex-row gap-3 mb-10">
-        <a href="/who/" class="btn-primary">무료 진단 시작하기 →</a>
-        <a href="/solution/" class="btn-secondary">솔루션 자세히 보기</a>
+      <div class="flex flex-col sm:flex-row gap-3 mb-10 fade-up fade-up-delay-3">
+        <a href="/who/" class="btn-primary">
+          <span>🔍</span>
+          무료 진단 시작하기
+          <span class="arrow-icon">→</span>
+        </a>
+        <a href="/solution/" class="btn-secondary">
+          솔루션 자세히 보기
+          <span class="arrow-icon">→</span>
+        </a>
       </div>
-      <div class="pt-8 border-t border-gray-100 max-w-3xl">
-        <div class="text-xs font-bold text-ink-mute mb-2 tracking-wide-en">VERIFIED CATEGORIES</div>
+      <div class="pt-8 border-t border-gray-100 max-w-3xl fade-up">
+        <div class="text-xs font-bold text-ink-mute mb-2 tracking-wide-en">✓ VERIFIED CATEGORIES</div>
         <div class="text-sm text-ink-body">
           F&B · 건강기능식품 · 헬스케어 · 네이버 생태계  |  
           <span class="text-ink-dark font-bold">휴온스엔 · 세라블룸 · 봉포머구리집</span> 운영 경험
@@ -93,18 +100,21 @@ const reasons = [
     </div>
   </section>
 
-  <!-- S2: PROBLEM (시장 진단) -->
+  <!-- S2: PROBLEM -->
   <section class="bg-bg-light py-16 lg:py-20">
     <div class="container-page">
-      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">PROBLEM</div>
-      <h2 class="text-2xl sm:text-4xl font-black text-ink-black mb-3">지금, 운영대행이 필요한 이유</h2>
-      <p class="text-sm sm:text-base text-ink-body max-w-3xl mb-10">
-        국내 온라인쇼핑 시장은 사상 최대지만, 양강 점유율 심화와 단일 플랫폼 리스크가 동시에 가속화되고 있습니다.
-      </p>
+      <div class="fade-up">
+        <div class="section-eyebrow">📊 PROBLEM</div>
+        <h2 class="text-2xl sm:text-4xl font-black text-ink-black mb-3">지금, 운영대행이 필요한 이유</h2>
+        <p class="text-sm sm:text-base text-ink-body max-w-3xl mb-10">
+          국내 온라인쇼핑 시장은 사상 최대지만, 양강 점유율 심화와 단일 플랫폼 리스크가 동시에 가속화되고 있습니다.
+        </p>
+      </div>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        {stats.map(s => (
-          <div class="bg-white border-2 border-red rounded-md p-5 text-center">
-            <div class="text-2xl sm:text-3xl font-black text-red mb-2">{s.value}</div>
+        {stats.map((s, i) => (
+          <div class={`stat-card bg-white border-2 border-red rounded-md p-5 text-center card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="text-2xl mb-2">{s.emoji}</div>
+            <div class="stat-number text-2xl sm:text-3xl font-black text-red mb-2">{s.value}</div>
             <div class="text-xs sm:text-sm font-bold text-ink-dark mb-1">{s.label}</div>
             <div class="text-xs text-ink-light">{s.sub}</div>
           </div>
@@ -114,25 +124,35 @@ const reasons = [
     </div>
   </section>
 
-  <!-- S3: SOLUTION OVERVIEW -->
+  <!-- S3: SOLUTION -->
   <section class="py-16 lg:py-20">
     <div class="container-page">
-      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">SOLUTION</div>
-      <h2 class="text-2xl sm:text-4xl font-black text-ink-black mb-3">골드넥스 커머스 솔루션 구조</h2>
-      <p class="text-sm sm:text-base text-ink-body mb-10">
-        6대 서비스 모듈 × 10개 매체 × 4가지 비용 구조
-      </p>
+      <div class="fade-up">
+        <div class="section-eyebrow">🎯 SOLUTION</div>
+        <h2 class="text-2xl sm:text-4xl font-black text-ink-black mb-3">골드넥스 커머스 솔루션 구조</h2>
+        <p class="text-sm sm:text-base text-ink-body mb-10">
+          6대 서비스 모듈 × 10개 매체 × 4가지 비용 구조
+        </p>
+      </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {modules.map(m => (
-          <div class="bg-bg-card border-l-[3px] border-red p-5 card-hover">
-            <div class="font-en text-red text-xs font-bold tracking-wide-en mb-2">MODULE {m.num}</div>
-            <div class="text-lg font-bold text-ink-dark mb-2">{m.name}</div>
+        {modules.map((m, i) => (
+          <div class={`bg-bg-card p-6 card-glow card-line-top fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="flex items-start gap-4 mb-3">
+              <div class="icon-circle-red">{m.emoji}</div>
+              <div class="flex-1">
+                <div class="font-en text-red text-xs font-bold tracking-wide-en mb-1">MODULE {m.num}</div>
+                <div class="text-lg font-bold text-ink-dark">{m.name}</div>
+              </div>
+            </div>
             <div class="text-sm text-ink-body leading-relaxed">{m.desc}</div>
           </div>
         ))}
       </div>
-      <div class="mt-10 text-center">
-        <a href="/solution/" class="text-red font-bold text-sm hover:underline">전체 솔루션 보기 →</a>
+      <div class="mt-10 text-center fade-up">
+        <a href="/solution/" class="link-slide text-red text-sm">
+          전체 솔루션 보기
+          <span class="arrow-icon">→</span>
+        </a>
       </div>
     </div>
   </section>
@@ -140,16 +160,19 @@ const reasons = [
   <!-- S4: WHO IT'S FOR -->
   <section class="bg-bg-light py-16 lg:py-20">
     <div class="container-page">
-      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">WHO IT'S FOR</div>
-      <h2 class="text-2xl sm:text-4xl font-black text-ink-black mb-3">어떤 단계에 계신가요?</h2>
-      <p class="text-sm sm:text-base text-ink-body max-w-3xl mb-10">
-        현재 단계에 따라 필요한 모듈·매체·비용 구조가 달라집니다. 1분 진단으로 본인 유형을 확인하세요.
-      </p>
+      <div class="fade-up">
+        <div class="section-eyebrow">🧭 WHO IT'S FOR</div>
+        <h2 class="text-2xl sm:text-4xl font-black text-ink-black mb-3">어떤 단계에 계신가요?</h2>
+        <p class="text-sm sm:text-base text-ink-body max-w-3xl mb-10">
+          현재 단계에 따라 필요한 모듈·매체·비용 구조가 달라집니다. 1분 진단으로 본인 유형을 확인하세요.
+        </p>
+      </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-        {targets.map(t => (
-          <div class="bg-white rounded-md overflow-hidden card-hover">
-            <div class={`${t.color} text-white px-5 py-3 font-en text-xs font-bold tracking-wide-en`}>
-              {t.type}
+        {targets.map((t, i) => (
+          <div class={`bg-white rounded-md overflow-hidden card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class={`${t.color} text-white px-5 py-3 font-en text-xs font-bold tracking-wide-en flex items-center justify-between`}>
+              <span>{t.type}</span>
+              <span class="text-base">{t.emoji}</span>
             </div>
             <div class="p-5">
               <div class="text-lg font-bold text-ink-dark mb-3">{t.name}</div>
@@ -159,8 +182,12 @@ const reasons = [
           </div>
         ))}
       </div>
-      <div class="text-center">
-        <a href="/who/" class="btn-primary">지금 진단 시작 →</a>
+      <div class="text-center fade-up">
+        <a href="/who/" class="btn-primary pulse-red">
+          <span>🚀</span>
+          지금 진단 시작
+          <span class="arrow-icon">→</span>
+        </a>
       </div>
     </div>
   </section>
@@ -168,18 +195,23 @@ const reasons = [
   <!-- S5: PRICING -->
   <section class="py-16 lg:py-20">
     <div class="container-page">
-      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">PRICING</div>
-      <h2 class="text-2xl sm:text-4xl font-black text-ink-black mb-3">
-        광고비 부담 없이 시작할 수 있는 비용 구조
-      </h2>
-      <p class="text-sm sm:text-base text-ink-body max-w-3xl mb-10">
-        RS · 월 정액 · 매체 단독 · 혼합 — 4가지 옵션을 자유롭게 선택·조합할 수 있습니다.
-      </p>
+      <div class="fade-up">
+        <div class="section-eyebrow">💎 PRICING</div>
+        <h2 class="text-2xl sm:text-4xl font-black text-ink-black mb-3">
+          광고비 부담 없이 시작할 수 있는 비용 구조
+        </h2>
+        <p class="text-sm sm:text-base text-ink-body max-w-3xl mb-10">
+          RS · 월 정액 · 매체 단독 · 혼합 — 4가지 옵션을 자유롭게 선택·조합할 수 있습니다.
+        </p>
+      </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {pricingOptions.map(p => (
-          <div class={`p-5 rounded-md card-hover ${p.highlight ? "bg-red text-white" : "bg-bg-card border border-gray-200"}`}>
-            <div class={`font-en text-xs font-bold tracking-wide-en mb-2 ${p.highlight ? "text-white/80" : "text-red"}`}>
-              {p.tag}
+        {pricingOptions.map((p, i) => (
+          <div class={`p-5 rounded-md card-hover fade-up fade-up-delay-${(i % 3) + 1} ${p.highlight ? "bg-red text-white" : "bg-bg-card border border-gray-200"}`}>
+            <div class="flex items-center justify-between mb-2">
+              <div class={`font-en text-xs font-bold tracking-wide-en ${p.highlight ? "text-white/80" : "text-red"}`}>
+                {p.tag}
+              </div>
+              <div class="text-xl">{p.emoji}</div>
             </div>
             <div class={`text-lg font-bold mb-3 ${p.highlight ? "text-white" : "text-ink-dark"}`}>
               {p.name}
@@ -190,8 +222,11 @@ const reasons = [
           </div>
         ))}
       </div>
-      <div class="mt-10 text-center">
-        <a href="/pricing/" class="text-red font-bold text-sm hover:underline">맞춤 견적 받기 →</a>
+      <div class="mt-10 text-center fade-up">
+        <a href="/pricing/" class="link-slide text-red text-sm">
+          맞춤 견적 받기
+          <span class="arrow-icon">→</span>
+        </a>
       </div>
     </div>
   </section>
@@ -199,23 +234,34 @@ const reasons = [
   <!-- S6: CASES -->
   <section class="bg-bg-light py-16 lg:py-20">
     <div class="container-page">
-      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">CASES</div>
-      <h2 class="text-2xl sm:text-4xl font-black text-ink-black mb-3">검증된 카테고리 — 실제 운영 사례</h2>
-      <p class="text-sm sm:text-base text-ink-body max-w-3xl mb-10">
-        F&B · 건강기능식품 · 헬스케어 · 네이버 생태계 — 카테고리별 검증된 운영 경험을 결과 수치와 함께 공개합니다.
-      </p>
+      <div class="fade-up">
+        <div class="section-eyebrow">🏆 CASES</div>
+        <h2 class="text-2xl sm:text-4xl font-black text-ink-black mb-3">검증된 카테고리 — 실제 운영 사례</h2>
+        <p class="text-sm sm:text-base text-ink-body max-w-3xl mb-10">
+          F&B · 건강기능식품 · 헬스케어 · 네이버 생태계 — 카테고리별 검증된 운영 경험을 결과 수치와 함께 공개합니다.
+        </p>
+      </div>
       <div class="grid sm:grid-cols-3 gap-4">
-        {cases.map(c => (
-          <div class="bg-white rounded-md p-6 card-hover">
-            <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">{c.category}</div>
+        {cases.map((c, i) => (
+          <div class={`bg-white rounded-md p-6 card-glow card-line-top fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="flex items-center gap-3 mb-3">
+              <div class="icon-circle-red">{c.emoji}</div>
+              <div class="font-en text-red text-xs font-bold tracking-wide-en">{c.category}</div>
+            </div>
             <div class="text-xl font-bold text-ink-dark mb-3">{c.brand}</div>
             <div class="text-sm text-ink-body mb-4">{c.desc}</div>
-            <div class="text-sm font-bold text-red hover:underline cursor-pointer">사례 보기 →</div>
+            <a href="/cases/" class="link-slide text-red text-sm">
+              사례 보기
+              <span class="arrow-icon">→</span>
+            </a>
           </div>
         ))}
       </div>
-      <div class="mt-10 text-center">
-        <a href="/cases/" class="text-red font-bold text-sm hover:underline">전체 사례 보기 →</a>
+      <div class="mt-10 text-center fade-up">
+        <a href="/cases/" class="link-slide text-red text-sm">
+          전체 사례 보기
+          <span class="arrow-icon">→</span>
+        </a>
       </div>
     </div>
   </section>
@@ -223,15 +269,20 @@ const reasons = [
   <!-- S7: PROCESS -->
   <section class="py-16 lg:py-20">
     <div class="container-page">
-      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">PROCESS</div>
-      <h2 class="text-2xl sm:text-4xl font-black text-ink-black mb-3">5단계 운영 프로세스</h2>
-      <p class="text-sm sm:text-base text-ink-body mb-10">
-        계약 체결부터 첫 매출까지, 표준화된 흐름으로 운영합니다.
-      </p>
+      <div class="fade-up">
+        <div class="section-eyebrow">⚡ PROCESS</div>
+        <h2 class="text-2xl sm:text-4xl font-black text-ink-black mb-3">5단계 운영 프로세스</h2>
+        <p class="text-sm sm:text-base text-ink-body mb-10">
+          계약 체결부터 첫 매출까지, 표준화된 흐름으로 운영합니다.
+        </p>
+      </div>
       <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
-        {processSteps.map(s => (
-          <div class="bg-bg-card border-l-[3px] border-red p-4 card-hover">
-            <div class="font-en text-red text-xs font-bold tracking-wide-en mb-2">STEP {s.num}</div>
+        {processSteps.map((s, i) => (
+          <div class={`bg-bg-card border-l-[3px] border-red p-4 card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="flex items-center justify-between mb-2">
+              <div class="font-en text-red text-xs font-bold tracking-wide-en">STEP {s.num}</div>
+              <div class="text-base">{s.emoji}</div>
+            </div>
             <div class="text-sm font-bold text-ink-dark mb-1">{s.name}</div>
             <div class="text-xs text-ink-body mb-2">{s.desc}</div>
             <div class="text-xs font-bold text-red">{s.period}</div>
@@ -244,12 +295,17 @@ const reasons = [
   <!-- S8: WHY US -->
   <section class="bg-ink-black text-white py-16 lg:py-20">
     <div class="container-page">
-      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">WHY US</div>
-      <h2 class="text-2xl sm:text-4xl font-black text-white mb-10">Why Goldenax Commerce Solution</h2>
+      <div class="fade-up">
+        <div class="section-eyebrow">✨ WHY US</div>
+        <h2 class="text-2xl sm:text-4xl font-black text-white mb-10">Why Goldenax Commerce Solution</h2>
+      </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-        {reasons.map(r => (
-          <div class="border-t-2 border-red pt-5">
-            <div class="font-en text-red text-xs font-bold tracking-wide-en mb-2">{r.num}</div>
+        {reasons.map((r, i) => (
+          <div class={`border-t-2 border-red pt-5 fade-up fade-up-delay-${(i % 3) + 1} group`}>
+            <div class="flex items-center gap-2 mb-2">
+              <div class="font-en text-red text-xs font-bold tracking-wide-en">{r.num}</div>
+              <div class="text-xl transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">{r.emoji}</div>
+            </div>
             <div class="text-base font-bold text-white mb-3">{r.title}</div>
             <div class="text-xs text-white/70 leading-relaxed">{r.desc}</div>
           </div>
@@ -258,6 +314,5 @@ const reasons = [
     </div>
   </section>
 
-  <!-- S9: FINAL CTA -->
   <CtaBlock />
 </BaseLayout>
