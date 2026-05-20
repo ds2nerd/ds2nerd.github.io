@@ -1,1 +1,250 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CtaBlock from "../../../components/CtaBlock.astro";
 
+const mediaData = {
+  name: "인스타 릴스 10/20 PKG",
+  emoji: "📸",
+  position: "CONVERSION",
+  positionLabel: "전환 · 구매 직결",
+  tagline: "1회 촬영으로 10~20개 콘텐츠를 효율적으로 분산 노출합니다.",
+  description: "한 번의 촬영 회차에 10~20개의 다양한 릴스 콘텐츠를 제작하여 푸드·뷰티·라이프스타일 전문 계정에 분산 노출하는 패키지 매체입니다. 영상당 단가 30~50만원이 절감되어 효율적인 도달 확보가 가능합니다.",
+};
+
+const kpis = [
+  { label: "1회 제작량", value: "10~20개", emoji: "📹" },
+  { label: "영상당 단가 절감", value: "30~50만원", emoji: "💰" },
+  { label: "주요 KPI", value: "도달 · 저장 · 공유", emoji: "📊" },
+  { label: "효과 회수", value: "2~4주", emoji: "📈" },
+];
+
+const strengths = [
+  {
+    title: "촬영 효율 극대화",
+    desc: "1회 촬영 → 10~20개 콘텐츠 분산 제작으로 영상당 단가를 30~50만원 절감",
+    emoji: "💸",
+  },
+  {
+    title: "분산 노출 전략",
+    desc: "푸드·뷰티·라이프스타일 등 카테고리별 전문 계정 다수에 노출 → 도달 범위 확장",
+    emoji: "📡",
+  },
+  {
+    title: "콘텐츠 자산화",
+    desc: "제작된 릴스는 자사 인스타·자사몰·유튜브 쇼츠 등 다채널 재활용 가능",
+    emoji: "💎",
+  },
+  {
+    title: "MZ 세대 도달",
+    desc: "인스타 릴스 알고리즘으로 자연 노출 확장 → 광고비 외 추가 도달 발생",
+    emoji: "🎯",
+  },
+];
+
+const process = [
+  {
+    phase: "Phase 1",
+    title: "콘셉트 기획 · 큐레이션",
+    period: "1~2주",
+    emoji: "📋",
+    items: [
+      "10~20개 콘텐츠 콘셉트 큐레이션 (제품 컷·사용 컷·비교 컷·후기 컷 등)",
+      "카테고리별 노출 계정 리스트업 (푸드·뷰티·라이프스타일 등)",
+      "각 콘텐츠 스토리보드 + 자막·해시태그 설계",
+      "촬영 일정 · 장소 · 모델 협의",
+    ],
+  },
+  {
+    phase: "Phase 2",
+    title: "촬영 · 편집 · 배포",
+    period: "2~3주",
+    emoji: "🎬",
+    items: [
+      "1회 촬영으로 10~20개 콘텐츠 일괄 제작 (수직 9:16 포맷)",
+      "콘텐츠별 편집 · 자막 · 음원 삽입 (트렌드 음원 활용)",
+      "전문 계정별 노출 일정 분산 배치 (1~2주 간격)",
+      "캡션 + 해시태그 + 위치 태그 최적화",
+    ],
+  },
+  {
+    phase: "Phase 3",
+    title: "성과 측정 · 자산화",
+    period: "2~4주",
+    emoji: "📊",
+    items: [
+      "계정별 도달 · 저장 · 공유 · 프로필 방문 정량 측정",
+      "고성과 콘텐츠 → 광고 추가 집행 (Spark Ads 형식)",
+      "제작된 릴스 → 자사몰 · 자사 인스타 · 유튜브 쇼츠 재활용",
+      "월간 리포트 — 누적 도달 · 저장 · 유입 전환",
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={`${mediaData.name} — ${mediaData.tagline}`}
+  description="인스타 릴스 10/20 PKG 운영. 1회 촬영 → 10~20개 콘텐츠 분산 노출, 영상당 단가 30~50만원 절감."
+  current="/media/"
+>
+  <!-- 1. 히어로 -->
+  <section class="bg-gradient-soft py-16 lg:py-20 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-3 h-full bg-conversion"></div>
+    <div class="container-page max-w-5xl relative">
+      <div class="flex items-center gap-2 text-sm mb-6 fade-up">
+        <a href="/media/" class="text-ink-mute hover:text-red transition-colors">← 매체 라인업</a>
+      </div>
+      
+      <div class="grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 fade-up">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="text-5xl">{mediaData.emoji}</div>
+            <div class="inline-flex flex-col">
+              <span class="font-en text-conversion text-xs font-bold tracking-wide-en">{mediaData.position}</span>
+              <span class="text-xs text-ink-mute">{mediaData.positionLabel}</span>
+            </div>
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-ink-black mb-4 leading-tight">
+            {mediaData.name}
+          </h1>
+          <p class="text-lg lg:text-xl text-ink-body mb-6">{mediaData.tagline}</p>
+          <p class="text-sm text-ink-mute leading-relaxed">{mediaData.description}</p>
+        </div>
+        
+        <div class="lg:col-span-5 fade-up fade-up-delay-2">
+          <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
+            <div class="text-5xl mb-2 opacity-30">🖼️</div>
+            <div class="text-sm font-bold text-ink-mute">매체 메인 이미지</div>
+            <div class="text-xs text-ink-light mt-1">hero.jpg (1600 × 900px)</div>
+            <div class="text-xs text-ink-light">/public/media/insta-reels/</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 매체 개요 -->
+  <section class="py-16 lg:py-20">
+    <div class="container-page">
+      <div class="fade-up">
+        <div class="section-eyebrow">📊 OVERVIEW</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">매체 개요</h2>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {kpis.map((k, i) => (
+          <div class={`bg-white border-2 border-conversion rounded-md p-6 text-center card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="text-3xl mb-3">{k.emoji}</div>
+            <div class="text-xs font-bold text-ink-mute mb-2">{k.label}</div>
+            <div class="text-xl sm:text-2xl font-black text-conversion">{k.value}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 실제 집행 화면 -->
+  <section class="bg-bg-light py-16 lg:py-20">
+    <div class="container-page">
+      <div class="fade-up text-center mb-10">
+        <div class="section-eyebrow justify-center" style="display: inline-flex;">📸 EXECUTION</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-3 mt-3">실제 집행 화면</h2>
+        <p class="text-sm text-ink-body max-w-2xl mx-auto">
+          인스타 릴스 피드 분산 노출 및 콘텐츠 샘플 화면입니다.
+        </p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto mb-6 fade-up">
+        <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
+          <div class="text-7xl mb-3 opacity-30">🖼️</div>
+          <div class="text-base font-bold text-ink-mute">릴스 피드 분산 노출 예시</div>
+          <div class="text-xs text-ink-light mt-2">execution-main.jpg (1920 × 1080px)</div>
+          <div class="text-xs text-ink-light">/public/media/insta-reels/</div>
+          <div class="text-xs text-ink-light mt-2 italic">실제 인스타 릴스 노출 화면 캡처</div>
+        </div>
+      </div>
+      
+      <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-4">
+        <div class="fade-up fade-up-delay-1">
+          <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
+            <div class="text-5xl mb-2 opacity-30">🖼️</div>
+            <div class="text-sm font-bold text-ink-mute">릴스 콘텐츠 샘플</div>
+            <div class="text-xs text-ink-light mt-1">execution-reel.jpg</div>
+            <div class="text-xs text-ink-light">(1200 × 675px)</div>
+          </div>
+        </div>
+        <div class="fade-up fade-up-delay-2">
+          <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
+            <div class="text-5xl mb-2 opacity-30">🖼️</div>
+            <div class="text-sm font-bold text-ink-mute">인사이트 리포트</div>
+            <div class="text-xs text-ink-light mt-1">execution-insight.jpg</div>
+            <div class="text-xs text-ink-light">(1200 × 675px)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 강점 -->
+  <section class="py-16 lg:py-20">
+    <div class="container-page max-w-4xl">
+      <div class="fade-up">
+        <div class="section-eyebrow">✨ STRENGTHS</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">왜 인스타 릴스 PKG인가</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {strengths.map((s, i) => (
+          <div class={`bg-white border-l-[3px] border-conversion p-6 rounded-r-md card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="flex items-center gap-3 mb-3">
+              <div class="text-3xl">{s.emoji}</div>
+              <div class="text-lg font-bold text-ink-dark">{s.title}</div>
+            </div>
+            <div class="text-sm text-ink-body leading-relaxed">{s.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 운영 프로세스 -->
+  <section class="bg-bg-light py-16 lg:py-20">
+    <div class="container-page max-w-4xl">
+      <div class="fade-up">
+        <div class="section-eyebrow">⚡ PROCESS</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">운영 프로세스</h2>
+      </div>
+      <div class="space-y-8">
+        {process.map((p, i) => (
+          <div class={`bg-white border-l-[3px] border-conversion p-6 lg:p-8 rounded-r-md card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="flex items-center gap-4 mb-5">
+              <div class="inline-flex items-center justify-center w-12 h-12 bg-conversion/10 text-conversion rounded-full text-xl">{p.emoji}</div>
+              <div>
+                <div class="font-en text-conversion text-xs font-bold tracking-wide-en mb-1">{p.phase}</div>
+                <div class="flex items-baseline gap-3">
+                  <h3 class="text-lg lg:text-xl font-bold text-ink-dark">{p.title}</h3>
+                  <span class="text-xs font-bold text-conversion">⏱ {p.period}</span>
+                </div>
+              </div>
+            </div>
+            <ul class="space-y-2">
+              {p.items.map(it => (
+                <li class="text-sm text-ink-body flex gap-2">
+                  <span class="text-conversion font-bold flex-shrink-0">▸</span>
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <CtaBlock 
+    title="인스타 릴스 PKG로 효율적인 도달을 만들어보세요." 
+    sub="1회 촬영 → 10~20개 콘텐츠 분산 노출. 견적·운영 옵션을 무료로 안내해드립니다."
+    primary="견적 받기" 
+    primaryHref="/contact/" 
+    secondary="다른 매체 보기"
+    secondaryHref="/media/"
+  />
+</BaseLayout>
