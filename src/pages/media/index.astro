@@ -4,22 +4,22 @@ import PageHero from "../../components/PageHero.astro";
 import CtaBlock from "../../components/CtaBlock.astro";
 
 const conversionMedia = [
-  { num: "①", name: "네이버 클립", emoji: "🎬", desc: "네이버 통합검색 1페이지에 30초 숏폼을 노출하는 검색 매칭형 광고. 영상 하단 제품 링크로 원스톱 쇼핑 동선 형성.", kpi: "1p 노출 · CTR · 매출", recover: "1개월 차" },
-  { num: "②", name: "블로그 시딩", emoji: "📝", desc: "네이버 블로그 후기형 콘텐츠를 다수 확보하여 검색 결과를 점유. 월 50명 운영 → 3개월 누적 150건+ 후기 자산 형성.", kpi: "후기 누적 · 구매 전환", recover: "2개월 차" },
-  { num: "③", name: "맘카페 시딩", emoji: "👥", desc: "고관여 지역 커뮤니티에 직접·간접 홍보형 게시글로 구매 전환을 유도. 이벤트 · 공동구매 · 한정 특가에 최적.", kpi: "게시글 CTR · 구매", recover: "1~2주" },
-  { num: "④", name: "인스타 릴스 10/20 PKG", emoji: "📸", desc: "1회 촬영으로 10~20개 콘텐츠를 제작해 푸드 전문 계정에 분산 노출. 영상당 단가 30~50만원 절감.", kpi: "도달 · 저장 · 공유", recover: "2~4주" },
-  { num: "⑤", name: "인플루언서 체험단", emoji: "🌟", desc: "인스타·유튜브·틱톡·블로그 인플루언서의 실체험 후기로 도달과 신뢰를 동시에 확보. 인플루언서별 매출 정량 비교.", kpi: "매체별 매출 비교", recover: "1~3주" },
-  { num: "⑥", name: "라이브커머스", emoji: "🎥", desc: "네이버 쇼핑라이브 · 쿠팡 라이브 · 카카오 쇼핑라이브. 사전 기획 · 라이브 실행 · 사후 클립 활용까지 일괄.", kpi: "시청자 · 매출 · ROAS", recover: "직후~7일" },
+  { slug: "naver-clip", num: "①", name: "네이버 클립", emoji: "🎬", desc: "네이버 통합검색 1페이지에 30초 숏폼을 노출하는 검색 매칭형 광고. 영상 하단 제품 링크로 원스톱 쇼핑 동선 형성.", kpi: "1p 노출 · CTR · 매출", recover: "1개월 차" },
+  { slug: "blog-seeding", num: "②", name: "블로그 시딩", emoji: "📝", desc: "네이버 블로그 후기형 콘텐츠를 다수 확보하여 검색 결과를 점유. 월 50명 운영 → 3개월 누적 150건+ 후기 자산 형성.", kpi: "후기 누적 · 구매 전환", recover: "2개월 차" },
+  { slug: "momcafe-seeding", num: "③", name: "맘카페 시딩", emoji: "👥", desc: "고관여 지역 커뮤니티에 직접·간접 홍보형 게시글로 구매 전환을 유도. 이벤트 · 공동구매 · 한정 특가에 최적.", kpi: "게시글 CTR · 구매", recover: "1~2주" },
+  { slug: "insta-reels", num: "④", name: "인스타 릴스 10/20 PKG", emoji: "📸", desc: "1회 촬영으로 10~20개 콘텐츠를 제작해 푸드 전문 계정에 분산 노출. 영상당 단가 30~50만원 절감.", kpi: "도달 · 저장 · 공유", recover: "2~4주" },
+  { slug: "influencer", num: "⑤", name: "인플루언서 체험단", emoji: "🌟", desc: "인스타·유튜브·틱톡·블로그 인플루언서의 실체험 후기로 도달과 신뢰를 동시에 확보. 인플루언서별 매출 정량 비교.", kpi: "매체별 매출 비교", recover: "1~3주" },
+  { slug: "live-commerce", num: "⑥", name: "라이브커머스", emoji: "🎥", desc: "네이버 쇼핑라이브 · 쿠팡 라이브 · 카카오 쇼핑라이브. 사전 기획 · 라이브 실행 · 사후 클립 활용까지 일괄.", kpi: "시청자 · 매출 · ROAS", recover: "직후~7일" },
 ];
 
 const assetMedia = [
-  { num: "⑦", name: "브랜드 랜딩페이지", emoji: "🌐", desc: "매체 트래픽의 도착지로 작동하며 검색 자산 및 브랜드 이미지 자산을 동시에 누적. 워드프레스 기반 반응형 웹 · SEO · AIO (Schema Markup) 대응.", kpi: "전환율 · 회원가입", recover: "지속 누적" },
-  { num: "⑧", name: "나무위키 세팅", emoji: "📚", desc: "AI 검색 시대의 디지털 평판 기준점. Google · Naver 전통 검색뿐 아니라 Perplexity · ChatGPT · Gemini 등 생성형 AI 검색의 답변 근거 데이터로 활용.", kpi: "검색 노출 · AI 인용", recover: "1~3개월" },
+  { slug: "landing-page", num: "⑦", name: "브랜드 랜딩페이지", emoji: "🌐", desc: "매체 트래픽의 도착지로 작동하며 검색 자산 및 브랜드 이미지 자산을 동시에 누적. 워드프레스 기반 반응형 웹 · SEO · AIO (Schema Markup) 대응.", kpi: "전환율 · 회원가입", recover: "지속 누적" },
+  { slug: "namuwiki", num: "⑧", name: "나무위키 세팅", emoji: "📚", desc: "AI 검색 시대의 디지털 평판 기준점. Google · Naver 전통 검색뿐 아니라 Perplexity · ChatGPT · Gemini 등 생성형 AI 검색의 답변 근거 데이터로 활용.", kpi: "검색 노출 · AI 인용", recover: "1~3개월" },
 ];
 
 const awarenessMedia = [
-  { num: "⑨", name: "푸망 프리미엄 심리테스트 PKG", emoji: "🎮", desc: "MZ세대 참여형 콘텐츠로 브랜드 메시지를 '놀이'로 전환하는 인지 확산 매체. MAU 362만 · 월간 PV 200만 · 누적 제작 550건+ · 협업 고객사 260곳+.", kpi: "플레이수 · 결과 CTR", recover: "2~8주" },
-  { num: "⑩", name: "영화따라가기 광고 (롯데시네마)", emoji: "🎞️", desc: "흥행 기대작 상영관에 따라붙는 효율형 스크린 광고로 대중 인지 확보. Great-Zone 109개 극장 / 772개 스크린 / 116,080개 좌석.", kpi: "도달 · 검색량 증가", recover: "개봉 후 4주" },
+  { slug: "poomang", num: "⑨", name: "푸망 프리미엄 심리테스트 PKG", emoji: "🎮", desc: "MZ세대 참여형 콘텐츠로 브랜드 메시지를 '놀이'로 전환하는 인지 확산 매체. MAU 362만 · 월간 PV 200만 · 누적 제작 550건+ · 협업 고객사 260곳+.", kpi: "플레이수 · 결과 CTR", recover: "2~8주" },
+  { slug: "movie-ads", num: "⑩", name: "영화따라가기 광고 (롯데시네마)", emoji: "🎞️", desc: "흥행 기대작 상영관에 따라붙는 효율형 스크린 광고로 대중 인지 확보. Great-Zone 109개 극장 / 772개 스크린 / 116,080개 좌석.", kpi: "도달 · 검색량 증가", recover: "개봉 후 4주" },
 ];
 
 const scenarios = [
@@ -78,19 +78,25 @@ const scenarios = [
       </div>
       <div class="space-y-4">
         {conversionMedia.map((m, i) => (
-          <div class={`bg-white border-l-[3px] border-conversion p-5 rounded-r-md card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+          <a href={`/media/${m.slug}/`} class={`block bg-white border-l-[3px] border-conversion p-5 rounded-r-md card-glow group fade-up fade-up-delay-${(i % 3) + 1}`}>
             <div class="flex items-start gap-3 mb-2">
-              <div class="text-2xl">{m.emoji}</div>
+              <div class="text-2xl transition-transform duration-300 group-hover:scale-110">{m.emoji}</div>
               <div class="flex-1">
                 <div class="flex items-baseline gap-3 mb-1">
                   <span class="text-conversion text-lg font-black">{m.num}</span>
-                  <h3 class="text-lg font-bold text-ink-dark">{m.name}</h3>
+                  <h3 class="text-lg font-bold text-ink-dark group-hover:text-conversion transition-colors">{m.name}</h3>
                 </div>
                 <p class="text-sm text-ink-body leading-relaxed mb-2">{m.desc}</p>
-                <div class="text-xs text-conversion font-bold">📊 KPI: {m.kpi} | ⏱ {m.recover}</div>
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                  <div class="text-xs text-conversion font-bold">📊 KPI: {m.kpi} | ⏱ {m.recover}</div>
+                  <div class="text-xs text-conversion font-bold opacity-60 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                    <span>상세 보기</span>
+                    <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
@@ -105,19 +111,25 @@ const scenarios = [
       </div>
       <div class="space-y-4">
         {assetMedia.map((m, i) => (
-          <div class={`bg-bg-card border-l-[3px] border-asset p-6 rounded-r-md card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+          <a href={`/media/${m.slug}/`} class={`block bg-bg-card border-l-[3px] border-asset p-6 rounded-r-md card-glow group fade-up fade-up-delay-${(i % 3) + 1}`}>
             <div class="flex items-start gap-3 mb-3">
-              <div class="text-3xl">{m.emoji}</div>
+              <div class="text-3xl transition-transform duration-300 group-hover:scale-110">{m.emoji}</div>
               <div class="flex-1">
                 <div class="flex items-baseline gap-3 mb-2">
                   <span class="text-asset text-2xl font-black">{m.num}</span>
-                  <h3 class="text-xl font-bold text-ink-dark">{m.name}</h3>
+                  <h3 class="text-xl font-bold text-ink-dark group-hover:text-asset transition-colors">{m.name}</h3>
                 </div>
                 <p class="text-sm text-ink-body leading-relaxed mb-3">{m.desc}</p>
-                <div class="text-xs text-asset font-bold">📊 KPI: {m.kpi} | ⏱ {m.recover}</div>
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                  <div class="text-xs text-asset font-bold">📊 KPI: {m.kpi} | ⏱ {m.recover}</div>
+                  <div class="text-xs text-asset font-bold opacity-60 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                    <span>상세 보기</span>
+                    <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
@@ -132,19 +144,25 @@ const scenarios = [
       </div>
       <div class="space-y-4">
         {awarenessMedia.map((m, i) => (
-          <div class={`bg-white border-l-[3px] border-awareness p-6 rounded-r-md card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+          <a href={`/media/${m.slug}/`} class={`block bg-white border-l-[3px] border-awareness p-6 rounded-r-md card-glow group fade-up fade-up-delay-${(i % 3) + 1}`}>
             <div class="flex items-start gap-3 mb-3">
-              <div class="text-3xl">{m.emoji}</div>
+              <div class="text-3xl transition-transform duration-300 group-hover:scale-110">{m.emoji}</div>
               <div class="flex-1">
                 <div class="flex items-baseline gap-3 mb-2">
                   <span class="text-awareness text-2xl font-black">{m.num}</span>
-                  <h3 class="text-xl font-bold text-ink-dark">{m.name}</h3>
+                  <h3 class="text-xl font-bold text-ink-dark group-hover:text-awareness transition-colors">{m.name}</h3>
                 </div>
                 <p class="text-sm text-ink-body leading-relaxed mb-3">{m.desc}</p>
-                <div class="text-xs text-awareness font-bold">📊 KPI: {m.kpi} | ⏱ {m.recover}</div>
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                  <div class="text-xs text-awareness font-bold">📊 KPI: {m.kpi} | ⏱ {m.recover}</div>
+                  <div class="text-xs text-awareness font-bold opacity-60 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                    <span>상세 보기</span>
+                    <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
