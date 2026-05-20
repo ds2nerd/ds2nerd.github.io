@@ -1,179 +1,250 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import PageHero from "../../components/PageHero.astro";
-import CtaBlock from "../../components/CtaBlock.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CtaBlock from "../../../components/CtaBlock.astro";
 
-const conversionMedia = [
-  { num: "①", name: "네이버 클립", emoji: "🎬", desc: "네이버 통합검색 1페이지에 30초 숏폼을 노출하는 검색 매칭형 광고. 영상 하단 제품 링크로 원스톱 쇼핑 동선 형성.", kpi: "1p 노출 · CTR · 매출", recover: "1개월 차" },
-  { num: "②", name: "블로그 시딩", emoji: "📝", desc: "네이버 블로그 후기형 콘텐츠를 다수 확보하여 검색 결과를 점유. 월 50명 운영 → 3개월 누적 150건+ 후기 자산 형성.", kpi: "후기 누적 · 구매 전환", recover: "2개월 차" },
-  { num: "③", name: "맘카페 시딩", emoji: "👥", desc: "고관여 지역 커뮤니티에 직접·간접 홍보형 게시글로 구매 전환을 유도. 이벤트 · 공동구매 · 한정 특가에 최적.", kpi: "게시글 CTR · 구매", recover: "1~2주" },
-  { num: "④", name: "인스타 릴스 10/20 PKG", emoji: "📸", desc: "1회 촬영으로 10~20개 콘텐츠를 제작해 푸드 전문 계정에 분산 노출. 영상당 단가 30~50만원 절감.", kpi: "도달 · 저장 · 공유", recover: "2~4주" },
-  { num: "⑤", name: "인플루언서 체험단", emoji: "🌟", desc: "인스타·유튜브·틱톡·블로그 인플루언서의 실체험 후기로 도달과 신뢰를 동시에 확보. 인플루언서별 매출 정량 비교.", kpi: "매체별 매출 비교", recover: "1~3주" },
-  { num: "⑥", name: "라이브커머스", emoji: "🎥", desc: "네이버 쇼핑라이브 · 쿠팡 라이브 · 카카오 쇼핑라이브. 사전 기획 · 라이브 실행 · 사후 클립 활용까지 일괄.", kpi: "시청자 · 매출 · ROAS", recover: "직후~7일" },
+const mediaData = {
+  name: "네이버 클립",
+  emoji: "🎬",
+  position: "CONVERSION",
+  positionLabel: "전환 · 구매 직결",
+  tagline: "네이버 통합검색 1페이지를 30초 숏폼으로 점유합니다.",
+  description: "네이버 통합검색 1페이지에 30초 숏폼 영상을 검색 매칭형 광고로 노출하는 매체입니다. 영상 하단 제품 링크로 시청 → 구매 동선을 원스톱으로 형성합니다.",
+};
+
+const kpis = [
+  { label: "노출 위치", value: "통합검색 1p", emoji: "🎯" },
+  { label: "영상 길이", value: "30초", emoji: "⏱" },
+  { label: "주요 KPI", value: "CTR · 매출", emoji: "📊" },
+  { label: "효과 회수", value: "1개월 차", emoji: "📈" },
 ];
 
-const assetMedia = [
-  { num: "⑦", name: "브랜드 랜딩페이지", emoji: "🌐", desc: "매체 트래픽의 도착지로 작동하며 검색 자산 및 브랜드 이미지 자산을 동시에 누적. 워드프레스 기반 반응형 웹 · SEO · AIO (Schema Markup) 대응.", kpi: "전환율 · 회원가입", recover: "지속 누적" },
-  { num: "⑧", name: "나무위키 세팅", emoji: "📚", desc: "AI 검색 시대의 디지털 평판 기준점. Google · Naver 전통 검색뿐 아니라 Perplexity · ChatGPT · Gemini 등 생성형 AI 검색의 답변 근거 데이터로 활용.", kpi: "검색 노출 · AI 인용", recover: "1~3개월" },
+const strengths = [
+  {
+    title: "검색 매칭형 노출",
+    desc: "타겟 키워드 검색 시 통합검색 1페이지 상단에 영상이 직접 노출되어 광고 회피가 어려움",
+    emoji: "🎯",
+  },
+  {
+    title: "원스톱 구매 동선",
+    desc: "영상 하단에 자동으로 제품 링크가 표시되어 시청 → 클릭 → 구매까지 한 화면에서 완결",
+    emoji: "🛒",
+  },
+  {
+    title: "검색 인텐트 정확성",
+    desc: "이미 해당 키워드를 검색한 고객에게 노출되므로 단순 도달형 광고 대비 전환율 우수",
+    emoji: "✅",
+  },
+  {
+    title: "콘텐츠 자산 누적",
+    desc: "광고 종료 후에도 콘텐츠 자체가 네이버 클립 피드에 잔존하여 자연 검색 유입 지속",
+    emoji: "💎",
+  },
 ];
 
-const awarenessMedia = [
-  { num: "⑨", name: "푸망 프리미엄 심리테스트 PKG", emoji: "🎮", desc: "MZ세대 참여형 콘텐츠로 브랜드 메시지를 '놀이'로 전환하는 인지 확산 매체. MAU 362만 · 월간 PV 200만 · 누적 제작 550건+ · 협업 고객사 260곳+.", kpi: "플레이수 · 결과 CTR", recover: "2~8주" },
-  { num: "⑩", name: "영화따라가기 광고 (롯데시네마)", emoji: "🎞️", desc: "흥행 기대작 상영관에 따라붙는 효율형 스크린 광고로 대중 인지 확보. Great-Zone 109개 극장 / 772개 스크린 / 116,080개 좌석.", kpi: "도달 · 검색량 증가", recover: "개봉 후 4주" },
-];
-
-const scenarios = [
-  { name: "시나리오 A", emoji: "🚀", target: "Type A·B 진입 단계", goal: "Conversion 집중 — 판매·ROAS 검증", media: "네이버 클립 + 블로그 시딩 + 맘카페 + 인스타 릴스 10PKG" },
-  { name: "시나리오 B", emoji: "💎", target: "Type B·D 안정·확장 단계", goal: "Conversion + Asset — 매출 + 회원 DB + 검색 자산", media: "A 매체 + 랜딩페이지 + 나무위키 + 인플루언서" },
-  { name: "시나리오 C", emoji: "✨", target: "Type D 신규 브랜드 런칭", goal: "전 포지션 통합 — 매출 + 자산 + 대중 인지", media: "B 매체 + 릴스 20PKG 업그레이드 + 푸망 + 영화따라가기" },
+const process = [
+  {
+    phase: "Phase 1",
+    title: "사전 기획",
+    period: "1~2주",
+    emoji: "📋",
+    items: [
+      "타겟 키워드 선정 (검색량·경쟁도·구매 인텐트 종합)",
+      "30초 숏폼 콘텐츠 기획 — 후킹·문제 제시·해결·CTA 구조",
+      "영상 스토리보드 + 자막 카피 설계",
+      "제품 링크 UTM 코드 + 쿠폰 코드 발급",
+    ],
+  },
+  {
+    phase: "Phase 2",
+    title: "제작 · 송출",
+    period: "2~3주",
+    emoji: "🎬",
+    items: [
+      "30초 숏폼 영상 촬영·편집 (모바일 우선 세로형)",
+      "썸네일 A/B 테스트용 다중 버전 제작",
+      "네이버 클립 광고 송출 + 키워드 매칭 설정",
+      "초기 CTR · 노출 · 전환 데이터 일일 모니터링",
+    ],
+  },
+  {
+    phase: "Phase 3",
+    title: "최적화 · 측정",
+    period: "1개월~",
+    emoji: "📊",
+    items: [
+      "키워드별 CTR · 전환율 비교 → 효율 키워드 예산 재배분",
+      "썸네일·자막 A/B 테스트 → 최적안으로 통합",
+      "쿠폰 코드 기반 정량 매출 추적",
+      "월간 리포트 — 노출 · CTR · 매출 · ROAS",
+    ],
+  },
 ];
 ---
 
 <BaseLayout
-  title="매체 라인업 10종"
-  description="Conversion 6 · Asset 2 · Awareness 2 — 매출·자산·인지를 동시에 누적하는 10가지 매체."
+  title={`${mediaData.name} — ${mediaData.tagline}`}
+  description={`네이버 클립 매체 운영. 통합검색 1페이지에 30초 숏폼 노출 → 시청부터 구매까지 원스톱 동선 형성.`}
   current="/media/"
 >
-  <PageHero
-    eyebrow="📡 MEDIA LINEUP"
-    title="매체 본연의 역할에 따라 3분류."
-    sub="10개 매체는 우선순위가 아닌 '매체가 무엇을 만드는가'로 분류됩니다. Conversion · Asset · Awareness 세 포지션이 함께 작동할 때 매출·자산·인지가 동시에 누적됩니다."
+  <!-- 1️⃣ 히어로 -->
+  <section class="bg-gradient-soft py-16 lg:py-20 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-3 h-full bg-conversion"></div>
+    <div class="container-page max-w-5xl relative">
+      <div class="flex items-center gap-2 text-sm mb-6 fade-up">
+        <a href="/media/" class="text-ink-mute hover:text-red transition-colors">← 매체 라인업</a>
+      </div>
+      
+      <div class="grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 fade-up">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="text-5xl">{mediaData.emoji}</div>
+            <div class="inline-flex flex-col">
+              <span class="font-en text-conversion text-xs font-bold tracking-wide-en">{mediaData.position}</span>
+              <span class="text-xs text-ink-mute">{mediaData.positionLabel}</span>
+            </div>
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-ink-black mb-4 leading-tight">
+            {mediaData.name}
+          </h1>
+          <p class="text-lg lg:text-xl text-ink-body mb-6">{mediaData.tagline}</p>
+          <p class="text-sm text-ink-mute leading-relaxed">{mediaData.description}</p>
+        </div>
+        
+        <div class="lg:col-span-5 fade-up fade-up-delay-2">
+          <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
+            <div class="text-5xl mb-2 opacity-30">🖼️</div>
+            <div class="text-sm font-bold text-ink-mute">매체 메인 이미지</div>
+            <div class="text-xs text-ink-light mt-1">hero.jpg (1600 × 900px)</div>
+            <div class="text-xs text-ink-light">/public/media/naver-clip/</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2️⃣ 매체 개요 -->
+  <section class="py-16 lg:py-20">
+    <div class="container-page">
+      <div class="fade-up">
+        <div class="section-eyebrow">📊 OVERVIEW</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">매체 개요</h2>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {kpis.map((k, i) => (
+          <div class={`bg-white border-2 border-conversion rounded-md p-6 text-center card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="text-3xl mb-3">{k.emoji}</div>
+            <div class="text-xs font-bold text-ink-mute mb-2">{k.label}</div>
+            <div class="text-xl sm:text-2xl font-black text-conversion">{k.value}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 🆕 실제 집행 화면 -->
+  <section class="bg-bg-light py-16 lg:py-20">
+    <div class="container-page">
+      <div class="fade-up text-center mb-10">
+        <div class="section-eyebrow justify-center" style="display: inline-flex;">📸 EXECUTION</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-3 mt-3">실제 집행 화면</h2>
+        <p class="text-sm text-ink-body max-w-2xl mx-auto">
+          네이버 통합검색 결과 1페이지에 노출된 30초 숏폼 광고 화면입니다.
+        </p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto mb-6 fade-up">
+        <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
+          <div class="text-7xl mb-3 opacity-30">🖼️</div>
+          <div class="text-base font-bold text-ink-mute">통합검색 1p 노출 예시</div>
+          <div class="text-xs text-ink-light mt-2">execution-main.jpg (1920 × 1080px)</div>
+          <div class="text-xs text-ink-light">/public/media/naver-clip/</div>
+          <div class="text-xs text-ink-light mt-2 italic">실제 네이버 검색 결과 화면 캡처</div>
+        </div>
+      </div>
+      
+      <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-4">
+        <div class="fade-up fade-up-delay-1">
+          <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
+            <div class="text-5xl mb-2 opacity-30">🖼️</div>
+            <div class="text-sm font-bold text-ink-mute">숏폼 영상 화면</div>
+            <div class="text-xs text-ink-light mt-1">execution-video.jpg</div>
+            <div class="text-xs text-ink-light">(1200 × 675px)</div>
+          </div>
+        </div>
+        <div class="fade-up fade-up-delay-2">
+          <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
+            <div class="text-5xl mb-2 opacity-30">🖼️</div>
+            <div class="text-sm font-bold text-ink-mute">제품 링크 동선</div>
+            <div class="text-xs text-ink-light mt-1">execution-link.jpg</div>
+            <div class="text-xs text-ink-light">(1200 × 675px)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3️⃣ 강점 -->
+  <section class="py-16 lg:py-20">
+    <div class="container-page max-w-4xl">
+      <div class="fade-up">
+        <div class="section-eyebrow">✨ STRENGTHS</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">왜 네이버 클립인가</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {strengths.map((s, i) => (
+          <div class={`bg-white border-l-[3px] border-conversion p-6 rounded-r-md card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="flex items-center gap-3 mb-3">
+              <div class="text-3xl">{s.emoji}</div>
+              <div class="text-lg font-bold text-ink-dark">{s.title}</div>
+            </div>
+            <div class="text-sm text-ink-body leading-relaxed">{s.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4️⃣ 운영 프로세스 -->
+  <section class="bg-bg-light py-16 lg:py-20">
+    <div class="container-page max-w-4xl">
+      <div class="fade-up">
+        <div class="section-eyebrow">⚡ PROCESS</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">운영 프로세스</h2>
+      </div>
+      <div class="space-y-8">
+        {process.map((p, i) => (
+          <div class={`bg-white border-l-[3px] border-conversion p-6 lg:p-8 rounded-r-md card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="flex items-center gap-4 mb-5">
+              <div class="inline-flex items-center justify-center w-12 h-12 bg-conversion/10 text-conversion rounded-full text-xl">{p.emoji}</div>
+              <div>
+                <div class="font-en text-conversion text-xs font-bold tracking-wide-en mb-1">{p.phase}</div>
+                <div class="flex items-baseline gap-3">
+                  <h3 class="text-lg lg:text-xl font-bold text-ink-dark">{p.title}</h3>
+                  <span class="text-xs font-bold text-conversion">⏱ {p.period}</span>
+                </div>
+              </div>
+            </div>
+            <ul class="space-y-2">
+              {p.items.map(it => (
+                <li class="text-sm text-ink-body flex gap-2">
+                  <span class="text-conversion font-bold flex-shrink-0">▸</span>
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5️⃣ CTA -->
+  <CtaBlock 
+    title="네이버 클립 매체로 운영해보고 싶으신가요?" 
+    sub="단독 매체 집행도, 다른 매체와 조합한 풀스택 운영도 가능합니다. 견적·운영 옵션을 무료로 안내해드립니다."
+    primary="견적 받기" 
+    primaryHref="/contact/" 
+    secondary="다른 매체 보기"
+    secondaryHref="/media/"
   />
-
-  <!-- 3분류 -->
-  <section class="py-16 lg:py-20">
-    <div class="container-page">
-      <div class="grid sm:grid-cols-3 gap-4">
-        <div class="bg-white border-t-4 border-conversion rounded-md p-6 card-hover fade-up fade-up-delay-1">
-          <div class="text-3xl mb-3">🎯</div>
-          <div class="font-en font-bold text-conversion text-sm tracking-wide-en mb-2">CONVERSION</div>
-          <div class="text-base font-bold text-ink-dark mb-2">전환 · 구매 직결</div>
-          <div class="text-sm text-ink-body mb-4">매체 노출이 구매·매출로 직결</div>
-          <div class="text-3xl font-black text-conversion">6종</div>
-        </div>
-        <div class="bg-white border-t-4 border-asset rounded-md p-6 card-hover fade-up fade-up-delay-2">
-          <div class="text-3xl mb-3">💎</div>
-          <div class="font-en font-bold text-asset text-sm tracking-wide-en mb-2">ASSET</div>
-          <div class="text-base font-bold text-ink-dark mb-2">자산 누적</div>
-          <div class="text-sm text-ink-body mb-4">시간이 지날수록 자산 가치 누적</div>
-          <div class="text-3xl font-black text-asset">2종</div>
-        </div>
-        <div class="bg-white border-t-4 border-awareness rounded-md p-6 card-hover fade-up fade-up-delay-3">
-          <div class="text-3xl mb-3">📢</div>
-          <div class="font-en font-bold text-awareness text-sm tracking-wide-en mb-2">AWARENESS</div>
-          <div class="text-base font-bold text-ink-dark mb-2">대중 인지</div>
-          <div class="text-sm text-ink-body mb-4">단일 매체로 광범위한 도달</div>
-          <div class="text-3xl font-black text-awareness">2종</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Conversion 매체 6종 -->
-  <section class="bg-bg-light py-16 lg:py-20">
-    <div class="container-page">
-      <div class="fade-up">
-        <div class="section-eyebrow">🎯 CONVERSION 매체 6종</div>
-        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">매체 노출이 구매·매출로 직결되는 매체</h2>
-      </div>
-      <div class="space-y-4">
-        {conversionMedia.map((m, i) => (
-          <div class={`bg-white border-l-[3px] border-conversion p-5 rounded-r-md card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
-            <div class="flex items-start gap-3 mb-2">
-              <div class="text-2xl">{m.emoji}</div>
-              <div class="flex-1">
-                <div class="flex items-baseline gap-3 mb-1">
-                  <span class="text-conversion text-lg font-black">{m.num}</span>
-                  <h3 class="text-lg font-bold text-ink-dark">{m.name}</h3>
-                </div>
-                <p class="text-sm text-ink-body leading-relaxed mb-2">{m.desc}</p>
-                <div class="text-xs text-conversion font-bold">📊 KPI: {m.kpi} | ⏱ {m.recover}</div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Asset 매체 2종 -->
-  <section class="py-16 lg:py-20">
-    <div class="container-page">
-      <div class="fade-up">
-        <div class="section-eyebrow">💎 ASSET 매체 2종</div>
-        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">시간이 지날수록 자산 가치가 누적되는 매체</h2>
-      </div>
-      <div class="space-y-4">
-        {assetMedia.map((m, i) => (
-          <div class={`bg-bg-card border-l-[3px] border-asset p-6 rounded-r-md card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
-            <div class="flex items-start gap-3 mb-3">
-              <div class="text-3xl">{m.emoji}</div>
-              <div class="flex-1">
-                <div class="flex items-baseline gap-3 mb-2">
-                  <span class="text-asset text-2xl font-black">{m.num}</span>
-                  <h3 class="text-xl font-bold text-ink-dark">{m.name}</h3>
-                </div>
-                <p class="text-sm text-ink-body leading-relaxed mb-3">{m.desc}</p>
-                <div class="text-xs text-asset font-bold">📊 KPI: {m.kpi} | ⏱ {m.recover}</div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Awareness 매체 2종 -->
-  <section class="bg-bg-light py-16 lg:py-20">
-    <div class="container-page">
-      <div class="fade-up">
-        <div class="section-eyebrow">📢 AWARENESS 매체 2종</div>
-        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">카테고리 인지를 한 단계 점프시키는 대중 매체</h2>
-      </div>
-      <div class="space-y-4">
-        {awarenessMedia.map((m, i) => (
-          <div class={`bg-white border-l-[3px] border-awareness p-6 rounded-r-md card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
-            <div class="flex items-start gap-3 mb-3">
-              <div class="text-3xl">{m.emoji}</div>
-              <div class="flex-1">
-                <div class="flex items-baseline gap-3 mb-2">
-                  <span class="text-awareness text-2xl font-black">{m.num}</span>
-                  <h3 class="text-xl font-bold text-ink-dark">{m.name}</h3>
-                </div>
-                <p class="text-sm text-ink-body leading-relaxed mb-3">{m.desc}</p>
-                <div class="text-xs text-awareness font-bold">📊 KPI: {m.kpi} | ⏱ {m.recover}</div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- 시나리오 -->
-  <section class="py-16 lg:py-20">
-    <div class="container-page">
-      <div class="fade-up">
-        <div class="section-eyebrow">🎬 SCENARIOS</div>
-        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">매체 추천 조합 시나리오</h2>
-      </div>
-      <div class="space-y-4">
-        {scenarios.map((s, i) => (
-          <div class={`bg-white border-l-[3px] border-red p-6 card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
-            <div class="flex items-baseline justify-between gap-3 mb-3 flex-wrap">
-              <div class="flex items-center gap-3">
-                <span class="text-2xl">{s.emoji}</span>
-                <h3 class="text-lg font-black text-red">{s.name}</h3>
-              </div>
-              <div class="text-xs text-ink-mute italic">{s.target}</div>
-            </div>
-            <div class="text-base font-bold text-ink-dark mb-2">{s.goal}</div>
-            <div class="text-sm text-ink-body">📡 {s.media}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <CtaBlock title="매체만 단독으로 진행하고 싶으신가요?" primary="매체 단독 견적 받기" primaryHref="/contact/" />
 </BaseLayout>
