@@ -1,1 +1,383 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CtaBlock from "../../../components/CtaBlock.astro";
 
+const caseData = {
+  brand: "세라블룸",
+  category: "건강기능식품",
+  emoji: "💊",
+  tagline: "광고법 컴플라이언스 + SEO 효율 확보",
+  period: "10개월 운영",
+  startDate: "2025년 6월",
+  modules: ["SEO", "판매 촉진", "콘텐츠", "운영관리"],
+  channels: ["자사몰", "네이버 스마트스토어", "쿠팡", "올리브영 온라인"],
+  options: "옵션 4 (혼합 — 정액 + 매체)",
+};
+
+const background = [
+  "건강기능식품 카테고리 자체 브랜드 운영 중인 신생 브랜드",
+  "초기 광고 집행 시 일부 표현이 광고법 위반 소지가 있어 심의 반려 다수 경험",
+  "검색 노출은 낮은 편이며, 후기 자산도 적어 신뢰도 확보가 시급",
+  "식약처 가이드 준수와 판매 매출 견인을 동시에 달성해야 하는 상황",
+];
+
+const challenges = [
+  { title: "광고법 위반 리스크", desc: "건기식 광고 심의·표시광고법으로 인한 반려·과징금 부담" },
+  { title: "검색 자산 부재", desc: "카테고리 키워드 노출 거의 0건, 후기 자산 형성 미흡" },
+  { title: "신뢰도 확보 필요", desc: "건강 카테고리 특성상 후기·전문성 콘텐츠가 구매 결정적 요소" },
+  { title: "콘텐츠 일관성 부족", desc: "채널별 상세페이지·매체 소재가 분산되어 메시지 통일 어려움" },
+];
+
+const approach = [
+  {
+    phase: "Phase 1", title: "광고법 컴플라이언스 체계 구축 (1~2개월)", emoji: "⚖️",
+    items: [
+      "식약처 건기식 광고 심의 기준 기반 표현 가이드 작성 (사내 표준)",
+      "기존 상세페이지·매체 소재 전수 점검 → 위반 소지 표현 일괄 정리",
+      "광고 심의 사전 검수 프로세스 도입 — 외부 송출 전 자체 1차 검수",
+      "기능성 표시 vs 일반 표현 명확 구분 — 카테고리별 표준 문구 라이브러리",
+    ],
+  },
+  {
+    phase: "Phase 2", title: "SEO 최적화 + 콘텐츠 재구성 (2~6개월)", emoji: "🔍",
+    items: [
+      "네이버 SEO 키워드 27개 타겟팅 (메인 카테고리 + 롱테일)",
+      "상세페이지 카테고리별 최적화 — 후킹·차별점·기능성·후기·CTA 구조 표준화",
+      "블로그 시딩 (월 30명) — 광고법 범위 내 실체험 후기 콘텐츠 확보",
+      "FAQ·복용법 콘텐츠 추가 — 검색 유입 키워드 확장 + 신뢰도 보완",
+    ],
+  },
+  {
+    phase: "Phase 3", title: "Conversion 매체 + 후기 누적 (3~10개월)", emoji: "📈",
+    items: [
+      "맘카페 시딩 — 30대~50대 여성 타겟 카테고리에 집중 노출",
+      "인플루언서 체험단 — 건기식 카테고리 전문 인플루언서 12명 운영",
+      "리뷰 답글 정책 표준화 — 의학·약리 표현 회피하며 전문성 어필",
+      "월간 매출 + 검색 노출 + 후기 누적 동시 측정 → KPI 조정",
+    ],
+  },
+];
+
+const results = [
+  { label: "검색 1p 키워드", value: "27개", note: "네이버 카테고리 키워드", emoji: "🔍" },
+  { label: "월 매출 성장", value: "2.8배", note: "전년 동월 대비", emoji: "📈" },
+  { label: "광고 심의 통과율", value: "100%", note: "10개월 누적 (위반 0건)", emoji: "✅" },
+  { label: "월 후기 누적", value: "180건+", note: "자사몰 + 채널 합산", emoji: "⭐" },
+];
+
+const beforeAfter = [
+  { label: "광고 심의 위반", before: "월 평균 3~5건", after: "10개월 누적 0건" },
+  { label: "검색 1p 키워드", before: "3개", after: "27개" },
+  { label: "월 매출", before: "기준 1.0", after: "기준 2.8" },
+  { label: "월간 후기 수집", before: "30건 내외", after: "180건+" },
+  { label: "콘텐츠 표준화", before: "채널별 상이", after: "통합 표준 적용" },
+];
+
+const insights = [
+  {
+    quote: "광고법 위반이 매번 발목을 잡았는데, 표준 가이드를 만들어 주신 후로 심의 반려가 0건이에요. 매체 집행이 부드러워지면서 매출도 자연스럽게 따라왔습니다.",
+    role: "대표",
+  },
+  {
+    quote: "건기식 카테고리는 신뢰가 곧 매출인데, 검색 노출과 후기 자산이 동시에 쌓이니까 전환율이 눈에 띄게 달라졌어요. 운영 안정성이 가장 큰 자산이 됐습니다.",
+    role: "마케팅 담당",
+  },
+];
+
+const relatedCases = [
+  { slug: "richfarm", brand: "마켓리치팜", category: "건강기능식품", emoji: "🌿", tagline: "프리미엄 라인 진입과 객단가 개선" },
+  { slug: "huonsn", brand: "휴온스엔", category: "헬스케어", emoji: "🏥", tagline: "라이브커머스 + 브랜드 자산 통합" },
+];
+---
+
+<BaseLayout
+  title={`${caseData.brand} 사례 — ${caseData.tagline}`}
+  description={`${caseData.brand} 운영 사례. ${caseData.period}, 검색 1p 27개·매출 2.8배·광고 심의 통과율 100% 달성.`}
+  current="/cases/"
+>
+  <section class="bg-gradient-soft py-16 lg:py-20 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-3 h-full bg-red"></div>
+    <div class="container-page max-w-5xl relative">
+      <div class="flex items-center gap-2 text-sm mb-6 fade-up">
+        <a href="/cases/" class="text-ink-mute hover:text-red transition-colors">← 사례 목록</a>
+      </div>
+      <div class="grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 fade-up">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="text-5xl">{caseData.emoji}</div>
+            <div class="font-en text-red text-sm font-bold tracking-wide-en">{caseData.category} CASE</div>
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-ink-black mb-4 leading-tight">{caseData.brand}</h1>
+          <p class="text-lg lg:text-xl text-ink-body mb-6">{caseData.tagline}</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            {caseData.modules.map(m => (
+              <span class="text-xs bg-white text-ink-body px-3 py-1.5 rounded-full border border-gray-200">▸ {m}</span>
+            ))}
+          </div>
+          <div class="grid grid-cols-3 gap-4 text-sm">
+            <div>
+              <div class="text-xs text-ink-mute mb-1">📅 운영 기간</div>
+              <div class="font-bold text-red">{caseData.period}</div>
+            </div>
+            <div>
+              <div class="text-xs text-ink-mute mb-1">🚀 시작 시점</div>
+              <div class="font-bold text-ink-dark">{caseData.startDate}</div>
+            </div>
+            <div>
+              <div class="text-xs text-ink-mute mb-1">💎 비용 구조</div>
+              <div class="font-bold text-ink-dark text-xs">{caseData.options}</div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-5 fade-up fade-up-delay-2">
+          <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
+            <div class="text-5xl mb-2 opacity-30">🖼️</div>
+            <div class="text-sm font-bold text-ink-mute">메인 이미지</div>
+            <div class="text-xs text-ink-light mt-1">hero.jpg (1600 × 900px)</div>
+            <div class="text-xs text-ink-light">/public/cases/serabloom/</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20">
+    <div class="container-page">
+      <div class="fade-up">
+        <div class="section-eyebrow">📊 RESULTS</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">정량 결과</h2>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {results.map((r, i) => (
+          <div class={`stat-card bg-white border-2 border-red rounded-md p-6 text-center card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="text-3xl mb-3">{r.emoji}</div>
+            <div class="text-xs font-bold text-ink-mute mb-2">{r.label}</div>
+            <div class="stat-number text-2xl sm:text-3xl font-black text-red mb-2">{r.value}</div>
+            <div class="text-xs text-ink-light">{r.note}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bg-light py-16 lg:py-20">
+    <div class="container-page max-w-4xl">
+      <div class="fade-up">
+        <div class="section-eyebrow">📋 BACKGROUND</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">클라이언트 배경</h2>
+      </div>
+      <div class="bg-white rounded-md p-6 lg:p-8 mb-8 fade-up">
+        <div class="text-sm font-bold text-red mb-4 flex items-center gap-2">
+          <span>💊</span> 클라이언트 상황
+        </div>
+        <ul class="space-y-3">
+          {background.map(b => (
+            <li class="text-sm text-ink-body flex gap-2">
+              <span class="text-red font-bold flex-shrink-0">▸</span>
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="fade-up">
+        <div class="text-sm font-bold text-red mb-4 flex items-center gap-2">
+          <span>⚠️</span> 핵심 도전 과제
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {challenges.map((c, i) => (
+            <div class={`bg-white border-l-[3px] border-red p-5 rounded-r-md card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+              <div class="text-base font-bold text-ink-dark mb-2">{c.title}</div>
+              <div class="text-sm text-ink-body leading-relaxed">{c.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20">
+    <div class="container-page max-w-4xl">
+      <div class="fade-up">
+        <div class="section-eyebrow">🎯 OUR APPROACH</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">우리의 접근</h2>
+      </div>
+      <div class="space-y-8">
+        {approach.map((p, i) => (
+          <div class={`bg-bg-card border-l-[3px] border-red p-6 lg:p-8 rounded-r-md card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="flex items-center gap-4 mb-5">
+              <div class="icon-circle-red">{p.emoji}</div>
+              <div>
+                <div class="font-en text-red text-xs font-bold tracking-wide-en mb-1">{p.phase}</div>
+                <h3 class="text-lg lg:text-xl font-bold text-ink-dark">{p.title}</h3>
+              </div>
+            </div>
+            <ul class="space-y-2">
+              {p.items.map(it => (
+                <li class="text-sm text-ink-body flex gap-2">
+                  <span class="text-red font-bold flex-shrink-0">▸</span>
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bg-light py-16 lg:py-20">
+    <div class="container-page">
+      <div class="fade-up">
+        <div class="section-eyebrow">📸 GALLERY</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">운영 화면 · 콘텐츠 샘플</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-1">
+          <div class="text-5xl mb-2 opacity-30">🖼️</div>
+          <div class="text-sm font-bold text-ink-mute">자사몰 메인</div>
+          <div class="text-xs text-ink-light mt-1">screen-mall.jpg</div>
+          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        </div>
+        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-2">
+          <div class="text-5xl mb-2 opacity-30">🖼️</div>
+          <div class="text-sm font-bold text-ink-mute">광고법 가이드 문서</div>
+          <div class="text-xs text-ink-light mt-1">compliance.jpg</div>
+          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        </div>
+        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-3">
+          <div class="text-5xl mb-2 opacity-30">🖼️</div>
+          <div class="text-sm font-bold text-ink-mute">상세페이지 샘플</div>
+          <div class="text-xs text-ink-light mt-1">detail-sample.jpg</div>
+          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        </div>
+        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-1">
+          <div class="text-5xl mb-2 opacity-30">🖼️</div>
+          <div class="text-sm font-bold text-ink-mute">SEO 키워드 리포트</div>
+          <div class="text-xs text-ink-light mt-1">seo-report.jpg</div>
+          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        </div>
+        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-2">
+          <div class="text-5xl mb-2 opacity-30">🖼️</div>
+          <div class="text-sm font-bold text-ink-mute">블로그 시딩 후기</div>
+          <div class="text-xs text-ink-light mt-1">blog-review.jpg</div>
+          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        </div>
+        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-3">
+          <div class="text-5xl mb-2 opacity-30">🖼️</div>
+          <div class="text-sm font-bold text-ink-mute">매출 성장 그래프</div>
+          <div class="text-xs text-ink-light mt-1">growth-chart.jpg</div>
+          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20">
+    <div class="container-page max-w-4xl">
+      <div class="fade-up">
+        <div class="section-eyebrow">⚡ BEFORE / AFTER</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">운영 전·후 변화</h2>
+      </div>
+      <div class="bg-white rounded-md overflow-hidden border border-gray-200 fade-up">
+        <div class="grid grid-cols-3 bg-red text-white text-sm font-bold">
+          <div class="p-4">📊 구분</div>
+          <div class="p-4 border-l border-white/20">⏪ Before</div>
+          <div class="p-4 border-l border-white/20">⏩ After</div>
+        </div>
+        {beforeAfter.map((row, i) => (
+          <div class={`grid grid-cols-3 text-sm border-t border-gray-100 ${i % 2 === 1 ? "bg-bg-light" : ""}`}>
+            <div class="p-4 font-bold text-ink-dark">{row.label}</div>
+            <div class="p-4 text-ink-mute border-l border-gray-100">{row.before}</div>
+            <div class="p-4 font-bold text-red border-l border-gray-100">{row.after}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-ink-black text-white py-16 lg:py-20">
+    <div class="container-page max-w-4xl">
+      <div class="fade-up">
+        <div class="section-eyebrow">💬 INSIGHTS</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-white mb-10">클라이언트 인사이트</h2>
+      </div>
+      <div class="space-y-6">
+        {insights.map((insight, i) => (
+          <div class={`bg-white/5 border-l-[3px] border-red p-6 lg:p-8 rounded-r-md fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="text-2xl text-red mb-3">"</div>
+            <p class="text-base lg:text-lg text-white/90 leading-relaxed mb-4 italic">{insight.quote}</p>
+            <div class="text-xs text-red font-bold tracking-wide-en">— {caseData.brand} {insight.role}</div>
+          </div>
+        ))}
+      </div>
+      <p class="text-xs text-white/40 italic mt-8 text-center">
+        * 본 인용구는 운영 과정에서 받은 피드백을 재구성한 것이며, NDA에 따라 일부 표현은 조정되었습니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20">
+    <div class="container-page max-w-4xl">
+      <div class="fade-up">
+        <div class="section-eyebrow">🧩 SOLUTION APPLIED</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">적용 솔루션 요약</h2>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="bg-bg-card p-6 rounded-md card-hover fade-up fade-up-delay-1">
+          <div class="text-3xl mb-3">🧩</div>
+          <div class="font-en text-red text-xs font-bold tracking-wide-en mb-2">MODULES</div>
+          <div class="text-base font-bold text-ink-dark mb-3">적용 모듈</div>
+          <ul class="space-y-1.5">
+            {caseData.modules.map(m => (
+              <li class="text-sm text-ink-body flex gap-2"><span class="text-red">▸</span><span>{m}</span></li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-bg-card p-6 rounded-md card-hover fade-up fade-up-delay-2">
+          <div class="text-3xl mb-3">🛒</div>
+          <div class="font-en text-red text-xs font-bold tracking-wide-en mb-2">CHANNELS</div>
+          <div class="text-base font-bold text-ink-dark mb-3">운영 채널</div>
+          <ul class="space-y-1.5">
+            {caseData.channels.map(c => (
+              <li class="text-sm text-ink-body flex gap-2"><span class="text-red">▸</span><span>{c}</span></li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-bg-card p-6 rounded-md card-hover fade-up fade-up-delay-3">
+          <div class="text-3xl mb-3">💎</div>
+          <div class="font-en text-red text-xs font-bold tracking-wide-en mb-2">PRICING</div>
+          <div class="text-base font-bold text-ink-dark mb-3">비용 구조</div>
+          <div class="text-sm text-ink-body">{caseData.options}</div>
+          <a href="/pricing/" class="text-xs text-red font-bold mt-3 inline-block link-slide">비용 구조 보기 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bg-light py-16 lg:py-20">
+    <div class="container-page">
+      <div class="fade-up">
+        <div class="section-eyebrow">🔗 RELATED CASES</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">다른 사례 보기</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {relatedCases.map((c, i) => (
+          <a href={`/cases/${c.slug}/`} class={`bg-white rounded-md p-6 card-glow card-line-top block fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="flex items-center gap-3 mb-3">
+              <div class="icon-circle-red">{c.emoji}</div>
+              <div class="font-en text-red text-xs font-bold tracking-wide-en">{c.category}</div>
+            </div>
+            <div class="text-xl font-bold text-ink-dark mb-2">{c.brand}</div>
+            <div class="text-sm text-ink-body mb-4">{c.tagline}</div>
+            <div class="link-slide text-red text-sm">상세 보기<span class="arrow-icon">→</span></div>
+          </a>
+        ))}
+      </div>
+      <div class="mt-8 text-center fade-up">
+        <a href="/cases/" class="btn-secondary">전체 사례 보기<span class="arrow-icon">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <CtaBlock title="건강기능식품 운영에 관심 있으신가요?" primary="유사 카테고리 문의" primaryHref="/contact/" />
+</BaseLayout>
