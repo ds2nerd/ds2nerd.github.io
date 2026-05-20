@@ -1,0 +1,65 @@
+# ============================================
+# 골드넥스 커머스 솔루션 — robots.txt
+# https://ds2nerd.github.io/
+# ============================================
+
+# 모든 검색 크롤러 허용
+User-agent: *
+Allow: /
+
+# 중복 슬러그 페이지 차단 (잘못된 슬러그로 만들어진 폴더)
+Disallow: /cases/serabloom/
+Disallow: /media/pumang/
+
+# 검색 결과 노출 불필요한 페이지 (있다면)
+Disallow: /404
+Disallow: /500
+
+# ============================================
+# 주요 검색엔진별 명시 (선택 사항이나 권장)
+# ============================================
+
+# 구글
+User-agent: Googlebot
+Allow: /
+Disallow: /cases/serabloom/
+Disallow: /media/pumang/
+
+# 네이버 (Yeti)
+User-agent: Yeti
+Allow: /
+Disallow: /cases/serabloom/
+Disallow: /media/pumang/
+
+# 다음 (Daum)
+User-agent: Daum
+Allow: /
+
+# 빙
+User-agent: Bingbot
+Allow: /
+
+# ============================================
+# AI 검색 크롤러
+# ============================================
+
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+
+# Google AI (Gemini)
+User-agent: Google-Extended
+Allow: /
+
+# ============================================
+# 사이트맵 위치
+# ============================================
+Sitemap: https://ds2nerd.github.io/sitemap.xml
