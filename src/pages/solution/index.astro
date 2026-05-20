@@ -5,7 +5,7 @@ import CtaBlock from "../../components/CtaBlock.astro";
 
 const modules1 = [
   {
-    num: "01", name: "쇼핑몰 세팅",
+    num: "01", name: "쇼핑몰 세팅", emoji: "🛒",
     items: [
       { label: "자사몰", desc: "카페24 · 메이크샵 · 아임웹 · 고도몰 · 워드프레스(우커머스 커스텀)" },
       { label: "포털 스토어", desc: "네이버 스마트스토어 · 네이버 브랜드스토어" },
@@ -15,7 +15,7 @@ const modules1 = [
     ],
   },
   {
-    num: "02", name: "운영관리",
+    num: "02", name: "운영관리", emoji: "⚙️",
     items: [
       { label: "상품 관리", desc: "신상품 등록 · 가격 변경 · 재고 동기화 · 단종·품절 처리" },
       { label: "채널 운영", desc: "프로모션 캘린더 · 쿠팡 로켓제휴 · 네이버 도착보장 · MD 행사" },
@@ -25,7 +25,7 @@ const modules1 = [
     ],
   },
   {
-    num: "03", name: "물류",
+    num: "03", name: "물류", emoji: "📦",
     items: [
       { label: "Track 1", desc: "풀필먼트 제휴 운영 (파스토 · 콜로세움 등) — 600+ 쇼핑몰 자동 연동" },
       { label: "Track 2", desc: "자체 물류 관리 (ERP 연동 → 주문 수집 · 송장 · 출고 · 반품)" },
@@ -36,7 +36,7 @@ const modules1 = [
 
 const modules2 = [
   {
-    num: "04", name: "CS·평판관리",
+    num: "04", name: "CS·평판관리", emoji: "💬",
     items: [
       { label: "옴니채널 응대 (8개)", desc: "톡톡 · 쿠팡 · 오픈마켓 · 자사몰 · 카카오 · 메일 · 전화 · SNS DM" },
       { label: "3-Tier 모델", desc: "베이직 · 익스텐디드 · 24/7 — 운영 규모에 맞춰 선택" },
@@ -44,7 +44,7 @@ const modules2 = [
     ],
   },
   {
-    num: "05", name: "콘텐츠 제작",
+    num: "05", name: "콘텐츠 제작", emoji: "🎨",
     items: [
       { label: "상세페이지", desc: "채널별 최적화 · 모바일 우선 설계 · 후킹·차별점·후기·CTA 구조" },
       { label: "썸네일·비주얼", desc: "상품 대표 이미지 · A/B 테스트용 다중 버전" },
@@ -53,7 +53,7 @@ const modules2 = [
     ],
   },
   {
-    num: "06", name: "매체 운영 (10종)",
+    num: "06", name: "매체 운영 (10종)", emoji: "📡",
     items: [
       { label: "Conversion 6", desc: "네이버 클립 · 블로그 시딩 · 맘카페 시딩 · 인스타 릴스 PKG · 인플루언서 · 라이브" },
       { label: "Asset 2", desc: "브랜드 랜딩페이지 · 나무위키 세팅 (AI 검색 대응)" },
@@ -63,11 +63,11 @@ const modules2 = [
 ];
 
 const reasons = [
-  { num: "01", title: "단계별 진단·처방", desc: "일률적 패키지가 아닌 4유형 진단 후 맞춤 설계" },
-  { num: "02", title: "유연한 비용 구조", desc: "클라이언트 부담 0원부터 시작 가능 (옵션 1 RS)" },
-  { num: "03", title: "정량 측정 운영", desc: "모든 매체에 고유 쿠폰 코드 · UTM 적용" },
-  { num: "04", title: "검증된 카테고리 강점", desc: "F&B · 건기식 · 헬스케어 · 네이버 생태계" },
-  { num: "05", title: "AI 검색 시대 대응", desc: "나무위키 · Schema 적용 랜딩페이지" },
+  { num: "01", title: "단계별 진단·처방", desc: "일률적 패키지가 아닌 4유형 진단 후 맞춤 설계", emoji: "🔍" },
+  { num: "02", title: "유연한 비용 구조", desc: "클라이언트 부담 0원부터 시작 가능 (옵션 1 RS)", emoji: "💰" },
+  { num: "03", title: "정량 측정 운영", desc: "모든 매체에 고유 쿠폰 코드 · UTM 적용", emoji: "📊" },
+  { num: "04", title: "검증된 카테고리 강점", desc: "F&B · 건기식 · 헬스케어 · 네이버 생태계", emoji: "🏆" },
+  { num: "05", title: "AI 검색 시대 대응", desc: "나무위키 · Schema 적용 랜딩페이지", emoji: "🤖" },
 ];
 ---
 
@@ -77,31 +77,36 @@ const reasons = [
   current="/solution/"
 >
   <PageHero
-    eyebrow="SOLUTION"
+    eyebrow="🎯 SOLUTION"
     title="이커머스 운영의 모든 영역을 풀스택으로."
     sub="쇼핑몰 진입부터 매출까지, 6대 운영 모듈과 10개 매체를 4가지 비용 구조로 조합해 클라이언트의 단계에 맞춰 최적의 운영 모델을 제공합니다."
   />
 
-  <!-- 솔루션 구조 다이어그램 -->
+  <!-- 솔루션 구조 -->
   <section class="py-16 lg:py-20">
     <div class="container-page">
-      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">OVERVIEW</div>
-      <h2 class="text-2xl sm:text-4xl font-black text-ink-black mb-10">
-        6대 모듈 × 10개 매체 × 4가지 비용 구조
-      </h2>
+      <div class="fade-up">
+        <div class="section-eyebrow">⚡ OVERVIEW</div>
+        <h2 class="text-2xl sm:text-4xl font-black text-ink-black mb-10">
+          6대 모듈 × 10개 매체 × 4가지 비용 구조
+        </h2>
+      </div>
       <div class="grid sm:grid-cols-3 gap-4">
-        <div class="bg-bg-light p-6 rounded-md text-center">
-          <div class="text-5xl font-black text-red mb-2">6</div>
+        <div class="bg-bg-light p-6 rounded-md text-center stat-card card-hover fade-up fade-up-delay-1">
+          <div class="text-3xl mb-2">🧩</div>
+          <div class="stat-number text-5xl font-black text-red mb-2">6</div>
           <div class="font-bold text-ink-dark mb-1">서비스 모듈</div>
           <div class="text-xs text-ink-mute">세팅 · 운영 · 물류 · CS · 콘텐츠 · 매체</div>
         </div>
-        <div class="bg-bg-light p-6 rounded-md text-center">
-          <div class="text-5xl font-black text-red mb-2">10</div>
+        <div class="bg-bg-light p-6 rounded-md text-center stat-card card-hover fade-up fade-up-delay-2">
+          <div class="text-3xl mb-2">📡</div>
+          <div class="stat-number text-5xl font-black text-red mb-2">10</div>
           <div class="font-bold text-ink-dark mb-1">매체 라인업</div>
           <div class="text-xs text-ink-mute">Conversion 6 · Asset 2 · Awareness 2</div>
         </div>
-        <div class="bg-bg-light p-6 rounded-md text-center">
-          <div class="text-5xl font-black text-red mb-2">4</div>
+        <div class="bg-bg-light p-6 rounded-md text-center stat-card card-hover fade-up fade-up-delay-3">
+          <div class="text-3xl mb-2">💎</div>
+          <div class="stat-number text-5xl font-black text-red mb-2">4</div>
           <div class="font-bold text-ink-dark mb-1">비용 옵션</div>
           <div class="text-xs text-ink-mute">RS · 정액 · 매체 · 혼합</div>
         </div>
@@ -112,19 +117,24 @@ const reasons = [
   <!-- Module 01~03 -->
   <section class="bg-bg-light py-16 lg:py-20">
     <div class="container-page">
-      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">MODULE 01 — 03</div>
-      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">진입과 운영을 위한 기반 모듈</h2>
+      <div class="fade-up">
+        <div class="section-eyebrow">🔧 MODULE 01 — 03</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">진입과 운영을 위한 기반 모듈</h2>
+      </div>
       <div class="space-y-8">
-        {modules1.map(m => (
-          <div class="bg-white rounded-md p-6 lg:p-8">
-            <div class="flex items-baseline gap-4 mb-5">
-              <div class="font-en text-red text-base font-bold tracking-wide-en">MODULE {m.num}</div>
-              <h3 class="text-xl lg:text-2xl font-black text-ink-dark">{m.name}</h3>
+        {modules1.map((m, i) => (
+          <div class={`bg-white rounded-md p-6 lg:p-8 card-glow card-line-top fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="flex items-center gap-4 mb-5">
+              <div class="icon-circle-red">{m.emoji}</div>
+              <div>
+                <div class="font-en text-red text-base font-bold tracking-wide-en">MODULE {m.num}</div>
+                <h3 class="text-xl lg:text-2xl font-black text-ink-dark">{m.name}</h3>
+              </div>
             </div>
             <div class="space-y-3">
               {m.items.map(it => (
                 <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 pb-3 border-b border-gray-100 last:border-0">
-                  <div class="sm:w-44 font-bold text-red text-sm">{it.label}</div>
+                  <div class="sm:w-44 font-bold text-red text-sm">▸ {it.label}</div>
                   <div class="flex-1 text-sm text-ink-body">{it.desc}</div>
                 </div>
               ))}
@@ -138,19 +148,24 @@ const reasons = [
   <!-- Module 04~06 -->
   <section class="py-16 lg:py-20">
     <div class="container-page">
-      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">MODULE 04 — 06</div>
-      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">고객 접점과 매출 견인 모듈</h2>
+      <div class="fade-up">
+        <div class="section-eyebrow">🚀 MODULE 04 — 06</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">고객 접점과 매출 견인 모듈</h2>
+      </div>
       <div class="space-y-8">
-        {modules2.map(m => (
-          <div class="bg-bg-card border-l-[3px] border-red rounded-r-md p-6 lg:p-8">
-            <div class="flex items-baseline gap-4 mb-5">
-              <div class="font-en text-red text-base font-bold tracking-wide-en">MODULE {m.num}</div>
-              <h3 class="text-xl lg:text-2xl font-black text-ink-dark">{m.name}</h3>
+        {modules2.map((m, i) => (
+          <div class={`bg-bg-card border-l-[3px] border-red rounded-r-md p-6 lg:p-8 card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="flex items-center gap-4 mb-5">
+              <div class="icon-circle-red">{m.emoji}</div>
+              <div>
+                <div class="font-en text-red text-base font-bold tracking-wide-en">MODULE {m.num}</div>
+                <h3 class="text-xl lg:text-2xl font-black text-ink-dark">{m.name}</h3>
+              </div>
             </div>
             <div class="space-y-3">
               {m.items.map(it => (
                 <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 pb-3 border-b border-gray-200 last:border-0">
-                  <div class="sm:w-44 font-bold text-red text-sm">{it.label}</div>
+                  <div class="sm:w-44 font-bold text-red text-sm">▸ {it.label}</div>
                   <div class="flex-1 text-sm text-ink-body">{it.desc}</div>
                 </div>
               ))}
@@ -161,56 +176,72 @@ const reasons = [
     </div>
   </section>
 
-  <!-- 매체 라인업 안내 -->
+  <!-- 매체·비용 안내 -->
   <section class="bg-bg-light py-16 lg:py-20">
     <div class="container-page text-center">
-      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">MEDIA LINEUP</div>
-      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-4">10개 매체 라인업</h2>
-      <p class="text-base text-ink-body max-w-2xl mx-auto mb-8">
-        매체 본연의 역할에 따라 3분류 — 매출 · 자산 · 인지를 동시에 누적합니다.
-      </p>
+      <div class="fade-up">
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-4 mt-3">📺 10개 매체 라인업</h2>
+        <p class="text-base text-ink-body max-w-2xl mx-auto mb-8">
+          매체 본연의 역할에 따라 3분류 — 매출 · 자산 · 인지를 동시에 누적합니다.
+        </p>
+      </div>
       <div class="grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto mb-8">
-        <div class="bg-white border-t-4 border-conversion p-5">
+        <div class="bg-white border-t-4 border-conversion p-5 card-hover fade-up fade-up-delay-1">
+          <div class="text-2xl mb-2">🎯</div>
           <div class="font-en font-bold text-conversion text-sm tracking-wide-en mb-2">CONVERSION</div>
           <div class="text-xs text-ink-mute mb-2">전환 · 구매 직결</div>
           <div class="text-2xl font-black text-conversion">6종</div>
         </div>
-        <div class="bg-white border-t-4 border-asset p-5">
+        <div class="bg-white border-t-4 border-asset p-5 card-hover fade-up fade-up-delay-2">
+          <div class="text-2xl mb-2">💎</div>
           <div class="font-en font-bold text-asset text-sm tracking-wide-en mb-2">ASSET</div>
           <div class="text-xs text-ink-mute mb-2">자산 누적</div>
           <div class="text-2xl font-black text-asset">2종</div>
         </div>
-        <div class="bg-white border-t-4 border-awareness p-5">
+        <div class="bg-white border-t-4 border-awareness p-5 card-hover fade-up fade-up-delay-3">
+          <div class="text-2xl mb-2">📢</div>
           <div class="font-en font-bold text-awareness text-sm tracking-wide-en mb-2">AWARENESS</div>
           <div class="text-xs text-ink-mute mb-2">대중 인지</div>
           <div class="text-2xl font-black text-awareness">2종</div>
         </div>
       </div>
-      <a href="/media/" class="btn-secondary">매체 라인업 자세히 보기 →</a>
+      <a href="/media/" class="btn-secondary fade-up">
+        매체 라인업 자세히 보기
+        <span class="arrow-icon">→</span>
+      </a>
     </div>
   </section>
 
-  <!-- 비용 구조 안내 -->
+  <!-- 비용 안내 -->
   <section class="py-16 lg:py-20">
     <div class="container-page text-center">
-      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">PRICING</div>
-      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-4">4가지 비용 구조</h2>
-      <p class="text-base text-ink-body max-w-2xl mx-auto mb-8">
-        RS · 월 정액 · 매체 단독 · 혼합 — 단계에 맞춰 자유롭게 선택·조합
-      </p>
-      <a href="/pricing/" class="btn-secondary">비용 구조 자세히 보기 →</a>
+      <div class="fade-up">
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-4 mt-3">💰 4가지 비용 구조</h2>
+        <p class="text-base text-ink-body max-w-2xl mx-auto mb-8">
+          RS · 월 정액 · 매체 단독 · 혼합 — 단계에 맞춰 자유롭게 선택·조합
+        </p>
+        <a href="/pricing/" class="btn-secondary">
+          비용 구조 자세히 보기
+          <span class="arrow-icon">→</span>
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- Why Us -->
   <section class="bg-ink-black text-white py-16 lg:py-20">
     <div class="container-page">
-      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">WHY US</div>
-      <h2 class="text-2xl sm:text-3xl font-black text-white mb-10">5가지 차별점</h2>
+      <div class="fade-up">
+        <div class="section-eyebrow">✨ WHY US</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-white mb-10">5가지 차별점</h2>
+      </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-        {reasons.map(r => (
-          <div class="border-t-2 border-red pt-5">
-            <div class="font-en text-red text-xs font-bold tracking-wide-en mb-2">{r.num}</div>
+        {reasons.map((r, i) => (
+          <div class={`border-t-2 border-red pt-5 fade-up fade-up-delay-${(i % 3) + 1} group`}>
+            <div class="flex items-center gap-2 mb-2">
+              <div class="font-en text-red text-xs font-bold tracking-wide-en">{r.num}</div>
+              <div class="text-xl transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">{r.emoji}</div>
+            </div>
             <div class="text-base font-bold text-white mb-3">{r.title}</div>
             <div class="text-xs text-white/70 leading-relaxed">{r.desc}</div>
           </div>
