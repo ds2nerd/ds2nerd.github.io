@@ -4,54 +4,97 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { @apply font-sans text-ink-body bg-white; font-feature-settings: "ss01" on, "ss02" on; }
+* { letter-spacing: -0.01em; }
+.tracking-wide-en { letter-spacing: 0.08em; }
 
-body {
-  @apply font-sans text-ink-body bg-white;
-  font-feature-settings: "ss01" on, "ss02" on;
-}
+.box-red-line { @apply relative bg-bg-light pl-6 pr-5 py-5; }
+.box-red-line::before { content: ""; @apply absolute left-0 top-0 bottom-0 w-[3px] bg-red; }
+.divider-red { @apply w-12 h-[3px] bg-red; }
+.container-page { @apply max-w-container mx-auto px-6 lg:px-8; }
 
-/* 한글 자간 조정 */
-* {
-  letter-spacing: -0.01em;
-}
+/* ═══ 카드 호버 ═══ */
+.card-hover { @apply transition-all duration-300 ease-out; }
+.card-hover:hover { @apply -translate-y-1 shadow-xl; }
 
-/* 영문 강조 (CHAPTER, MODULE, STEP 등) */
-.tracking-wide-en {
-  letter-spacing: 0.08em;
-}
+.card-glow { @apply transition-all duration-300 ease-out relative overflow-hidden; }
+.card-glow:hover { @apply -translate-y-1; box-shadow: 0 20px 40px -15px rgba(229, 57, 53, 0.3); }
 
-/* 빨간 좌측 라인 박스 */
-.box-red-line {
-  @apply relative bg-bg-light pl-6 pr-5 py-5;
-}
-.box-red-line::before {
-  content: "";
-  @apply absolute left-0 top-0 bottom-0 w-[3px] bg-red;
-}
+.card-line-top { @apply relative overflow-hidden; }
+.card-line-top::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: #E53935; transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease-out; }
+.card-line-top:hover::before { transform: scaleX(1); }
 
-/* 빨간 짧은 디바이더 */
-.divider-red {
-  @apply w-12 h-[3px] bg-red;
-}
+/* ═══ 버튼 ═══ */
+.btn-primary { @apply inline-flex items-center gap-2 bg-red text-white px-6 py-3.5 rounded-md font-bold text-[15px] relative overflow-hidden; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+.btn-primary:hover { @apply bg-red-dark -translate-y-0.5; box-shadow: 0 10px 25px -5px rgba(229, 57, 53, 0.5); }
+.btn-primary:active { @apply translate-y-0; }
+.btn-primary .arrow-icon { transition: transform 0.25s ease-out; }
+.btn-primary:hover .arrow-icon { transform: translateX(4px); }
 
-/* 카드 호버 */
-.card-hover {
-  @apply transition-all duration-200 hover:shadow-md hover:-translate-y-0.5;
-}
+.btn-secondary { @apply inline-flex items-center gap-2 bg-white text-ink-dark border border-ink-light px-6 py-3.5 rounded-md font-bold text-[15px]; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+.btn-secondary:hover { @apply border-red text-red -translate-y-0.5; box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.1); }
+.btn-secondary:active { @apply translate-y-0; }
 
-/* 버튼 */
-.btn-primary {
-  @apply inline-flex items-center gap-2 bg-red text-white px-6 py-3.5 rounded-md font-bold text-[15px] transition-colors hover:bg-red-dark;
-}
-.btn-secondary {
-  @apply inline-flex items-center gap-2 bg-white text-ink-dark border border-ink-light px-6 py-3.5 rounded-md font-bold text-[15px] transition-colors hover:border-red hover:text-red;
-}
+/* ═══ 링크 ═══ */
+.link-slide { @apply relative inline-flex items-center gap-1 font-bold; }
+.link-slide::after { content: ""; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform 0.3s ease-out; }
+.link-slide:hover::after { transform: scaleX(1); transform-origin: left; }
+.link-slide .arrow-icon { transition: transform 0.25s ease-out; }
+.link-slide:hover .arrow-icon { transform: translateX(4px); }
 
-/* 페이지 내부 컨테이너 */
-.container-page {
-  @apply max-w-container mx-auto px-6 lg:px-8;
+/* ═══ Fade Up — JS 작동 시에만 ═══ */
+.js .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.js .fade-up.is-visible { opacity: 1; transform: translateY(0); }
+.fade-up-delay-1 { transition-delay: 0.1s; }
+.fade-up-delay-2 { transition-delay: 0.2s; }
+.fade-up-delay-3 { transition-delay: 0.3s; }
+
+/* ═══ 아이콘 시스템 ═══ */
+.icon-circle-red { @apply inline-flex items-center justify-center w-12 h-12 bg-red/10 text-red rounded-full text-xl; transition: all 0.3s ease-out; }
+.card-hover:hover .icon-circle-red,
+.card-glow:hover .icon-circle-red { @apply bg-red text-white scale-110; }
+
+.icon-circle-blue { @apply inline-flex items-center justify-center w-12 h-12 bg-asset/10 text-asset rounded-full text-xl; transition: all 0.3s ease-out; }
+.icon-circle-purple { @apply inline-flex items-center justify-center w-12 h-12 bg-awareness/10 text-awareness rounded-full text-xl; transition: all 0.3s ease-out; }
+
+/* ═══ 그라데이션 ═══ */
+.bg-gradient-soft { background: linear-gradient(135deg, #ffffff 0%, #fafafa 50%, #fff5f5 100%); }
+.bg-gradient-red { background: linear-gradient(135deg, #E53935 0%, #C62828 100%); }
+
+/* ═══ 펄스 ═══ */
+@keyframes pulse-red { 0%, 100% { box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.4); } 50% { box-shadow: 0 0 0 12px rgba(229, 57, 53, 0); } }
+.pulse-red { animation: pulse-red 2s ease-out infinite; }
+
+/* ═══ 슬라이드 다운 ═══ */
+@keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+.js .slide-down { animation: slideDown 0.8s ease-out forwards; }
+.js .slide-down-1 { animation-delay: 0.1s; opacity: 0; }
+.js .slide-down-2 { animation-delay: 0.3s; opacity: 0; }
+.js .slide-down-3 { animation-delay: 0.5s; opacity: 0; }
+.js .slide-down-4 { animation-delay: 0.7s; opacity: 0; }
+
+/* ═══ 섹션 헤더 ═══ */
+.section-eyebrow { @apply font-en text-red text-xs font-bold tracking-wide-en mb-3 inline-flex items-center gap-2; }
+.section-eyebrow::before { content: ""; display: inline-block; width: 24px; height: 1px; background: #E53935; }
+
+/* ═══ 하이라이트 ═══ */
+.highlight-red { @apply relative inline-block; }
+.highlight-red::before { content: ""; position: absolute; left: 0; bottom: 4px; width: 100%; height: 30%; background: #FFEBEE; z-index: -1; }
+
+/* ═══ FAQ ═══ */
+details summary .toggle-icon { transition: transform 0.3s ease-out; }
+details[open] summary .toggle-icon { transform: rotate(45deg); }
+
+/* ═══ 네비게이션 ═══ */
+.nav-link { @apply relative text-sm font-medium transition-colors; }
+.nav-link::after { content: ""; position: absolute; bottom: -4px; left: 50%; width: 0; height: 2px; background: #E53935; transition: all 0.3s ease-out; transform: translateX(-50%); }
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
