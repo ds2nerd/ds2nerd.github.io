@@ -1,1 +1,250 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CtaBlock from "../../../components/CtaBlock.astro";
 
+const mediaData = {
+  name: "맘카페 시딩",
+  emoji: "👥",
+  position: "CONVERSION",
+  positionLabel: "전환 · 구매 직결",
+  tagline: "고관여 지역 커뮤니티에서 즉시 구매 전환을 만듭니다.",
+  description: "지역·연령 기반의 맘카페 커뮤니티에 직접·간접 홍보형 게시글을 노출하여 구매 전환을 유도하는 매체입니다. 30~50대 여성 타겟의 신뢰도 높은 커뮤니티 특성상, 이벤트·공동구매·한정 특가에 특히 강력한 효과를 발휘합니다.",
+};
+
+const kpis = [
+  { label: "타겟 연령", value: "30~50대", emoji: "👩" },
+  { label: "운영 형태", value: "직접·간접 게시글", emoji: "📝" },
+  { label: "주요 KPI", value: "CTR · 구매", emoji: "📊" },
+  { label: "효과 회수", value: "1~2주", emoji: "⚡" },
+];
+
+const strengths = [
+  {
+    title: "고관여 커뮤니티",
+    desc: "지역·연령 기반으로 형성된 커뮤니티의 신뢰도가 높아, 한 번의 게시글로 빠른 구매 전환 발생",
+    emoji: "🎯",
+  },
+  {
+    title: "타겟 정확도",
+    desc: "F&B · 육아용품 · 건강기능식품 · 생활용품 등 가족 구매 결정권자에게 직접 도달",
+    emoji: "👨‍👩‍👧",
+  },
+  {
+    title: "이벤트형 매체 최적",
+    desc: "공동구매 · 한정 특가 · 신제품 출시 이벤트에 특히 강력한 효과 (즉시성 + 확산성)",
+    emoji: "🎁",
+  },
+  {
+    title: "단가 효율",
+    desc: "다른 광고 매체 대비 진입 단가가 낮아 검증 단계 브랜드도 부담 없이 시도 가능",
+    emoji: "💰",
+  },
+];
+
+const process = [
+  {
+    phase: "Phase 1",
+    title: "타겟 카페 선정 · 사전 조율",
+    period: "1주",
+    emoji: "🔍",
+    items: [
+      "지역·연령·카테고리 기반 타겟 카페 리스트업 (지역 맘카페 + 카테고리 카페)",
+      "카페별 회원 수 · 활동 지수 · 게시판 규칙 검토",
+      "운영자 사전 협의 · 광고 게시 가능 여부 확인",
+      "게시 일정 · 운영자 협찬 조건 조율",
+    ],
+  },
+  {
+    phase: "Phase 2",
+    title: "콘텐츠 작성 · 게시",
+    period: "1~2주",
+    emoji: "📝",
+    items: [
+      "카페 스타일에 맞춘 후기형 / 추천형 / 이벤트형 게시글 작성",
+      "이미지 · 사용 후기 · 가격 정보 자연스럽게 배치",
+      "전용 쿠폰 코드 · 한정 수량 안내 (구매 동기 강화)",
+      "카페별 룰 준수 게시 (광고 표시 · 외부링크 가이드)",
+    ],
+  },
+  {
+    phase: "Phase 3",
+    title: "전환 추적 · 사후 운영",
+    period: "1~4주",
+    emoji: "📊",
+    items: [
+      "카페별 쿠폰 코드 매출 정량 추적",
+      "댓글 응대 · 추가 문의 대응 (1차 응답 가이드)",
+      "고전환 카페 → 다음 캠페인 우선 집행 카페로 리스트화",
+      "월간 리포트 — 카페별 CTR · 매출 · ROAS",
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={`${mediaData.name} — ${mediaData.tagline}`}
+  description="맘카페 시딩 매체 운영. 30~50대 여성 타겟 커뮤니티에서 즉시 구매 전환 발생."
+  current="/media/"
+>
+  <!-- 1. 히어로 -->
+  <section class="bg-gradient-soft py-16 lg:py-20 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-3 h-full bg-conversion"></div>
+    <div class="container-page max-w-5xl relative">
+      <div class="flex items-center gap-2 text-sm mb-6 fade-up">
+        <a href="/media/" class="text-ink-mute hover:text-red transition-colors">← 매체 라인업</a>
+      </div>
+      
+      <div class="grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 fade-up">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="text-5xl">{mediaData.emoji}</div>
+            <div class="inline-flex flex-col">
+              <span class="font-en text-conversion text-xs font-bold tracking-wide-en">{mediaData.position}</span>
+              <span class="text-xs text-ink-mute">{mediaData.positionLabel}</span>
+            </div>
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-ink-black mb-4 leading-tight">
+            {mediaData.name}
+          </h1>
+          <p class="text-lg lg:text-xl text-ink-body mb-6">{mediaData.tagline}</p>
+          <p class="text-sm text-ink-mute leading-relaxed">{mediaData.description}</p>
+        </div>
+        
+        <div class="lg:col-span-5 fade-up fade-up-delay-2">
+          <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
+            <div class="text-5xl mb-2 opacity-30">🖼️</div>
+            <div class="text-sm font-bold text-ink-mute">매체 메인 이미지</div>
+            <div class="text-xs text-ink-light mt-1">hero.jpg (1600 × 900px)</div>
+            <div class="text-xs text-ink-light">/public/media/momcafe-seeding/</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 매체 개요 -->
+  <section class="py-16 lg:py-20">
+    <div class="container-page">
+      <div class="fade-up">
+        <div class="section-eyebrow">📊 OVERVIEW</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">매체 개요</h2>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {kpis.map((k, i) => (
+          <div class={`bg-white border-2 border-conversion rounded-md p-6 text-center card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="text-3xl mb-3">{k.emoji}</div>
+            <div class="text-xs font-bold text-ink-mute mb-2">{k.label}</div>
+            <div class="text-xl sm:text-2xl font-black text-conversion">{k.value}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 실제 집행 화면 -->
+  <section class="bg-bg-light py-16 lg:py-20">
+    <div class="container-page">
+      <div class="fade-up text-center mb-10">
+        <div class="section-eyebrow justify-center" style="display: inline-flex;">📸 EXECUTION</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-3 mt-3">실제 집행 화면</h2>
+        <p class="text-sm text-ink-body max-w-2xl mx-auto">
+          맘카페 게시판에 노출된 추천형 게시글 화면입니다.
+        </p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto mb-6 fade-up">
+        <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
+          <div class="text-7xl mb-3 opacity-30">🖼️</div>
+          <div class="text-base font-bold text-ink-mute">맘카페 게시글 노출 예시</div>
+          <div class="text-xs text-ink-light mt-2">execution-main.jpg (1920 × 1080px)</div>
+          <div class="text-xs text-ink-light">/public/media/momcafe-seeding/</div>
+          <div class="text-xs text-ink-light mt-2 italic">실제 맘카페 게시글 화면 캡처 (익명화)</div>
+        </div>
+      </div>
+      
+      <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-4">
+        <div class="fade-up fade-up-delay-1">
+          <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
+            <div class="text-5xl mb-2 opacity-30">🖼️</div>
+            <div class="text-sm font-bold text-ink-mute">게시글 본문 + 댓글</div>
+            <div class="text-xs text-ink-light mt-1">execution-post.jpg</div>
+            <div class="text-xs text-ink-light">(1200 × 675px)</div>
+          </div>
+        </div>
+        <div class="fade-up fade-up-delay-2">
+          <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
+            <div class="text-5xl mb-2 opacity-30">🖼️</div>
+            <div class="text-sm font-bold text-ink-mute">쿠폰 코드 매출 리포트</div>
+            <div class="text-xs text-ink-light mt-1">execution-report.jpg</div>
+            <div class="text-xs text-ink-light">(1200 × 675px)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 강점 -->
+  <section class="py-16 lg:py-20">
+    <div class="container-page max-w-4xl">
+      <div class="fade-up">
+        <div class="section-eyebrow">✨ STRENGTHS</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">왜 맘카페 시딩인가</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {strengths.map((s, i) => (
+          <div class={`bg-white border-l-[3px] border-conversion p-6 rounded-r-md card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="flex items-center gap-3 mb-3">
+              <div class="text-3xl">{s.emoji}</div>
+              <div class="text-lg font-bold text-ink-dark">{s.title}</div>
+            </div>
+            <div class="text-sm text-ink-body leading-relaxed">{s.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 운영 프로세스 -->
+  <section class="bg-bg-light py-16 lg:py-20">
+    <div class="container-page max-w-4xl">
+      <div class="fade-up">
+        <div class="section-eyebrow">⚡ PROCESS</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">운영 프로세스</h2>
+      </div>
+      <div class="space-y-8">
+        {process.map((p, i) => (
+          <div class={`bg-white border-l-[3px] border-conversion p-6 lg:p-8 rounded-r-md card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="flex items-center gap-4 mb-5">
+              <div class="inline-flex items-center justify-center w-12 h-12 bg-conversion/10 text-conversion rounded-full text-xl">{p.emoji}</div>
+              <div>
+                <div class="font-en text-conversion text-xs font-bold tracking-wide-en mb-1">{p.phase}</div>
+                <div class="flex items-baseline gap-3">
+                  <h3 class="text-lg lg:text-xl font-bold text-ink-dark">{p.title}</h3>
+                  <span class="text-xs font-bold text-conversion">⏱ {p.period}</span>
+                </div>
+              </div>
+            </div>
+            <ul class="space-y-2">
+              {p.items.map(it => (
+                <li class="text-sm text-ink-body flex gap-2">
+                  <span class="text-conversion font-bold flex-shrink-0">▸</span>
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <CtaBlock 
+    title="맘카페 시딩으로 즉시 구매 전환을 만들어보세요." 
+    sub="단독 매체 집행도, 다른 매체와 조합한 풀스택 운영도 가능합니다. 견적·운영 옵션을 무료로 안내해드립니다."
+    primary="견적 받기" 
+    primaryHref="/contact/" 
+    secondary="다른 매체 보기"
+    secondaryHref="/media/"
+  />
+</BaseLayout>
