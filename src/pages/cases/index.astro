@@ -5,11 +5,8 @@ import CtaBlock from "../../components/CtaBlock.astro";
 
 const cases = [
   {
-    slug: "bongpo",
-    brand: "봉포머구리집",
-    category: "F&B",
-    tagline: "지역 노포의 전국 온라인 진입",
-    period: "12개월 운영",
+    slug: "bongpo", brand: "봉포머구리집", category: "F&B", emoji: "🍱",
+    tagline: "지역 노포의 전국 온라인 진입", period: "12개월 운영",
     modules: ["몰 개설·운영", "판매 촉진", "SEO"],
     summary: "오프라인 단일 매장에서 전국 단위 온라인 판매 채널로 확장. 자사몰 + 네이버 스마트스토어 + 쿠팡 3개 채널 동시 진입 후 블로그 시딩·맘카페·인플루언서 매체로 후기 자산을 누적했습니다.",
     results: [
@@ -20,11 +17,8 @@ const cases = [
     ],
   },
   {
-    slug: "mrmilk",
-    brand: "미스터밀크",
-    category: "F&B",
-    tagline: "정기구독 모델 + 옴니채널 효율화",
-    period: "9개월 운영",
+    slug: "mrmilk", brand: "미스터밀크", category: "F&B", emoji: "🥛",
+    tagline: "정기구독 모델 + 옴니채널 효율화", period: "9개월 운영",
     modules: ["e커머스 마케팅", "몰 운영", "판매 촉진"],
     summary: "유제품 정기구독 모델 도입과 옴니채널 운영 효율화. 네이버·쿠팡·자사몰 통합 운영 체계 구축 후 가격 정합성·재고 동기화·정산 검증을 자동화. 정기구독 회원 확보로 재구매율 견인.",
     results: [
@@ -35,26 +29,20 @@ const cases = [
     ],
   },
   {
-    slug: "serabloom",
-    brand: "세라블룸",
-    category: "건강기능식품",
-    tagline: "광고법 컴플라이언스 + SEO 효율 확보",
-    period: "10개월 운영",
+    slug: "serabloom", brand: "세라블룸", category: "건강기능식품", emoji: "💊",
+    tagline: "광고법 컴플라이언스 + SEO 효율 확보", period: "10개월 운영",
     modules: ["SEO", "판매 촉진", "콘텐츠"],
     summary: "식약처 건강기능식품 광고 심의 기준에 맞춰 상세페이지·매체 소재를 일괄 재구성. 네이버 SEO 최적화와 Conversion 매체를 병행해 검색 노출 + 매출 동시 누적. 광고법 위반 위험 0건 유지.",
     results: [
       { label: "검색 1p 노출 키워드", value: "27개" },
-      { label: "월 매출 성장", value: "전년 동월 대비 2.8배" },
+      { label: "월 매출 성장", value: "전년 대비 2.8배" },
       { label: "광고 심의 통과율", value: "100%" },
       { label: "월 후기 누적", value: "180건+" },
     ],
   },
   {
-    slug: "richfarm",
-    brand: "마켓리치팜",
-    category: "건강기능식품",
-    tagline: "프리미엄 라인 진입과 객단가 개선",
-    period: "8개월 운영",
+    slug: "richfarm", brand: "마켓리치팜", category: "건강기능식품", emoji: "🌿",
+    tagline: "프리미엄 라인 진입과 객단가 개선", period: "8개월 운영",
     modules: ["몰 운영", "콘텐츠", "AIO"],
     summary: "프리미엄 가격대 SKU의 채널별 페이지 재구성. 상세페이지·썸네일·옵션 패키지 재설계로 객단가 개선 + 리뷰 자산 누적. 생성형 AI 검색(Perplexity·ChatGPT) 대응을 위한 Schema Markup 적용.",
     results: [
@@ -65,11 +53,8 @@ const cases = [
     ],
   },
   {
-    slug: "huonsn",
-    brand: "휴온스엔",
-    category: "헬스케어",
-    tagline: "라이브커머스 + 브랜드 자산 통합",
-    period: "11개월 운영",
+    slug: "huonsn", brand: "휴온스엔", category: "헬스케어", emoji: "🏥",
+    tagline: "라이브커머스 + 브랜드 자산 통합", period: "11개월 운영",
     modules: ["브랜드 작업", "AIO", "판매 촉진"],
     summary: "헬스케어 카테고리 특성에 맞춘 라이브커머스 기획·실행·사후 클립 활용까지 일괄. 나무위키·브랜드 랜딩페이지 등 브랜드 자산 구축으로 신뢰도 제고. 네이버 쇼핑라이브 + Conversion 매체로 시청자 → 구매 동선 정량 측정.",
     results: [
@@ -88,66 +73,63 @@ const cases = [
   current="/cases/"
 >
   <PageHero
-    eyebrow="CASES"
+    eyebrow="🏆 CASES"
     title="실제 운영 사례로 검증된 솔루션."
     sub="F&B · 건강기능식품 · 헬스케어 · 네이버 생태계 — 카테고리별 검증된 운영 경험을 결과 수치와 함께 공개합니다."
   />
 
-  <!-- 카테고리 필터 -->
+  <!-- 필터 -->
   <section class="py-10 border-b border-gray-100">
     <div class="container-page">
       <div class="flex flex-wrap gap-2">
-        <button id="btn-all" onclick="filterCases('all')" class="px-4 py-2 rounded-full text-sm font-bold transition-colors bg-red text-white">
-          전체
-        </button>
-        <button id="btn-fnb" onclick="filterCases('fnb')" class="px-4 py-2 rounded-full text-sm font-bold transition-colors bg-bg-light text-ink-body">
-          F&amp;B
-        </button>
-        <button id="btn-health" onclick="filterCases('health')" class="px-4 py-2 rounded-full text-sm font-bold transition-colors bg-bg-light text-ink-body">
-          건강기능식품
-        </button>
-        <button id="btn-care" onclick="filterCases('care')" class="px-4 py-2 rounded-full text-sm font-bold transition-colors bg-bg-light text-ink-body">
-          헬스케어
-        </button>
+        <button id="btn-all" onclick="filterCases('all')" class="px-4 py-2 rounded-full text-sm font-bold transition-colors bg-red text-white">🔄 전체</button>
+        <button id="btn-fnb" onclick="filterCases('fnb')" class="px-4 py-2 rounded-full text-sm font-bold transition-colors bg-bg-light text-ink-body">🍱 F&amp;B</button>
+        <button id="btn-health" onclick="filterCases('health')" class="px-4 py-2 rounded-full text-sm font-bold transition-colors bg-bg-light text-ink-body">💊 건강기능식품</button>
+        <button id="btn-care" onclick="filterCases('care')" class="px-4 py-2 rounded-full text-sm font-bold transition-colors bg-bg-light text-ink-body">🏥 헬스케어</button>
       </div>
     </div>
   </section>
 
-  <!-- 사례 카드 그리드 -->
+  <!-- 사례 카드 -->
   <section class="py-16 lg:py-20">
     <div class="container-page">
       <div class="space-y-8">
-        {cases.map(c => {
+        {cases.map((c, i) => {
           let typeKey = "fnb";
           if (c.category === "건강기능식품") typeKey = "health";
           else if (c.category === "헬스케어") typeKey = "care";
           
           return (
-            <article class={`case-item case-${typeKey}`}>
-              <div class="bg-white rounded-md overflow-hidden border border-gray-100 card-hover">
+            <article class={`case-item case-${typeKey} fade-up fade-up-delay-${(i % 3) + 1}`}>
+              <div class="bg-white rounded-md overflow-hidden border border-gray-100 card-glow">
                 <div class="grid lg:grid-cols-12 gap-0">
                   <div class="lg:col-span-4 bg-bg-light p-8 flex flex-col justify-between">
                     <div>
+                      <div class="text-4xl mb-3">{c.emoji}</div>
                       <div class="font-en text-red text-xs font-bold tracking-wide-en mb-2">{c.category}</div>
                       <h3 class="text-2xl lg:text-3xl font-black text-ink-dark mb-3">{c.brand}</h3>
                       <div class="text-sm text-ink-mute mb-4">{c.tagline}</div>
                     </div>
                     <div>
-                      <div class="text-xs text-ink-mute mb-2">운영 기간</div>
+                      <div class="text-xs text-ink-mute mb-2">📅 운영 기간</div>
                       <div class="text-base font-bold text-red">{c.period}</div>
                       <div class="flex flex-wrap gap-1 mt-4">
                         {c.modules.map(m => (
-                          <span class="text-xs bg-white text-ink-body px-2 py-1 rounded border border-gray-200">{m}</span>
+                          <span class="text-xs bg-white text-ink-body px-2 py-1 rounded border border-gray-200">▸ {m}</span>
                         ))}
                       </div>
                     </div>
                   </div>
                   
                   <div class="lg:col-span-8 p-8">
-                    <div class="text-xs font-bold text-red tracking-wide-en mb-2 font-en">APPROACH</div>
+                    <div class="text-xs font-bold text-red tracking-wide-en mb-2 font-en flex items-center gap-2">
+                      <span>🎯</span> APPROACH
+                    </div>
                     <p class="text-sm text-ink-body leading-relaxed mb-6">{c.summary}</p>
                     
-                    <div class="text-xs font-bold text-red tracking-wide-en mb-3 font-en">RESULTS</div>
+                    <div class="text-xs font-bold text-red tracking-wide-en mb-3 font-en flex items-center gap-2">
+                      <span>📊</span> RESULTS
+                    </div>
                     <div class="grid grid-cols-2 gap-4">
                       {c.results.map(r => (
                         <div class="border-l-[3px] border-red pl-3">
@@ -164,9 +146,9 @@ const cases = [
         })}
       </div>
       
-      <div class="mt-12 bg-bg-light rounded-md p-6 text-center">
+      <div class="mt-12 bg-bg-light rounded-md p-6 text-center fade-up">
         <p class="text-sm text-ink-body italic">
-          * 본 사례의 정량 수치는 운영 데이터 기반의 대표 수치이며, 클라이언트별 NDA에 따라 일부 수치는 가공·익명화되어 있습니다.
+          ⚠ 본 사례의 정량 수치는 운영 데이터 기반의 대표 수치이며, 클라이언트별 NDA에 따라 일부 수치는 가공·익명화되어 있습니다.
         </p>
       </div>
     </div>
@@ -177,7 +159,6 @@ const cases = [
 
 <script is:inline>
   function filterCases(type) {
-    // 모든 카드 처리
     var items = document.getElementsByClassName("case-item");
     for (var i = 0; i < items.length; i++) {
       if (type === "all") {
@@ -190,8 +171,6 @@ const cases = [
         }
       }
     }
-    
-    // 버튼 색상 전환
     var buttons = ["btn-all", "btn-fnb", "btn-health", "btn-care"];
     for (var j = 0; j < buttons.length; j++) {
       var b = document.getElementById(buttons[j]);
@@ -200,8 +179,6 @@ const cases = [
         b.classList.add("bg-bg-light", "text-ink-body");
       }
     }
-    
-    // 선택된 버튼 활성화
     var activeBtn = document.getElementById("btn-" + type);
     if (activeBtn) {
       activeBtn.classList.remove("bg-bg-light", "text-ink-body");
