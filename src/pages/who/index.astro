@@ -5,21 +5,12 @@ import CtaBlock from "../../components/CtaBlock.astro";
 
 const types = [
   {
-    type: "TYPE A", name: "매출 정체형", en: "Stagnant Sales",
+    type: "TYPE A", name: "매출 정체형", en: "Stagnant Sales", emoji: "📉",
     color: "bg-typeA", borderColor: "border-typeA", textColor: "text-typeA",
     headline: "판매는 하고 있지만 매출이 정체된 단계.",
     sub: "채널·콘텐츠·노출·광고 중 어디에 병목이 있는지 진단부터 시작해야 합니다.",
-    status: [
-      "1개 이상의 채널에서 판매 중",
-      "매출이 정체되어 있거나 하락 추세",
-      "인하우스 운영 인력은 있으나 역량 한계",
-      "광고 예산 효율이 낮다고 느낌",
-    ],
-    pain: [
-      "왜 안 늘어나는지 모르겠다",
-      "어디부터 손대야 할지 막막하다",
-      "광고만 하면 매출이 오르는 건 아닌 것 같다",
-    ],
+    status: ["1개 이상의 채널에서 판매 중","매출이 정체되어 있거나 하락 추세","인하우스 운영 인력은 있으나 역량 한계","광고 예산 효율이 낮다고 느낌"],
+    pain: ["왜 안 늘어나는지 모르겠다","어디부터 손대야 할지 막막하다","광고만 하면 매출이 오르는 건 아닌 것 같다"],
     rec: [
       { label: "핵심 모듈", value: "운영관리 · CS·평판관리 · 콘텐츠 리뉴얼" },
       { label: "매체", value: "Conversion 매체 (블로그 · 맘카페 · 인플루언서)" },
@@ -28,21 +19,12 @@ const types = [
     ],
   },
   {
-    type: "TYPE B", name: "첫 진입형", en: "First Entry",
+    type: "TYPE B", name: "첫 진입형", en: "First Entry", emoji: "🚀",
     color: "bg-typeB", borderColor: "border-typeB", textColor: "text-typeB",
     headline: "제품은 준비되어 있지만 온라인 채널은 처음.",
     sub: "어디부터 시작해야 할지 막막한 단계. 세팅부터 첫 매출까지의 전 과정을 함께 설계합니다.",
-    status: [
-      "판매할 제품은 보유 (자체 제조 · OEM · 도매 등)",
-      "온라인 채널 입점 경험 없음",
-      "운영 인력 · 인프라 미보유",
-      "광고비 부담에 대한 우려",
-    ],
-    pain: [
-      "어느 채널부터 들어가야 하나",
-      "상세페이지·물류·CS 다 처음이라 부담",
-      "광고비 부담 없이 매출 검증할 방법 있을까",
-    ],
+    status: ["판매할 제품은 보유 (자체 제조 · OEM · 도매 등)","온라인 채널 입점 경험 없음","운영 인력 · 인프라 미보유","광고비 부담에 대한 우려"],
+    pain: ["어느 채널부터 들어가야 하나","상세페이지·물류·CS 다 처음이라 부담","광고비 부담 없이 매출 검증할 방법 있을까"],
     rec: [
       { label: "핵심 모듈", value: "쇼핑몰 세팅 · 운영관리 · 물류 · CS · 콘텐츠" },
       { label: "매체", value: "Conversion 매체 (블로그 · 맘카페 시딩)" },
@@ -51,20 +33,12 @@ const types = [
     ],
   },
   {
-    type: "TYPE C", name: "무에서 유 창조형", en: "Building from Scratch",
+    type: "TYPE C", name: "무에서 유 창조형", en: "Building from Scratch", emoji: "💡",
     color: "bg-typeC", borderColor: "border-typeC", textColor: "text-typeC",
     headline: "제품도, 온라인 판매 경험도 없는 단계.",
     sub: "먼저 함께 시장을 보고 상품을 찾는 단계부터 시작합니다.",
-    status: [
-      "판매할 제품 미보유",
-      "온라인 진입 경험 없음",
-      "사업 방향 모색 중",
-    ],
-    pain: [
-      "무엇을 팔아야 할지 결정이 어렵다",
-      "시장 조사·트렌드 분석부터 막막하다",
-      "전체 그림이 잡히지 않는다",
-    ],
+    status: ["판매할 제품 미보유","온라인 진입 경험 없음","사업 방향 모색 중"],
+    pain: ["무엇을 팔아야 할지 결정이 어렵다","시장 조사·트렌드 분석부터 막막하다","전체 그림이 잡히지 않는다"],
     rec: [
       { label: "1단계", value: "상품 확보 (별도 컨설팅)" },
       { label: "2단계", value: "Type B 솔루션 적용" },
@@ -72,21 +46,12 @@ const types = [
     ],
   },
   {
-    type: "TYPE D", name: "신규 브랜드 런칭형", en: "New Brand Launch",
+    type: "TYPE D", name: "신규 브랜드 런칭형", en: "New Brand Launch", emoji: "✨",
     color: "bg-typeD", borderColor: "border-typeD", textColor: "text-typeD",
     headline: "기존 운영 경험이 있고 신규 상품·브랜드를 추가 런칭하는 단계.",
     sub: "세팅부터 인지·매출까지 전 영역 풀스택으로 함께합니다. 매출·자산·인지를 동시에 누적합니다.",
-    status: [
-      "기존 온라인 채널 운영 경험 보유",
-      "신규 상품 또는 신규 브랜드 런칭 계획",
-      "인하우스 인력은 있으나 확장 여력 한계",
-      "광고 예산 일정 수준 확보",
-    ],
-    pain: [
-      "기존 운영도 벅찬데 신규 라인을 추가하기 부담",
-      "신규 브랜드는 처음부터 다시 시작하는 느낌",
-      "단순 매출이 아닌 브랜드 자산까지 함께 만들고 싶다",
-    ],
+    status: ["기존 온라인 채널 운영 경험 보유","신규 상품 또는 신규 브랜드 런칭 계획","인하우스 인력은 있으나 확장 여력 한계","광고 예산 일정 수준 확보"],
+    pain: ["기존 운영도 벅찬데 신규 라인을 추가하기 부담","신규 브랜드는 처음부터 다시 시작하는 느낌","단순 매출이 아닌 브랜드 자산까지 함께 만들고 싶다"],
     rec: [
       { label: "핵심 모듈", value: "6대 모듈 전체 풀스택 적용" },
       { label: "매체", value: "Conversion + Asset + Awareness 통합 운영" },
@@ -98,76 +63,84 @@ const types = [
 ---
 
 <BaseLayout
-  title="누구를 위한 솔루션 — 4유형 타겟 진단"
+  title="솔루션 진단 — 4유형 타겟 진단"
   description="매출 정체 · 첫 진입 · 제품 발굴 · 신규 런칭 — 4가지 단계별 진단으로 본인 유형을 확인하세요."
   current="/who/"
 >
   <PageHero
-    eyebrow="WHO IT'S FOR"
+    eyebrow="🧭 WHO IT'S FOR"
     title="어떤 단계에 계신가요?"
     sub="단계마다 필요한 솔루션이 다릅니다. 1분 진단으로 본인 유형을 확인하세요."
   />
 
   <!-- 인터랙티브 진단 위젯 -->
-  <section class="py-16 lg:py-20 bg-bg-light">
+  <section class="py-16 lg:py-20 bg-gradient-soft">
     <div class="container-page max-w-3xl">
-      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3 text-center">DIAGNOSIS</div>
-      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10 text-center">1분 진단</h2>
+      <div class="fade-up text-center">
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10 mt-3">🔍 1분 진단</h2>
+      </div>
       
-      <div id="diagnosis" class="bg-white rounded-md p-8 lg:p-10 shadow-sm">
-        <!-- Q1 -->
+      <div id="diagnosis" class="bg-white rounded-md p-8 lg:p-10 shadow-xl fade-up">
         <div id="q1" class="q-block">
-          <div class="text-sm font-bold text-red mb-2">Q1.</div>
+          <div class="text-sm font-bold text-red mb-2 flex items-center gap-2">
+            <span>❓</span> Q1.
+          </div>
           <div class="text-lg sm:text-xl font-bold text-ink-dark mb-6">
             현재 온라인 쇼핑몰 / 커머스 채널에서 상품을 판매하고 계신가요?
           </div>
           <div class="flex gap-3">
-            <button data-answer="yes" data-next="q2" class="flex-1 btn-secondary justify-center">예, 판매 중</button>
-            <button data-answer="no" data-next="q3" class="flex-1 btn-secondary justify-center">아니오</button>
+            <button onclick="goToNext('q2')" class="flex-1 btn-secondary justify-center">✅ 예, 판매 중</button>
+            <button onclick="goToNext('q3')" class="flex-1 btn-secondary justify-center">❌ 아니오</button>
           </div>
         </div>
-        <!-- Q2 -->
         <div id="q2" class="q-block hidden">
-          <div class="text-sm font-bold text-red mb-2">Q2.</div>
+          <div class="text-sm font-bold text-red mb-2 flex items-center gap-2">
+            <span>❓</span> Q2.
+          </div>
           <div class="text-lg sm:text-xl font-bold text-ink-dark mb-6">
             판매 중인데, 매출·판매가 만족스러우신가요?
           </div>
           <div class="flex gap-3">
-            <button data-answer="yes" data-next="q4" class="flex-1 btn-secondary justify-center">예, 만족</button>
-            <button data-answer="no" data-result="A" class="flex-1 btn-secondary justify-center">아니오, 정체·하락</button>
+            <button onclick="goToNext('q4')" class="flex-1 btn-secondary justify-center">✅ 예, 만족</button>
+            <button onclick="showResult('A')" class="flex-1 btn-secondary justify-center">❌ 아니오, 정체·하락</button>
           </div>
         </div>
-        <!-- Q3 -->
         <div id="q3" class="q-block hidden">
-          <div class="text-sm font-bold text-red mb-2">Q3.</div>
+          <div class="text-sm font-bold text-red mb-2 flex items-center gap-2">
+            <span>❓</span> Q3.
+          </div>
           <div class="text-lg sm:text-xl font-bold text-ink-dark mb-6">
             판매할 제품은 보유하고 계신가요?
           </div>
           <div class="flex gap-3">
-            <button data-answer="yes" data-result="B" class="flex-1 btn-secondary justify-center">예, 보유</button>
-            <button data-answer="no" data-result="C" class="flex-1 btn-secondary justify-center">아니오, 미보유</button>
+            <button onclick="showResult('B')" class="flex-1 btn-secondary justify-center">✅ 예, 보유</button>
+            <button onclick="showResult('C')" class="flex-1 btn-secondary justify-center">❌ 아니오, 미보유</button>
           </div>
         </div>
-        <!-- Q4 -->
         <div id="q4" class="q-block hidden">
-          <div class="text-sm font-bold text-red mb-2">Q4.</div>
+          <div class="text-sm font-bold text-red mb-2 flex items-center gap-2">
+            <span>❓</span> Q4.
+          </div>
           <div class="text-lg sm:text-xl font-bold text-ink-dark mb-6">
             신규 상품 / 브랜드 런칭 계획이 있으신가요?
           </div>
           <div class="flex gap-3">
-            <button data-answer="yes" data-result="D" class="flex-1 btn-secondary justify-center">예, 계획 있음</button>
-            <button data-answer="no" data-result="none" class="flex-1 btn-secondary justify-center">아니오</button>
+            <button onclick="showResult('D')" class="flex-1 btn-secondary justify-center">✅ 예, 계획 있음</button>
+            <button onclick="showResult('none')" class="flex-1 btn-secondary justify-center">❌ 아니오</button>
           </div>
         </div>
         
-        <!-- 결과 -->
         <div id="result" class="hidden">
           <div class="text-center">
+            <div class="text-4xl mb-3" id="result-emoji">🎯</div>
             <div id="result-tag" class="inline-block font-en text-xs font-bold tracking-wide-en text-white px-3 py-1 rounded mb-4"></div>
             <div id="result-name" class="text-2xl sm:text-3xl font-black text-ink-dark mb-3"></div>
             <div id="result-desc" class="text-sm text-ink-body mb-6"></div>
-            <a href="#" id="result-link" class="btn-primary">상세 보기 ↓</a>
-            <button id="result-reset" class="block mx-auto mt-4 text-xs text-ink-mute underline">다시 진단하기</button>
+            <a href="#" id="result-link" class="btn-primary">
+              상세 보기
+              <span class="arrow-icon">↓</span>
+            </a>
+            <button onclick="resetDiagnosis()" class="block mx-auto mt-4 text-xs text-ink-mute underline">↺ 다시 진단하기</button>
           </div>
         </div>
       </div>
@@ -177,13 +150,16 @@ const types = [
   <!-- 4유형 상세 카드 -->
   <section class="py-16 lg:py-20">
     <div class="container-page">
-      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">4 TYPES</div>
-      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">4유형 상세</h2>
+      <div class="fade-up">
+        <div class="section-eyebrow">📋 4 TYPES</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">4유형 상세</h2>
+      </div>
       
       <div class="space-y-12">
-        {types.map(t => (
-          <div id={t.type.replace(" ", "-").toLowerCase()} class="bg-white rounded-md overflow-hidden border border-gray-100">
+        {types.map((t, i) => (
+          <div id={t.type.replace(" ", "-").toLowerCase()} class={`bg-white rounded-md overflow-hidden border border-gray-100 card-hover fade-up fade-up-delay-${(i % 3) + 1}`}>
             <div class={`${t.color} text-white px-6 py-4 flex items-baseline gap-4`}>
+              <span class="text-2xl">{t.emoji}</span>
               <span class="font-en text-sm font-bold tracking-wide-en">{t.type}</span>
               <span class="text-xl font-black">{t.name}</span>
               <span class="text-xs text-white/70 ml-auto hidden sm:inline">{t.en}</span>
@@ -194,7 +170,9 @@ const types = [
               
               <div class="grid lg:grid-cols-3 gap-6">
                 <div>
-                  <div class={`text-sm font-bold ${t.textColor} mb-3`}>현재 상황</div>
+                  <div class={`text-sm font-bold ${t.textColor} mb-3 flex items-center gap-2`}>
+                    <span>📊</span> 현재 상황
+                  </div>
                   <ul class="space-y-1.5">
                     {t.status.map(s => (
                       <li class="text-sm text-ink-body flex gap-2">
@@ -205,7 +183,9 @@ const types = [
                   </ul>
                 </div>
                 <div>
-                  <div class={`text-sm font-bold ${t.textColor} mb-3`}>주요 페인포인트</div>
+                  <div class={`text-sm font-bold ${t.textColor} mb-3 flex items-center gap-2`}>
+                    <span>💭</span> 주요 페인포인트
+                  </div>
                   <ul class="space-y-1.5">
                     {t.pain.map(p => (
                       <li class="text-sm text-ink-body italic flex gap-2">
@@ -216,7 +196,9 @@ const types = [
                   </ul>
                 </div>
                 <div>
-                  <div class={`text-sm font-bold ${t.textColor} mb-3`}>추천 솔루션 구성</div>
+                  <div class={`text-sm font-bold ${t.textColor} mb-3 flex items-center gap-2`}>
+                    <span>🎯</span> 추천 솔루션 구성
+                  </div>
                   <div class={`bg-bg-light p-4 rounded border-l-2 ${t.borderColor} space-y-2`}>
                     {t.rec.map(r => (
                       <div>
@@ -237,56 +219,44 @@ const types = [
   <CtaBlock title="내 유형에 맞는 솔루션을 더 알고 싶다면?" />
 </BaseLayout>
 
-<script>
-  // 진단 위젯 로직
-  const blocks = document.querySelectorAll(".q-block");
-  const resultEl = document.getElementById("result");
-  const tagEl = document.getElementById("result-tag");
-  const nameEl = document.getElementById("result-name");
-  const descEl = document.getElementById("result-desc");
-  const linkEl = document.getElementById("result-link") as HTMLAnchorElement | null;
-  const resetEl = document.getElementById("result-reset");
-
-  const results = {
-    A: { tag: "TYPE A", color: "bg-typeA", name: "매출 정체형", desc: "판매 중이나 매출이 정체된 단계. 기존 채널 진단·재정비 + Conversion 매체 강화가 필요합니다.", link: "#type-a" },
-    B: { tag: "TYPE B", color: "bg-typeB", name: "첫 진입형", desc: "제품은 있지만 온라인이 처음. 세팅부터 첫 매출까지 풀패키지로 함께합니다. RS 구조로 부담 없이 시작 가능.", link: "#type-b" },
-    C: { tag: "TYPE C", color: "bg-typeC", name: "무에서 유 창조형", desc: "제품도 채널도 없는 단계. 별도 컨설팅으로 상품 확보 후 Type B 프로세스로 전환합니다.", link: "#type-c" },
-    D: { tag: "TYPE D", color: "bg-typeD", name: "신규 브랜드 런칭형", desc: "기존 운영 + 신규 추가. 6대 모듈 전체 풀스택 + Conversion·Asset·Awareness 통합 운영.", link: "#type-d" },
-    none: { tag: "안내", color: "bg-ink-mute", name: "현재 단계에서는 컨설팅이 불필요할 수 있습니다", desc: "이미 매출이 안정적이고 신규 계획이 없다면 본 솔루션이 적합하지 않을 수 있습니다. 향후 변화가 있을 때 다시 문의 주세요.", link: "/contact/" },
+<script is:inline>
+  var resultsMap = {
+    A: { tag: "TYPE A", color: "bg-typeA", emoji: "📉", name: "매출 정체형", desc: "판매 중이나 매출이 정체된 단계. 기존 채널 진단·재정비 + Conversion 매체 강화가 필요합니다.", link: "#type-a" },
+    B: { tag: "TYPE B", color: "bg-typeB", emoji: "🚀", name: "첫 진입형", desc: "제품은 있지만 온라인이 처음. 세팅부터 첫 매출까지 풀패키지로 함께합니다. RS 구조로 부담 없이 시작 가능.", link: "#type-b" },
+    C: { tag: "TYPE C", color: "bg-typeC", emoji: "💡", name: "무에서 유 창조형", desc: "제품도 채널도 없는 단계. 별도 컨설팅으로 상품 확보 후 Type B 프로세스로 전환합니다.", link: "#type-c" },
+    D: { tag: "TYPE D", color: "bg-typeD", emoji: "✨", name: "신규 브랜드 런칭형", desc: "기존 운영 + 신규 추가. 6대 모듈 전체 풀스택 + Conversion·Asset·Awareness 통합 운영.", link: "#type-d" },
+    none: { tag: "안내", color: "bg-ink-mute", emoji: "🤔", name: "현재 단계에서는 컨설팅이 불필요할 수 있습니다", desc: "이미 매출이 안정적이고 신규 계획이 없다면 본 솔루션이 적합하지 않을 수 있습니다. 향후 변화가 있을 때 다시 문의 주세요.", link: "/contact/" }
   };
 
-  function showBlock(id: string) {
-    blocks.forEach(b => b.classList.add("hidden"));
-    if (id === "result") {
-      resultEl?.classList.remove("hidden");
-    } else {
-      document.getElementById(id)?.classList.remove("hidden");
-    }
+  function goToNext(id) {
+    var blocks = document.querySelectorAll(".q-block");
+    for (var i = 0; i < blocks.length; i++) blocks[i].classList.add("hidden");
+    var target = document.getElementById(id);
+    if (target) target.classList.remove("hidden");
   }
 
-  document.querySelectorAll("[data-answer]").forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      const target = e.currentTarget as HTMLElement;
-      const next = target.dataset.next;
-      const result = target.dataset.result;
-      if (next) showBlock(next);
-      else if (result) {
-        const r = results[result as keyof typeof results];
-        if (!r) return;
-        if (tagEl) {
-          tagEl.textContent = r.tag;
-          tagEl.className = `inline-block font-en text-xs font-bold tracking-wide-en text-white px-3 py-1 rounded mb-4 ${r.color}`;
-        }
-        if (nameEl) nameEl.textContent = r.name;
-        if (descEl) descEl.textContent = r.desc;
-        if (linkEl) linkEl.href = r.link;
-        showBlock("result");
-      }
-    });
-  });
+  function showResult(key) {
+    var r = resultsMap[key];
+    if (!r) return;
+    var blocks = document.querySelectorAll(".q-block");
+    for (var i = 0; i < blocks.length; i++) blocks[i].classList.add("hidden");
+    var resultEl = document.getElementById("result");
+    var emojiEl = document.getElementById("result-emoji");
+    var tagEl = document.getElementById("result-tag");
+    var nameEl = document.getElementById("result-name");
+    var descEl = document.getElementById("result-desc");
+    var linkEl = document.getElementById("result-link");
+    if (emojiEl) emojiEl.textContent = r.emoji;
+    if (tagEl) { tagEl.textContent = r.tag; tagEl.className = "inline-block font-en text-xs font-bold tracking-wide-en text-white px-3 py-1 rounded mb-4 " + r.color; }
+    if (nameEl) nameEl.textContent = r.name;
+    if (descEl) descEl.textContent = r.desc;
+    if (linkEl) linkEl.href = r.link;
+    if (resultEl) resultEl.classList.remove("hidden");
+  }
 
-  resetEl?.addEventListener("click", () => {
-    resultEl?.classList.add("hidden");
-    showBlock("q1");
-  });
+  function resetDiagnosis() {
+    var resultEl = document.getElementById("result");
+    if (resultEl) resultEl.classList.add("hidden");
+    goToNext("q1");
+  }
 </script>
