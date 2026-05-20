@@ -29,7 +29,7 @@ const cases = [
     ],
   },
   {
-    slug: "serabloom", brand: "세라블룸", category: "건강기능식품", emoji: "💊",
+    slug: "cerabloom", brand: "세라블룸", category: "건강기능식품", emoji: "💊",
     tagline: "광고법 컴플라이언스 + SEO 효율 확보", period: "10개월 운영",
     modules: ["SEO", "판매 촉진", "콘텐츠"],
     summary: "식약처 건강기능식품 광고 심의 기준에 맞춰 상세페이지·매체 소재를 일괄 재구성. 네이버 SEO 최적화와 Conversion 매체를 병행해 검색 노출 + 매출 동시 누적. 광고법 위반 위험 0건 유지.",
@@ -101,13 +101,13 @@ const cases = [
           
           return (
             <article class={`case-item case-${typeKey} fade-up fade-up-delay-${(i % 3) + 1}`}>
-              <div class="bg-white rounded-md overflow-hidden border border-gray-100 card-glow">
+              <a href={`/cases/${c.slug}/`} class="block bg-white rounded-md overflow-hidden border border-gray-100 card-glow group">
                 <div class="grid lg:grid-cols-12 gap-0">
-                  <div class="lg:col-span-4 bg-bg-light p-8 flex flex-col justify-between">
+                  <div class="lg:col-span-4 bg-bg-light p-8 flex flex-col justify-between relative">
                     <div>
-                      <div class="text-4xl mb-3">{c.emoji}</div>
+                      <div class="text-4xl mb-3 transition-transform duration-300 group-hover:scale-110">{c.emoji}</div>
                       <div class="font-en text-red text-xs font-bold tracking-wide-en mb-2">{c.category}</div>
-                      <h3 class="text-2xl lg:text-3xl font-black text-ink-dark mb-3">{c.brand}</h3>
+                      <h3 class="text-2xl lg:text-3xl font-black text-ink-dark mb-3 group-hover:text-red transition-colors">{c.brand}</h3>
                       <div class="text-sm text-ink-mute mb-4">{c.tagline}</div>
                     </div>
                     <div>
@@ -121,7 +121,7 @@ const cases = [
                     </div>
                   </div>
                   
-                  <div class="lg:col-span-8 p-8">
+                  <div class="lg:col-span-8 p-8 relative">
                     <div class="text-xs font-bold text-red tracking-wide-en mb-2 font-en flex items-center gap-2">
                       <span>🎯</span> APPROACH
                     </div>
@@ -130,7 +130,7 @@ const cases = [
                     <div class="text-xs font-bold text-red tracking-wide-en mb-3 font-en flex items-center gap-2">
                       <span>📊</span> RESULTS
                     </div>
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-2 gap-4 mb-6">
                       {c.results.map(r => (
                         <div class="border-l-[3px] border-red pl-3">
                           <div class="text-xs text-ink-mute mb-1">{r.label}</div>
@@ -138,9 +138,15 @@ const cases = [
                         </div>
                       ))}
                     </div>
+                    
+                    <!-- 상세 보기 표시 -->
+                    <div class="flex items-center gap-2 text-sm text-red font-bold opacity-60 group-hover:opacity-100 transition-opacity">
+                      <span>상세 사례 보기</span>
+                      <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </article>
           );
         })}
