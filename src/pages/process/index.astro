@@ -5,17 +5,17 @@ import CtaBlock from "../../components/CtaBlock.astro";
 
 const steps = [
   {
-    num: "01", name: "온보딩", en: "Onboarding", period: "2 ~ 4주",
+    num: "01", name: "온보딩", en: "Onboarding", period: "2 ~ 4주", emoji: "🎯",
     desc: "초기 진단부터 KPI 설정, 채널·SKU·매체 매핑, 인프라 구축까지 첫 4주 안에 운영 기반을 완성합니다.",
     weeks: [
-      { week: "Week 1", title: "초기 진단", items: ["클라이언트 현황 분석 (제품·채널·인력·예산)", "4유형 진단 (Type A/B/C/D 분류)", "페인포인트·우선순위 도출"] },
-      { week: "Week 2", title: "목표·KPI 설정", items: ["6개월·12개월 매출 목표 합의", "채널별 KPI 분배 (매출·ROAS·전환율 등)", "매체별 측정 지표 확정"] },
-      { week: "Week 3", title: "채널·SKU·매체 매핑", items: ["진입 채널 우선순위 (옴니채널 진입 순서)", "채널별 SKU 매칭", "매체 라인업 확정 (6대 모듈 + 10개 매체 중 선택)"] },
-      { week: "Week 4", title: "인프라 구축", items: ["채널 입점·세팅 완료", "운영 도구 연동 (채널 관리·CS 도구·ERP)", "첫 정산 시점·정산 방식 합의"] },
+      { week: "Week 1", title: "초기 진단", items: ["클라이언트 현황 분석", "4유형 진단 (Type A/B/C/D)", "페인포인트·우선순위 도출"] },
+      { week: "Week 2", title: "목표·KPI 설정", items: ["6/12개월 매출 목표 합의", "채널별 KPI 분배", "매체별 측정 지표 확정"] },
+      { week: "Week 3", title: "채널·매체 매핑", items: ["진입 채널 우선순위", "채널별 SKU 매칭", "매체 라인업 확정"] },
+      { week: "Week 4", title: "인프라 구축", items: ["채널 입점·세팅 완료", "운영 도구 연동", "첫 정산 시점·방식 합의"] },
     ],
   },
   {
-    num: "02", name: "실행", en: "Execution", period: "월 단위",
+    num: "02", name: "실행", en: "Execution", period: "월 단위", emoji: "⚡",
     desc: "6대 모듈과 10개 매체를 동시 가동합니다. 채널 운영·CS 응대·콘텐츠 제작·물류 관리·매체 집행이 한 흐름으로 작동합니다.",
     items: [
       "채널 운영 (등록·가격·재고·정산·광고 모니터링)",
@@ -26,7 +26,7 @@ const steps = [
     ],
   },
   {
-    num: "03", name: "정산", en: "Settlement", period: "월말",
+    num: "03", name: "정산", en: "Settlement", period: "월말", emoji: "💳",
     desc: "옵션별 정산 방식을 적용합니다. 채널별 정산 데이터를 검증하고 옵션 1~4 각각의 정산 규칙으로 처리합니다.",
     items: [
       "옵션 1 RS — 월말 매출 정산 → N% 수익 공유",
@@ -36,24 +36,24 @@ const steps = [
     ],
   },
   {
-    num: "04", name: "리포팅", en: "Reporting", period: "정기",
+    num: "04", name: "리포팅", en: "Reporting", period: "정기", emoji: "📋",
     desc: "주간·월간·분기 단위로 정량 데이터를 공유합니다. 매체별 ROAS를 비교해 효율 매체에 예산을 재배분합니다.",
     items: [
       "주간 운영 보고서 (월 4회) — 채널별 매출·이슈",
       "월간 종합 리포트 — 성과·비용·이익률",
       "분기 리뷰 — 캠페인·매체 효과 종합 평가",
-      "매체별 ROAS 정량 비교 → 효율 매체 식별 → 재배분",
+      "매체별 ROAS 정량 비교 → 효율 매체 재배분",
     ],
   },
   {
-    num: "05", name: "오프보딩", en: "Offboarding", period: "계약 만료",
+    num: "05", name: "오프보딩", en: "Offboarding", period: "계약 만료", emoji: "🤝",
     desc: "깔끔한 인계 절차로 자체 운영 또는 재계약을 지원합니다. 계정 권한·데이터·매뉴얼·콘텐츠 저작권까지 5단계로 이관합니다.",
     items: [
       "계정 권한 인계 — 채널별 관리자 권한 이관",
-      "운영 데이터 이관 — 상품·재고·고객·매출 데이터 백업·제공",
-      "운영 매뉴얼 제공 — 채널별 운영 가이드·FAQ·이슈 히스토리",
-      "콘텐츠 저작권 이관 — 상세페이지·이미지·영상 원본 파일 인도",
-      "잔여 정산 처리 — 미정산 매출·환불·반품 처리 마무리",
+      "운영 데이터 이관 — 백업·제공",
+      "운영 매뉴얼 제공 — 가이드·FAQ",
+      "콘텐츠 저작권 이관 — 원본 파일 인도",
+      "잔여 정산 처리 — 마무리",
     ],
   },
 ];
@@ -65,51 +65,53 @@ const steps = [
   current="/process/"
 >
   <PageHero
-    eyebrow="PROCESS"
+    eyebrow="⚡ PROCESS"
     title="5단계 운영 프로세스."
     sub="계약 체결부터 오프보딩까지, 표준화된 5단계 흐름으로 운영합니다. 각 단계의 산출물과 일정을 투명하게 공개합니다."
   />
 
-  <!-- 전체 타임라인 -->
+  <!-- 타임라인 -->
   <section class="py-16 lg:py-20 bg-bg-light">
     <div class="container-page">
       <div class="grid sm:grid-cols-5 gap-3">
-        {steps.map(s => (
-          <a href={`#step-${s.num}`} class="bg-white border-l-[3px] border-red p-5 card-hover block">
+        {steps.map((s, i) => (
+          <a href={`#step-${s.num}`} class={`bg-white border-l-[3px] border-red p-5 card-hover block fade-up fade-up-delay-${(i % 3) + 1}`}>
+            <div class="text-2xl mb-2">{s.emoji}</div>
             <div class="font-en text-red text-xs font-bold tracking-wide-en mb-2">STEP {s.num}</div>
             <div class="text-lg font-bold text-ink-dark mb-1">{s.name}</div>
             <div class="text-xs text-ink-mute mb-3">{s.en}</div>
-            <div class="text-xs font-bold text-red">{s.period}</div>
+            <div class="text-xs font-bold text-red">⏱ {s.period}</div>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- 단계별 상세 -->
+  <!-- 단계 상세 -->
   <section class="py-16 lg:py-20">
     <div class="container-page">
       <div class="space-y-16">
         {steps.map(s => (
-          <div id={`step-${s.num}`} class="scroll-mt-20">
+          <div id={`step-${s.num}`} class="scroll-mt-20 fade-up">
             <div class="flex items-baseline gap-4 mb-3 flex-wrap">
+              <span class="text-3xl">{s.emoji}</span>
               <span class="font-en text-red text-base font-bold tracking-wide-en">STEP {s.num}</span>
               <h2 class="text-2xl sm:text-3xl font-black text-ink-dark">{s.name}</h2>
               <span class="text-xs text-ink-light">{s.en}</span>
-              <span class="ml-auto text-sm font-bold text-red">{s.period}</span>
+              <span class="ml-auto text-sm font-bold text-red">⏱ {s.period}</span>
             </div>
             <p class="text-base text-ink-body mb-8">{s.desc}</p>
             
             {s.weeks && (
               <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {s.weeks.map(w => (
-                  <div class="bg-bg-card border-l-[3px] border-red p-5 rounded-r-md">
+                  <div class="bg-bg-card border-l-[3px] border-red p-5 rounded-r-md card-hover">
                     <div class="font-en text-red text-xs font-bold tracking-wide-en mb-2">{w.week}</div>
                     <div class="font-bold text-ink-dark mb-3">{w.title}</div>
                     <ul class="space-y-1.5">
                       {w.items.map(it => (
                         <li class="text-xs text-ink-body flex gap-2">
-                          <span class="text-red">·</span>
+                          <span class="text-red">▸</span>
                           <span>{it}</span>
                         </li>
                       ))}
@@ -124,7 +126,7 @@ const steps = [
                 <ul class="space-y-2">
                   {s.items.map(it => (
                     <li class="text-sm text-ink-body flex gap-2">
-                      <span class="text-red font-bold">·</span>
+                      <span class="text-red font-bold">▸</span>
                       <span>{it}</span>
                     </li>
                   ))}
