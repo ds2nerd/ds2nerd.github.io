@@ -11,17 +11,17 @@ const navItems = [
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-all">
   <div class="container-page flex items-center justify-between h-16">
-<a href="/" class="flex items-center">
-  <img src="/goldenax-logo.png" alt="골드넥스 커머스 솔루션" class="h-[22px] w-auto" />
-</a>
+    <a href="/" class="flex items-center transition-transform hover:scale-105">
+      <img src="/goldenax-logo.png" alt="골드넥스 커머스 솔루션" class="h-[22px] w-auto" />
+    </a>
     
     <nav class="hidden lg:flex items-center gap-6">
       {navItems.map(item => (
         <a 
           href={item.href} 
-          class={`text-sm font-medium transition-colors ${current === item.href ? "text-red" : "text-ink-body hover:text-red"}`}
+          class={`nav-link ${current === item.href ? "active text-red" : "text-ink-body hover:text-red"}`}
         >
           {item.label}
         </a>
@@ -29,22 +29,22 @@ const navItems = [
     </nav>
     
     <a href="/contact/" class="btn-primary !py-2 !px-4 !text-sm">
-      무료 상담 신청
+      <span>📧</span>
+      무료 상담
+      <span class="arrow-icon">→</span>
     </a>
     
-    <!-- 모바일 메뉴 토글 -->
-    <button id="mobile-menu-toggle" class="lg:hidden text-ink-dark p-2" aria-label="메뉴 열기">
+    <button id="mobile-menu-toggle" class="lg:hidden text-ink-dark p-2 transition-colors hover:text-red" aria-label="메뉴 열기">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M3 6h18M3 12h18M3 18h18"/>
       </svg>
     </button>
   </div>
   
-  <!-- 모바일 메뉴 -->
   <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
     <div class="container-page py-4 flex flex-col gap-3">
       {navItems.map(item => (
-        <a href={item.href} class={`text-sm font-medium ${current === item.href ? "text-red" : "text-ink-body"}`}>
+        <a href={item.href} class={`text-sm font-medium transition-colors ${current === item.href ? "text-red" : "text-ink-body hover:text-red"}`}>
           {item.label}
         </a>
       ))}
@@ -52,8 +52,12 @@ const navItems = [
   </div>
 </header>
 
-<script>
-  const toggle = document.getElementById("mobile-menu-toggle");
-  const menu = document.getElementById("mobile-menu");
-  toggle?.addEventListener("click", () => menu?.classList.toggle("hidden"));
+<script is:inline>
+  var toggle = document.getElementById("mobile-menu-toggle");
+  var menu = document.getElementById("mobile-menu");
+  if (toggle && menu) {
+    toggle.addEventListener("click", function () {
+      menu.classList.toggle("hidden");
+    });
+  }
 </script>
