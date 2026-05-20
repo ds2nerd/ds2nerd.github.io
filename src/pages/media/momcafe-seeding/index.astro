@@ -111,11 +111,21 @@ const process = [
         </div>
         
         <div class="lg:col-span-5 fade-up fade-up-delay-2">
-          <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
-            <div class="text-5xl mb-2 opacity-30">🖼️</div>
-            <div class="text-sm font-bold text-ink-mute">매체 메인 이미지</div>
-            <div class="text-xs text-ink-light mt-1">hero.jpg (1600 × 900px)</div>
-            <div class="text-xs text-ink-light">/public/media/momcafe-seeding/</div>
+          <div class="relative aspect-video rounded-md overflow-hidden">
+            <img
+              src="https://loremflickr.com/1600/900/community,family,parent?lock=721"
+              alt="맘카페 시딩 - 고관여 커뮤니티 직접 접근"
+              loading="lazy"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded tracking-wide">MEDIA</div>
+            <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded tracking-wide">CONVERSION</div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <div class="bg-black/70 backdrop-blur-sm text-white px-3 py-2 rounded">
+                <div class="text-base font-black">👥 맘카페 시딩</div>
+                <div class="text-xs opacity-90 mt-0.5">고관여 커뮤니티 직접 접근</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -153,30 +163,47 @@ const process = [
       </div>
       
       <div class="max-w-4xl mx-auto mb-6 fade-up">
-        <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
-          <div class="text-7xl mb-3 opacity-30">🖼️</div>
-          <div class="text-base font-bold text-ink-mute">맘카페 게시글 노출 예시</div>
-          <div class="text-xs text-ink-light mt-2">execution-main.jpg (1920 × 1080px)</div>
-          <div class="text-xs text-ink-light">/public/media/momcafe-seeding/</div>
-          <div class="text-xs text-ink-light mt-2 italic">실제 맘카페 게시글 화면 캡처 (익명화)</div>
+        <div class="relative aspect-video rounded-md overflow-hidden shadow-lg">
+          <img
+            src="https://loremflickr.com/1920/1080/forum,discussion,community?lock=722"
+            alt="맘카페 게시글 노출 예시 - 실제 집행 화면 예시"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded tracking-wide">LIVE</div>
+          <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded tracking-wide">EXECUTION</div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <div class="bg-black/70 backdrop-blur-sm text-white px-4 py-2.5 rounded">
+              <div class="text-lg font-black">👥 맘카페 게시글 노출 예시</div>
+              <div class="text-sm opacity-90 mt-0.5">실제 집행 화면 예시</div>
+            </div>
+          </div>
         </div>
       </div>
       
       <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-4">
         <div class="fade-up fade-up-delay-1">
-          <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
-            <div class="text-5xl mb-2 opacity-30">🖼️</div>
-            <div class="text-sm font-bold text-ink-mute">게시글 본문 + 댓글</div>
-            <div class="text-xs text-ink-light mt-1">execution-post.jpg</div>
-            <div class="text-xs text-ink-light">(1200 × 675px)</div>
+          <div class="relative aspect-video rounded-md overflow-hidden">
+            <img
+              src="https://loremflickr.com/1200/675/chat,message,community?lock=723"
+              alt="게시글 본문 + 댓글"
+              loading="lazy"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">01</div>
+            <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">💬 게시글 본문 + 댓글</div>
           </div>
         </div>
         <div class="fade-up fade-up-delay-2">
-          <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
-            <div class="text-5xl mb-2 opacity-30">🖼️</div>
-            <div class="text-sm font-bold text-ink-mute">쿠폰 코드 매출 리포트</div>
-            <div class="text-xs text-ink-light mt-1">execution-report.jpg</div>
-            <div class="text-xs text-ink-light">(1200 × 675px)</div>
+          <div class="relative aspect-video rounded-md overflow-hidden">
+            <img
+              src="https://loremflickr.com/1200/675/target,marketing,audience?lock=724"
+              alt="쿠폰 코드 매출 리포트"
+              loading="lazy"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">02</div>
+            <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">🎯 쿠폰 코드 매출 리포트</div>
           </div>
         </div>
       </div>
