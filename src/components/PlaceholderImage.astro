@@ -1,1 +1,181 @@
+---
+/**
+ * PlaceholderImage — 실제 이미지 발주 전 임시 디자인 placeholder
+ *
+ * 사용 예:
+ *   <PlaceholderImage variant="case-hero" theme="fnb" emoji="🍱" label="봉포머구리집" sublabel="지역 노포의 전국 진입" tag="F&B" cornerLabel="CASE" />
+ *   <PlaceholderImage variant="case-gallery" theme="fnb-main" emoji="🛒" label="자사몰" sublabel="메인 화면" cornerLabel="01" />
+ *   <PlaceholderImage variant="media-hero" theme="conversion" emoji="🎬" label="네이버 클립" sublabel="통합검색 1p 점유" tag="CONVERSION" cornerLabel="MEDIA" />
+ *
+ * 실제 이미지로 교체할 때: <img src="..."> 로 바꾸면 됨.
+ */
 
+interface Props {
+  variant?: "case-hero" | "case-gallery" | "media-hero" | "media-execution" | "media-secondary";
+  theme: string;  // fnb-main, fnb-deep, fnb-light, health-main, health-deep, health-light, care-main, care-deep, care-light, conversion, asset, awareness, data
+  emoji: string;
+  label: string;
+  sublabel?: string;
+  tag?: string;          // 우측 상단 카테고리 태그 (예: "F&B", "CONVERSION")
+  cornerLabel?: string;  // 좌측 상단 라벨 (예: "CASE", "01", "MEDIA")
+  class?: string;
+}
+
+const {
+  variant = "case-gallery",
+  theme,
+  emoji,
+  label,
+  sublabel,
+  tag,
+  cornerLabel,
+  class: extraClass = "",
+} = Astro.props;
+
+// variant별 비율
+const aspectClass =
+  variant === "case-hero" || variant === "media-hero" || variant === "media-execution"
+    ? "aspect-video"
+    : variant === "media-secondary"
+    ? "aspect-video"
+    : "aspect-square";
+
+// hero급(큰 텍스트) vs gallery급(작은 텍스트)
+const isLarge = variant === "case-hero" || variant === "media-hero" || variant === "media-execution";
+
+// 테마별 그라데이션 클래스 매핑
+const themeStyles: Record<string, string> = {
+  // F&B
+  "fnb-main":     "background: linear-gradient(135deg, #FF9F43 0%, #EE5A24 100%);",
+  "fnb-deep":     "background: linear-gradient(135deg, #EE5A24 0%, #B33939 100%);",
+  "fnb-light":    "background: linear-gradient(135deg, #FFA94D 0%, #FF7043 100%);",
+  // 건강기능식품
+  "health-main":  "background: linear-gradient(135deg, #26C281 0%, #16A085 100%);",
+  "health-deep":  "background: linear-gradient(135deg, #16A085 0%, #0B7B5C 100%);",
+  "health-light": "background: linear-gradient(135deg, #2ECC71 0%, #1ABC9C 100%);",
+  // 헬스케어
+  "care-main":    "background: linear-gradient(135deg, #54A0FF 0%, #2E86DE 100%);",
+  "care-deep":    "background: linear-gradient(135deg, #2E86DE 0%, #1B4F8C 100%);",
+  "care-light":   "background: linear-gradient(135deg, #6FB1FC 0%, #4A98E8 100%);",
+  // 매체 포지션 (CASE 갤러리에서도 차용)
+  "conversion":   "background: linear-gradient(135deg, #E53935 0%, #C62828 100%);",
+  "asset":        "background: linear-gradient(135deg, #1E88E5 0%, #1565C0 100%);",
+  "awareness":    "background: linear-gradient(135deg, #AB47BC 0%, #6A1B9A 100%);",
+  // 데이터/그래프
+  "data":         "background: linear-gradient(135deg, #2C3E50 0%, #1A252F 100%);",
+};
+
+const bgStyle = themeStyles[theme] || themeStyles["fnb-main"];
+---
+
+<div
+  class={`ph-placeholder ${aspectClass} ${extraClass}`}
+  style={bgStyle}
+  role="img"
+  aria-label={`${label}${sublabel ? " - " + sublabel : ""}`}
+>
+  {cornerLabel && <div class="ph-corner">{cornerLabel}</div>}
+  {tag && <div class="ph-tag">{tag}</div>}
+  
+  <div class={`ph-content ${isLarge ? "ph-large" : "ph-small"}`}>
+    <div class="ph-emoji">{emoji}</div>
+    <div class="ph-label">{label}</div>
+    {isLarge && <div class="ph-divider"></div>}
+    {sublabel && <div class="ph-sublabel">{sublabel}</div>}
+  </div>
+  
+  <div class="ph-watermark">GOLDENAX</div>
+</div>
+
+<style is:global>
+  .ph-placeholder {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  /* 도트 패턴 */
+  .ph-placeholder::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,.12) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+  }
+  
+  /* 우측 상단 태그 */
+  .ph-tag {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(255,255,255,.22);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    z-index: 2;
+  }
+  
+  /* 좌측 상단 라벨 */
+  .ph-corner {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-size: 11px;
+    font-weight: 700;
+    opacity: .7;
+    letter-spacing: 1px;
+    z-index: 2;
+  }
+  
+  /* 우하단 워터마크 */
+  .ph-watermark {
+    position: absolute;
+    bottom: 12px;
+    right: 16px;
+    font-size: 9px;
+    opacity: .45;
+    letter-spacing: 2px;
+    z-index: 2;
+  }
+  
+  /* 중앙 콘텐츠 */
+  .ph-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .ph-emoji {
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,.2));
+    line-height: 1;
+  }
+  
+  /* hero급 (큰 텍스트) */
+  .ph-large .ph-emoji { font-size: 72px; margin-bottom: 16px; }
+  .ph-large .ph-label { font-size: 26px; font-weight: 900; letter-spacing: -.5px; line-height: 1.2; }
+  .ph-large .ph-sublabel { font-size: 14px; font-weight: 500; opacity: .9; margin-top: 4px; }
+  .ph-large .ph-divider { width: 36px; height: 2px; background: rgba(255,255,255,.4); margin: 14px auto; }
+  
+  /* gallery급 (작은 텍스트) */
+  .ph-small .ph-emoji { font-size: 48px; margin-bottom: 10px; }
+  .ph-small .ph-label { font-size: 17px; font-weight: 900; letter-spacing: -.3px; }
+  .ph-small .ph-sublabel { font-size: 12px; font-weight: 500; opacity: .85; margin-top: 4px; }
+  
+  /* 모바일 미세 조정 */
+  @media (max-width: 640px) {
+    .ph-large .ph-emoji { font-size: 56px; }
+    .ph-large .ph-label { font-size: 22px; }
+    .ph-small .ph-emoji { font-size: 40px; }
+    .ph-small .ph-label { font-size: 15px; }
+  }
+</style>
