@@ -5,60 +5,41 @@ import CtaBlock from "../../components/CtaBlock.astro";
 
 const options = [
   {
-    name: "옵션 01", title: "순수 RS 구조", en: "Revenue Share Only", highlight: true,
+    name: "옵션 01", title: "순수 RS 구조", en: "Revenue Share Only", emoji: "🎯", highlight: true,
     headline: "광고비 · 운영비 부담 없이 매출 발생 시점부터 수익을 공유.",
     sub: "진입 단계의 브랜드가 리스크 없이 시작할 수 있습니다.",
-    structure: [
-      "운영 모듈 풀패키지 — 운영사 전담",
-      "광고 · 매체 — 운영사 부담",
-      "클라이언트 부담 — 0원 (성과 발생 시까지)",
-      "정산 — 매출의 N% 수익 공유 (협의)",
-    ],
-    fit: ["검증 단계의 신규·성장 브랜드", "광고 예산 부담이 큰 중소 브랜드", "매출 보장형 파트너십 희망"],
+    structure: ["운영 모듈 풀패키지 — 운영사 전담","광고 · 매체 — 운영사 부담","클라이언트 부담 — 0원 (성과 발생 시까지)","정산 — 매출의 N% 수익 공유 (협의)"],
+    fit: ["검증 단계의 신규·성장 브랜드","광고 예산 부담이 큰 중소 브랜드","매출 보장형 파트너십 희망"],
     contract: "12개월 이상 권장",
     kpi: "매출 · ROAS · 누적 후기 자산",
     target: "Type B 첫 진입형",
   },
   {
-    name: "옵션 02", title: "월 정액 운영대행", en: "Monthly Retainer", highlight: false,
+    name: "옵션 02", title: "월 정액 운영대행", en: "Monthly Retainer", emoji: "📊", highlight: false,
     headline: "매출 분배 없이 고정 운영비로 전 영역을 위탁.",
     sub: "안정적 매출 기반의 브랜드가 인하우스 부담을 줄이는 구조.",
-    structure: [
-      "운영 모듈 풀패키지 — 월 정액",
-      "매체 — 별도 협의 (옵션 4로 연계 가능)",
-      "매출 분배 — 없음",
-      "정산 — 월 고정비",
-    ],
-    fit: ["안정 매출을 보유한 브랜드", "인하우스 인건비 부담이 큰 단계", "예측 가능한 비용 구조 선호"],
+    structure: ["운영 모듈 풀패키지 — 월 정액","매체 — 별도 협의 (옵션 4로 연계 가능)","매출 분배 — 없음","정산 — 월 고정비"],
+    fit: ["안정 매출을 보유한 브랜드","인하우스 인건비 부담이 큰 단계","예측 가능한 비용 구조 선호"],
     contract: "6 ~ 12개월",
     kpi: "채널별 매출 · 이익률 · 운영 안정성",
     target: "Type A 매출 정체형",
   },
   {
-    name: "옵션 03", title: "매체 단독 집행", en: "Media Only", highlight: false,
+    name: "옵션 03", title: "매체 단독 집행", en: "Media Only", emoji: "📺", highlight: false,
     headline: "운영대행 없이 매체만 단건 · 캠페인 단위로 집행.",
     sub: "자체 운영 인력을 보유한 브랜드가 매체만 효율적으로 선택할 때.",
-    structure: [
-      "운영대행 — 미포함",
-      "매체 — 10개 매체 중 선택 집행",
-      "정산 — 매체별 단가 또는 캠페인 단위",
-    ],
-    fit: ["자체 운영 인력 보유", "신제품 출시 · 캠페인 단발성 집행", "기존 운영대행사 보유, 매체만 별도 필요"],
+    structure: ["운영대행 — 미포함","매체 — 10개 매체 중 선택 집행","정산 — 매체별 단가 또는 캠페인 단위"],
+    fit: ["자체 운영 인력 보유","신제품 출시 · 캠페인 단발성 집행","기존 운영대행사 보유, 매체만 별도 필요"],
     contract: "캠페인 단위",
     kpi: "매체별 ROAS · 도달 · 전환",
     target: "자체 운영 보유 브랜드",
   },
   {
-    name: "옵션 04", title: "혼합 구조", en: "Hybrid", highlight: false,
+    name: "옵션 04", title: "혼합 구조", en: "Hybrid", emoji: "🔀", highlight: false,
     headline: "1~3 옵션을 자유롭게 조합한 맞춤형 비용 구조.",
     sub: "대부분의 종합 계약은 혼합 구조로 진행됩니다.",
-    structure: [
-      "Pattern A: 2 + 3 — 월 정액 + 캠페인 매체 (가장 일반적)",
-      "Pattern B: 1 + 3 — RS + 추가 캠페인 매체",
-      "Pattern C: 2 + RS 부분 — 성과 인센티브형",
-      "Pattern D: 1 + 2 부분 — 최소 고정비 + RS",
-    ],
-    fit: ["클라이언트의 현재 단계와 자원에 맞춰 설계", "6대 모듈 × 10개 매체 자유 조합", "계약 중 단계 변화 시 옵션 조정 가능"],
+    structure: ["Pattern A: 2 + 3 — 월 정액 + 캠페인 매체 (가장 일반적)","Pattern B: 1 + 3 — RS + 추가 캠페인 매체","Pattern C: 2 + RS 부분 — 성과 인센티브형","Pattern D: 1 + 2 부분 — 최소 고정비 + RS"],
+    fit: ["클라이언트의 현재 단계와 자원에 맞춰 설계","6대 모듈 × 10개 매체 자유 조합","계약 중 단계 변화 시 옵션 조정 가능"],
     contract: "케이스별",
     kpi: "케이스별 합의",
     target: "Type A~D 전반",
@@ -72,16 +53,19 @@ const options = [
   current="/pricing/"
 >
   <PageHero
-    eyebrow="PRICING"
+    eyebrow="💰 PRICING"
     title="비용 구조는 솔루션의 일부입니다."
     sub="같은 운영 범위라도 클라이언트의 단계에 따라 적합한 정산 구조는 달라집니다. 4가지 옵션을 자유롭게 선택·조합할 수 있도록 설계되어 진입 부담은 낮추고 운영 효율은 높입니다."
   />
 
-  <!-- 옵션 1 RS 강조 박스 -->
-  <section class="py-16 lg:py-20 bg-bg-light">
+  <!-- 옵션 1 RS 강조 -->
+  <section class="py-16 lg:py-20 bg-gradient-soft">
     <div class="container-page max-w-4xl">
-      <div class="bg-red text-white rounded-md p-8 lg:p-10">
-        <div class="font-en text-white/80 text-sm font-bold tracking-wide-en mb-3">옵션 01 · RS</div>
+      <div class="bg-gradient-red text-white rounded-md p-8 lg:p-10 fade-up relative overflow-hidden">
+        <div class="absolute top-0 right-0 text-9xl opacity-10">🎯</div>
+        <div class="font-en text-white/80 text-sm font-bold tracking-wide-en mb-3 flex items-center gap-2">
+          <span>⭐</span> 옵션 01 · RS
+        </div>
         <h2 class="text-2xl sm:text-3xl font-black text-white mb-3">광고비 부담 없이 시작합니다.</h2>
         <p class="text-base text-white/90 mb-6 max-w-2xl">
           옵션 1 (순수 RS)로 매출 발생 시점부터 N% 수익을 공유합니다.
@@ -98,9 +82,10 @@ const options = [
   <section class="py-16 lg:py-20">
     <div class="container-page">
       <div class="space-y-12">
-        {options.map(opt => (
-          <div class={`rounded-md p-6 lg:p-8 ${opt.highlight ? "bg-bg-light border-l-[3px] border-red" : "bg-white border border-gray-200"}`}>
+        {options.map((opt, i) => (
+          <div class={`rounded-md p-6 lg:p-8 fade-up fade-up-delay-${(i % 3) + 1} card-hover ${opt.highlight ? "bg-bg-light border-l-[3px] border-red" : "bg-white border border-gray-200"}`}>
             <div class="flex items-baseline gap-3 mb-3 flex-wrap">
+              <span class="text-2xl">{opt.emoji}</span>
               <span class="font-en text-red text-sm font-bold tracking-wide-en">{opt.name}</span>
               <h3 class="text-2xl font-black text-ink-dark">{opt.title}</h3>
               <span class="text-xs text-ink-light">{opt.en}</span>
@@ -110,7 +95,9 @@ const options = [
             
             <div class="grid lg:grid-cols-2 gap-6">
               <div>
-                <div class="text-sm font-bold text-red mb-3">구조</div>
+                <div class="text-sm font-bold text-red mb-3 flex items-center gap-2">
+                  <span>🔧</span> 구조
+                </div>
                 <ul class="space-y-1.5">
                   {opt.structure.map(s => (
                     <li class="text-sm text-ink-body flex gap-2">
@@ -121,7 +108,9 @@ const options = [
                 </ul>
               </div>
               <div>
-                <div class="text-sm font-bold text-red mb-3">적합한 상황</div>
+                <div class="text-sm font-bold text-red mb-3 flex items-center gap-2">
+                  <span>✅</span> 적합한 상황
+                </div>
                 <ul class="space-y-1.5">
                   {opt.fit.map(f => (
                     <li class="text-sm text-ink-body flex gap-2">
@@ -135,15 +124,15 @@ const options = [
             
             <div class="mt-6 pt-6 border-t border-gray-100 grid sm:grid-cols-3 gap-4 text-sm">
               <div>
-                <div class="text-xs text-ink-mute mb-1">계약 기간</div>
+                <div class="text-xs text-ink-mute mb-1">📅 계약 기간</div>
                 <div class="font-bold text-ink-dark">{opt.contract}</div>
               </div>
               <div>
-                <div class="text-xs text-ink-mute mb-1">주요 KPI</div>
+                <div class="text-xs text-ink-mute mb-1">📊 주요 KPI</div>
                 <div class="font-bold text-ink-dark">{opt.kpi}</div>
               </div>
               <div>
-                <div class="text-xs text-ink-mute mb-1">추천 타겟</div>
+                <div class="text-xs text-ink-mute mb-1">🎯 추천 타겟</div>
                 <div class="font-bold text-red">{opt.target}</div>
               </div>
             </div>
@@ -153,72 +142,32 @@ const options = [
     </div>
   </section>
 
-  <!-- 4옵션 비교 매트릭스 -->
+  <!-- 비교 매트릭스 -->
   <section class="bg-bg-light py-16 lg:py-20">
     <div class="container-page">
-      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">COMPARISON</div>
-      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">4옵션 비교 매트릭스</h2>
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm bg-white">
+      <div class="fade-up">
+        <div class="section-eyebrow">📊 COMPARISON</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">4옵션 비교 매트릭스</h2>
+      </div>
+      <div class="overflow-x-auto fade-up">
+        <table class="w-full text-sm bg-white rounded-md overflow-hidden">
           <thead>
             <tr class="bg-red text-white">
               <th class="px-4 py-3 text-left font-bold">비교 항목</th>
-              <th class="px-4 py-3 font-bold">옵션 1 RS</th>
-              <th class="px-4 py-3 font-bold">옵션 2 정액</th>
-              <th class="px-4 py-3 font-bold">옵션 3 매체</th>
-              <th class="px-4 py-3 font-bold">옵션 4 혼합</th>
+              <th class="px-4 py-3 font-bold">🎯 옵션 1 RS</th>
+              <th class="px-4 py-3 font-bold">📊 옵션 2 정액</th>
+              <th class="px-4 py-3 font-bold">📺 옵션 3 매체</th>
+              <th class="px-4 py-3 font-bold">🔀 옵션 4 혼합</th>
             </tr>
           </thead>
           <tbody class="text-ink-body">
-            <tr class="border-b border-gray-100">
-              <td class="px-4 py-3 bg-bg-light font-bold text-ink-dark">초기 비용</td>
-              <td class="px-4 py-3 text-center">없음</td>
-              <td class="px-4 py-3 text-center">월 고정</td>
-              <td class="px-4 py-3 text-center">캠페인별</td>
-              <td class="px-4 py-3 text-center">케이스별</td>
-            </tr>
-            <tr class="border-b border-gray-100">
-              <td class="px-4 py-3 bg-bg-light font-bold text-ink-dark">운영대행</td>
-              <td class="px-4 py-3 text-center">포함</td>
-              <td class="px-4 py-3 text-center">포함</td>
-              <td class="px-4 py-3 text-center">X</td>
-              <td class="px-4 py-3 text-center">선택</td>
-            </tr>
-            <tr class="border-b border-gray-100">
-              <td class="px-4 py-3 bg-bg-light font-bold text-ink-dark">광고 / 매체</td>
-              <td class="px-4 py-3 text-center">포함</td>
-              <td class="px-4 py-3 text-center">별도</td>
-              <td class="px-4 py-3 text-center">단독 집행</td>
-              <td class="px-4 py-3 text-center">선택</td>
-            </tr>
-            <tr class="border-b border-gray-100">
-              <td class="px-4 py-3 bg-bg-light font-bold text-ink-dark">정산 방식</td>
-              <td class="px-4 py-3 text-center">매출 N%</td>
-              <td class="px-4 py-3 text-center">월 고정</td>
-              <td class="px-4 py-3 text-center">캠페인 단가</td>
-              <td class="px-4 py-3 text-center">혼합</td>
-            </tr>
-            <tr class="border-b border-gray-100">
-              <td class="px-4 py-3 bg-bg-light font-bold text-ink-dark">계약 기간</td>
-              <td class="px-4 py-3 text-center">12개월+</td>
-              <td class="px-4 py-3 text-center">6~12개월</td>
-              <td class="px-4 py-3 text-center">캠페인 단위</td>
-              <td class="px-4 py-3 text-center">12개월+</td>
-            </tr>
-            <tr class="border-b border-gray-100">
-              <td class="px-4 py-3 bg-bg-light font-bold text-ink-dark">클라이언트 리스크</td>
-              <td class="px-4 py-3 text-center">매우 낮음</td>
-              <td class="px-4 py-3 text-center">중간</td>
-              <td class="px-4 py-3 text-center">낮음</td>
-              <td class="px-4 py-3 text-center">중간</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 bg-bg-light font-bold text-ink-dark">추천 타겟</td>
-              <td class="px-4 py-3 text-center font-bold text-typeB">Type B</td>
-              <td class="px-4 py-3 text-center font-bold text-typeA">Type A</td>
-              <td class="px-4 py-3 text-center font-bold text-typeD">Type D</td>
-              <td class="px-4 py-3 text-center font-bold text-red">Type A~D</td>
-            </tr>
+            <tr class="border-b border-gray-100"><td class="px-4 py-3 bg-bg-light font-bold text-ink-dark">초기 비용</td><td class="px-4 py-3 text-center">없음</td><td class="px-4 py-3 text-center">월 고정</td><td class="px-4 py-3 text-center">캠페인별</td><td class="px-4 py-3 text-center">케이스별</td></tr>
+            <tr class="border-b border-gray-100"><td class="px-4 py-3 bg-bg-light font-bold text-ink-dark">운영대행</td><td class="px-4 py-3 text-center">포함</td><td class="px-4 py-3 text-center">포함</td><td class="px-4 py-3 text-center">X</td><td class="px-4 py-3 text-center">선택</td></tr>
+            <tr class="border-b border-gray-100"><td class="px-4 py-3 bg-bg-light font-bold text-ink-dark">광고 / 매체</td><td class="px-4 py-3 text-center">포함</td><td class="px-4 py-3 text-center">별도</td><td class="px-4 py-3 text-center">단독 집행</td><td class="px-4 py-3 text-center">선택</td></tr>
+            <tr class="border-b border-gray-100"><td class="px-4 py-3 bg-bg-light font-bold text-ink-dark">정산 방식</td><td class="px-4 py-3 text-center">매출 N%</td><td class="px-4 py-3 text-center">월 고정</td><td class="px-4 py-3 text-center">캠페인 단가</td><td class="px-4 py-3 text-center">혼합</td></tr>
+            <tr class="border-b border-gray-100"><td class="px-4 py-3 bg-bg-light font-bold text-ink-dark">계약 기간</td><td class="px-4 py-3 text-center">12개월+</td><td class="px-4 py-3 text-center">6~12개월</td><td class="px-4 py-3 text-center">캠페인</td><td class="px-4 py-3 text-center">12개월+</td></tr>
+            <tr class="border-b border-gray-100"><td class="px-4 py-3 bg-bg-light font-bold text-ink-dark">리스크</td><td class="px-4 py-3 text-center">매우 낮음</td><td class="px-4 py-3 text-center">중간</td><td class="px-4 py-3 text-center">낮음</td><td class="px-4 py-3 text-center">중간</td></tr>
+            <tr><td class="px-4 py-3 bg-bg-light font-bold text-ink-dark">추천 타겟</td><td class="px-4 py-3 text-center font-bold text-typeB">Type B</td><td class="px-4 py-3 text-center font-bold text-typeA">Type A</td><td class="px-4 py-3 text-center font-bold text-typeD">Type D</td><td class="px-4 py-3 text-center font-bold text-red">Type A~D</td></tr>
           </tbody>
         </table>
       </div>
@@ -228,23 +177,25 @@ const options = [
   <!-- 의사결정 가이드 -->
   <section class="py-16 lg:py-20">
     <div class="container-page max-w-3xl">
-      <div class="font-en text-red text-xs font-bold tracking-wide-en mb-3">DECISION GUIDE</div>
-      <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">의사결정 흐름</h2>
+      <div class="fade-up">
+        <div class="section-eyebrow">🤔 DECISION GUIDE</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">의사결정 흐름</h2>
+      </div>
       <div class="space-y-5">
-        <div class="box-red-line">
-          <div class="text-sm font-bold text-red mb-2">Q1.</div>
+        <div class="box-red-line fade-up fade-up-delay-1">
+          <div class="text-sm font-bold text-red mb-2 flex items-center gap-2"><span>❓</span> Q1.</div>
           <div class="text-lg font-bold text-ink-dark mb-3">광고 / 매체 예산을 직접 부담하실 수 있나요?</div>
-          <div class="text-sm text-ink-body">NO → <strong class="text-red">옵션 1 (순수 RS)</strong></div>
+          <div class="text-sm text-ink-body">▶ NO → <strong class="text-red">옵션 1 (순수 RS)</strong></div>
         </div>
-        <div class="box-red-line">
-          <div class="text-sm font-bold text-red mb-2">Q2.</div>
+        <div class="box-red-line fade-up fade-up-delay-2">
+          <div class="text-sm font-bold text-red mb-2 flex items-center gap-2"><span>❓</span> Q2.</div>
           <div class="text-lg font-bold text-ink-dark mb-3">운영을 위임하시겠습니까?</div>
-          <div class="text-sm text-ink-body">NO → <strong class="text-red">옵션 3 (매체 단독)</strong></div>
+          <div class="text-sm text-ink-body">▶ NO → <strong class="text-red">옵션 3 (매체 단독)</strong></div>
         </div>
-        <div class="box-red-line">
-          <div class="text-sm font-bold text-red mb-2">Q3.</div>
+        <div class="box-red-line fade-up fade-up-delay-3">
+          <div class="text-sm font-bold text-red mb-2 flex items-center gap-2"><span>❓</span> Q3.</div>
           <div class="text-lg font-bold text-ink-dark mb-3">월 정액 vs 매출 분배, 어느 쪽을 선호하시나요?</div>
-          <div class="text-sm text-ink-body">정액 → <strong class="text-red">옵션 2</strong> / 혼합 → <strong class="text-red">옵션 4</strong></div>
+          <div class="text-sm text-ink-body">▶ 정액 → <strong class="text-red">옵션 2</strong> / 혼합 → <strong class="text-red">옵션 4</strong></div>
         </div>
       </div>
     </div>
