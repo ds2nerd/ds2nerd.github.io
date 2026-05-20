@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import CtaBlock from "../../../components/CtaBlock.astro";
+import PlaceholderImage from "../../../components/PlaceholderImage.astro";
 
 const caseData = {
   brand: "세라블룸",
@@ -130,12 +131,15 @@ const relatedCases = [
           </div>
         </div>
         <div class="lg:col-span-5 fade-up fade-up-delay-2">
-          <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
-            <div class="text-5xl mb-2 opacity-30">🖼️</div>
-            <div class="text-sm font-bold text-ink-mute">메인 이미지</div>
-            <div class="text-xs text-ink-light mt-1">hero.jpg (1600 × 900px)</div>
-            <div class="text-xs text-ink-light">/public/cases/cerabloom/</div>
-          </div>
+          <PlaceholderImage
+            variant="case-hero"
+            theme="health-main"
+            emoji="💊"
+            label="세라블룸"
+            sublabel="광고법 컴플라이언스 + SEO"
+            tag="건강기능식품"
+            cornerLabel="CASE"
+          />
         </div>
       </div>
     </div>
@@ -232,41 +236,65 @@ const relatedCases = [
         <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">운영 화면 · 콘텐츠 샘플</h2>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-1">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">자사몰 메인</div>
-          <div class="text-xs text-ink-light mt-1">screen-mall.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-1">
+          <img
+            src="https://loremflickr.com/1200/1200/vitamin,supplement,bottle?lock=301"
+            alt="자사몰 메인"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">01</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">🛒 자사몰 메인</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-2">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">광고법 가이드 문서</div>
-          <div class="text-xs text-ink-light mt-1">compliance.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-2">
+          <img
+            src="https://loremflickr.com/1200/1200/document,paper,desk?lock=302"
+            alt="광고법 가이드 문서"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">02</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">⚖️ 광고법 가이드 문서</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-3">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">상세페이지 샘플</div>
-          <div class="text-xs text-ink-light mt-1">detail-sample.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-3">
+          <img
+            src="https://loremflickr.com/1200/1200/supplement,pill,natural?lock=303"
+            alt="상세페이지 샘플"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">03</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">📄 상세페이지 샘플</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-1">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">SEO 키워드 리포트</div>
-          <div class="text-xs text-ink-light mt-1">seo-report.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-1">
+          <img
+            src="https://loremflickr.com/1200/1200/search,seo,screen?lock=304"
+            alt="SEO 키워드 리포트"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">04</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">🔍 SEO 키워드 리포트</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-2">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">블로그 시딩 후기</div>
-          <div class="text-xs text-ink-light mt-1">blog-review.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-2">
+          <img
+            src="https://loremflickr.com/1200/1200/blog,writing,laptop?lock=305"
+            alt="블로그 시딩 후기"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">05</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">📝 블로그 시딩 후기</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-3">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">매출 성장 그래프</div>
-          <div class="text-xs text-ink-light mt-1">growth-chart.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-3">
+          <img
+            src="https://loremflickr.com/1200/1200/chart,growth,success?lock=306"
+            alt="매출 성장 그래프"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">06</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">📊 매출 성장 그래프</div>
         </div>
       </div>
     </div>

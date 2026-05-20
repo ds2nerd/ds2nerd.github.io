@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import CtaBlock from "../../../components/CtaBlock.astro";
+import PlaceholderImage from "../../../components/PlaceholderImage.astro";
 
 const caseData = {
   brand: "미스터밀크",
@@ -130,12 +131,15 @@ const relatedCases = [
           </div>
         </div>
         <div class="lg:col-span-5 fade-up fade-up-delay-2">
-          <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
-            <div class="text-5xl mb-2 opacity-30">🖼️</div>
-            <div class="text-sm font-bold text-ink-mute">메인 이미지</div>
-            <div class="text-xs text-ink-light mt-1">hero.jpg (1600 × 900px)</div>
-            <div class="text-xs text-ink-light">/public/cases/mrmilk/</div>
-          </div>
+          <PlaceholderImage
+            variant="case-hero"
+            theme="fnb-light"
+            emoji="🥛"
+            label="미스터밀크"
+            sublabel="정기구독 + 옴니채널 효율화"
+            tag="F&B"
+            cornerLabel="CASE"
+          />
         </div>
       </div>
     </div>
@@ -232,41 +236,65 @@ const relatedCases = [
         <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">운영 화면 · 콘텐츠 샘플</h2>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-1">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">자사몰 메인</div>
-          <div class="text-xs text-ink-light mt-1">screen-mall.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-1">
+          <img
+            src="https://loremflickr.com/1200/1200/milk,dairy,bottle?lock=201"
+            alt="자사몰 메인"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">01</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">🛒 자사몰 메인</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-2">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">정기구독 페이지</div>
-          <div class="text-xs text-ink-light mt-1">subscription.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-2">
+          <img
+            src="https://loremflickr.com/1200/1200/subscription,delivery,box?lock=202"
+            alt="정기구독 페이지"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">02</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">🔁 정기구독 페이지</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-3">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">옴니채널 대시보드</div>
-          <div class="text-xs text-ink-light mt-1">dashboard.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-3">
+          <img
+            src="https://loremflickr.com/1200/1200/dashboard,analytics,screen?lock=203"
+            alt="옴니채널 대시보드"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">03</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">📊 옴니채널 대시보드</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-1">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">정기구독 워크플로우</div>
-          <div class="text-xs text-ink-light mt-1">workflow.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-1">
+          <img
+            src="https://loremflickr.com/1200/1200/workflow,diagram,planning?lock=204"
+            alt="정기구독 워크플로우"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">04</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">⚙️ 정기구독 워크플로우</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-2">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">ROAS 리포트</div>
-          <div class="text-xs text-ink-light mt-1">roas-report.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-2">
+          <img
+            src="https://loremflickr.com/1200/1200/chart,marketing,report?lock=205"
+            alt="ROAS 리포트"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">05</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">📈 ROAS 리포트</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-3">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">재구매 분석</div>
-          <div class="text-xs text-ink-light mt-1">repurchase.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-3">
+          <img
+            src="https://loremflickr.com/1200/1200/graph,data,statistics?lock=206"
+            alt="재구매 분석"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">06</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">🔄 재구매 분석</div>
         </div>
       </div>
     </div>

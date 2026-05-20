@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import CtaBlock from "../../../components/CtaBlock.astro";
+import PlaceholderImage from "../../../components/PlaceholderImage.astro";
 
 const caseData = {
   brand: "마켓리치팜",
@@ -130,12 +131,15 @@ const relatedCases = [
           </div>
         </div>
         <div class="lg:col-span-5 fade-up fade-up-delay-2">
-          <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
-            <div class="text-5xl mb-2 opacity-30">🖼️</div>
-            <div class="text-sm font-bold text-ink-mute">메인 이미지</div>
-            <div class="text-xs text-ink-light mt-1">hero.jpg (1600 × 900px)</div>
-            <div class="text-xs text-ink-light">/public/cases/richfarm/</div>
-          </div>
+          <PlaceholderImage
+            variant="case-hero"
+            theme="health-deep"
+            emoji="🌿"
+            label="마켓리치팜"
+            sublabel="프리미엄 라인 + 객단가 개선"
+            tag="건강기능식품"
+            cornerLabel="CASE"
+          />
         </div>
       </div>
     </div>
@@ -232,41 +236,65 @@ const relatedCases = [
         <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">운영 화면 · 콘텐츠 샘플</h2>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-1">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">프리미엄 라인 메인</div>
-          <div class="text-xs text-ink-light mt-1">premium-main.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-1">
+          <img
+            src="https://loremflickr.com/1200/1200/luxury,premium,product?lock=401"
+            alt="프리미엄 라인 메인"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">01</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">👑 프리미엄 라인 메인</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-2">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">상세페이지 샘플</div>
-          <div class="text-xs text-ink-light mt-1">detail-sample.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-2">
+          <img
+            src="https://loremflickr.com/1200/1200/herbal,natural,supplement?lock=402"
+            alt="상세페이지 샘플"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">02</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">📄 상세페이지 샘플</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-3">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">옵션 패키지 구성</div>
-          <div class="text-xs text-ink-light mt-1">package-options.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-3">
+          <img
+            src="https://loremflickr.com/1200/1200/box,packaging,premium?lock=403"
+            alt="옵션 패키지 구성"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">03</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">📦 옵션 패키지 구성</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-1">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">Schema Markup 적용</div>
-          <div class="text-xs text-ink-light mt-1">schema-markup.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-1">
+          <img
+            src="https://loremflickr.com/1200/1200/code,programming,html?lock=404"
+            alt="Schema Markup 적용"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">04</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">🔧 Schema Markup 적용</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-2">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">Perplexity 답변 예시</div>
-          <div class="text-xs text-ink-light mt-1">ai-search-result.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-2">
+          <img
+            src="https://loremflickr.com/1200/1200/ai,artificial,intelligence?lock=405"
+            alt="Perplexity 답변 예시"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">05</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">🤖 Perplexity 답변 예시</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-3">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">객단가 분석 리포트</div>
-          <div class="text-xs text-ink-light mt-1">avg-order-report.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-3">
+          <img
+            src="https://loremflickr.com/1200/1200/analytics,money,business?lock=406"
+            alt="객단가 분석 리포트"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">06</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">💰 객단가 분석 리포트</div>
         </div>
       </div>
     </div>

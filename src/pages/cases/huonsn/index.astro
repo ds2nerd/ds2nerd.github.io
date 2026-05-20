@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import CtaBlock from "../../../components/CtaBlock.astro";
+import PlaceholderImage from "../../../components/PlaceholderImage.astro";
 
 const caseData = {
   brand: "휴온스엔",
@@ -130,12 +131,15 @@ const relatedCases = [
           </div>
         </div>
         <div class="lg:col-span-5 fade-up fade-up-delay-2">
-          <div class="aspect-video bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
-            <div class="text-5xl mb-2 opacity-30">🖼️</div>
-            <div class="text-sm font-bold text-ink-mute">메인 이미지</div>
-            <div class="text-xs text-ink-light mt-1">hero.jpg (1600 × 900px)</div>
-            <div class="text-xs text-ink-light">/public/cases/huonsn/</div>
-          </div>
+          <PlaceholderImage
+            variant="case-hero"
+            theme="care-main"
+            emoji="🏥"
+            label="휴온스엔"
+            sublabel="라이브커머스 + 브랜드 자산"
+            tag="헬스케어"
+            cornerLabel="CASE"
+          />
         </div>
       </div>
     </div>
@@ -232,41 +236,65 @@ const relatedCases = [
         <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10">운영 화면 · 콘텐츠 샘플</h2>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-1">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">라이브커머스 진행 화면</div>
-          <div class="text-xs text-ink-light mt-1">live-broadcast.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-1">
+          <img
+            src="https://loremflickr.com/1200/1200/live,broadcast,streaming?lock=501"
+            alt="라이브커머스 진행 화면"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">01</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">🎥 라이브커머스 진행 화면</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-2">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">브랜드 랜딩페이지</div>
-          <div class="text-xs text-ink-light mt-1">landing-page.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-2">
+          <img
+            src="https://loremflickr.com/1200/1200/website,webdesign,laptop?lock=502"
+            alt="브랜드 랜딩페이지"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">02</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">🌐 브랜드 랜딩페이지</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-3">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">나무위키 페이지</div>
-          <div class="text-xs text-ink-light mt-1">namuwiki.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-3">
+          <img
+            src="https://loremflickr.com/1200/1200/books,library,knowledge?lock=503"
+            alt="나무위키 페이지"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">03</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">📚 나무위키 페이지</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-1">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">라이브 큐시트</div>
-          <div class="text-xs text-ink-light mt-1">live-cue-sheet.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-1">
+          <img
+            src="https://loremflickr.com/1200/1200/checklist,planning,desk?lock=504"
+            alt="라이브 큐시트"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">04</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">📋 라이브 큐시트</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-2">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">사후 클립 활용</div>
-          <div class="text-xs text-ink-light mt-1">post-clip.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-2">
+          <img
+            src="https://loremflickr.com/1200/1200/video,editing,production?lock=505"
+            alt="사후 클립 활용"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">05</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">✂️ 사후 클립 활용</div>
         </div>
-        <div class="aspect-square bg-gray-100 rounded-md flex flex-col items-center justify-center border-2 border-dashed border-gray-300 fade-up fade-up-delay-3">
-          <div class="text-5xl mb-2 opacity-30">🖼️</div>
-          <div class="text-sm font-bold text-ink-mute">브랜드 검색량 리포트</div>
-          <div class="text-xs text-ink-light mt-1">search-trend.jpg</div>
-          <div class="text-xs text-ink-light">(1200 × 1200px)</div>
+        <div class="relative aspect-square rounded-md overflow-hidden fade-up-delay-3">
+          <img
+            src="https://loremflickr.com/1200/1200/trend,analytics,growth?lock=506"
+            alt="브랜드 검색량 리포트"
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded">06</div>
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-medium px-2 py-1 rounded">📈 브랜드 검색량 리포트</div>
         </div>
       </div>
     </div>
