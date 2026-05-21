@@ -60,6 +60,81 @@ const types = [
     ],
   },
 ];
+
+/**
+ * 매트릭스 진단 질문 설계
+ * 
+ * X축 = 온라인 경험 (-1.0 ~ +1.0)
+ *   - 음수: 경험 적음 / 양수: 경험 많음
+ * Y축 = 확장 의지 (-1.0 ~ +1.0)
+ *   - 음수: 안정/축소 / 양수: 적극적 확장
+ * 
+ * 각 답변은 (xWeight, yWeight) 점수를 가짐
+ * 5문항 평균으로 최종 (x, y) 좌표 계산
+ * 
+ * 사분면 매핑:
+ *   (x≥0, y≥0): TYPE D (경험 O, 의지 O)
+ *   (x<0, y≥0): TYPE B (경험 X, 의지 O)
+ *   (x≥0, y<0): TYPE A (경험 O, 의지 안정 추구)
+ *   (x<0, y<0): TYPE C (경험 X, 의지 모호)
+ */
+const questions = [
+  {
+    id: 1,
+    icon: "🛒",
+    text: "현재 온라인 커머스 채널에서 판매 중인 상태인가요?",
+    options: [
+      { label: "여러 채널에서 활발히 판매 중", x: 1.0, y: 0.3 },
+      { label: "1~2개 채널에서 판매 중", x: 0.5, y: 0.2 },
+      { label: "준비 중이거나 막 시작한 단계", x: -0.3, y: 0.5 },
+      { label: "아직 판매 시작 전", x: -1.0, y: 0.4 },
+    ],
+  },
+  {
+    id: 2,
+    icon: "📦",
+    text: "판매할 제품이나 브랜드가 준비되어 있나요?",
+    options: [
+      { label: "여러 SKU·라인업 보유", x: 0.7, y: 0.5 },
+      { label: "1~2개 주력 상품 보유", x: 0.3, y: 0.3 },
+      { label: "제품은 있지만 브랜드는 미정", x: -0.2, y: 0.2 },
+      { label: "제품 자체를 찾는 단계", x: -1.0, y: -0.3 },
+    ],
+  },
+  {
+    id: 3,
+    icon: "📊",
+    text: "현재 매출/판매 상황은 어떻게 느끼시나요?",
+    options: [
+      { label: "안정적이고 성장 추세", x: 0.8, y: 0.4 },
+      { label: "팔리긴 하지만 정체 또는 하락세", x: 0.5, y: -0.6 },
+      { label: "판매가 거의 없거나 첫 매출 전", x: -0.5, y: 0.2 },
+      { label: "아직 매출 단계가 아님", x: -1.0, y: 0.0 },
+    ],
+  },
+  {
+    id: 4,
+    icon: "🚀",
+    text: "앞으로 6개월 내 어떤 변화를 계획하고 계시나요?",
+    options: [
+      { label: "신규 브랜드·상품 추가 런칭", x: 0.6, y: 1.0 },
+      { label: "기존 매출을 빠르게 회복·성장", x: 0.7, y: 0.3 },
+      { label: "첫 진입 + 매출 검증", x: -0.5, y: 0.7 },
+      { label: "현재 운영을 유지·정리", x: 0.3, y: -1.0 },
+    ],
+  },
+  {
+    id: 5,
+    icon: "💰",
+    text: "비용·운영 부담에 대한 현재 입장은?",
+    options: [
+      { label: "예산 확보, 빠른 실행 우선", x: 0.5, y: 1.0 },
+      { label: "월 정액 부담은 가능, 효율 중요", x: 0.4, y: 0.3 },
+      { label: "광고비 부담 없이 매출 검증부터", x: -0.5, y: 0.4 },
+      { label: "비용 자체가 가장 큰 고민", x: -0.7, y: -0.2 },
+    ],
+  },
+];
 ---
 
 <BaseLayout
@@ -70,84 +145,188 @@ const types = [
   <PageHero
     eyebrow="🧭 WHO IT'S FOR"
     title="어떤 단계에 계신가요?"
-    sub="단계마다 필요한 솔루션이 다릅니다. 1분 진단으로 본인 유형을 확인하세요."
+    sub="단계마다 필요한 솔루션이 다릅니다. 5개 질문 진단으로 본인 위치를 매트릭스에서 확인하세요."
   />
 
-  <!-- 인터랙티브 진단 위젯 -->
+  <!-- ───────────────────────────── -->
+  <!-- 진단 위젯 (매트릭스 버전) -->
+  <!-- ───────────────────────────── -->
   <section class="py-16 lg:py-20 bg-gradient-soft">
     <div class="container-page max-w-3xl">
-      <div class="fade-up text-center">
-        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mb-10 mt-3">🔍 1분 진단</h2>
+      <div class="fade-up text-center mb-8">
+        <div class="section-eyebrow justify-center" style="display:inline-flex;">🔍 DIAGNOSIS</div>
+        <h2 class="text-2xl sm:text-3xl font-black text-ink-black mt-3 mb-2">매트릭스 진단</h2>
+        <p class="text-sm text-ink-mute">5개 질문에 답하면 본인의 위치를 매트릭스로 보여드립니다.</p>
       </div>
       
+      <!-- 진행 표시줄 -->
+      <div id="progress-wrap" class="mb-6 fade-up">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold text-ink-mute"><span id="progress-current">1</span> / 5</span>
+          <span class="text-xs text-ink-mute">진단 진행률</span>
+        </div>
+        <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div id="progress-bar" class="h-full bg-red transition-all duration-300" style="width:20%"></div>
+        </div>
+      </div>
+      
+      <!-- 질문 카드 -->
       <div id="diagnosis" class="bg-white rounded-md p-8 lg:p-10 shadow-xl fade-up">
-        <div id="q1" class="q-block">
-          <div class="text-sm font-bold text-red mb-2 flex items-center gap-2">
-            <span>❓</span> Q1.
+        {questions.map((q, idx) => (
+          <div id={`q-${q.id}`} class={`q-block ${idx === 0 ? "" : "hidden"}`}>
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-3xl">{q.icon}</span>
+              <span class="text-sm font-bold text-red">Q{q.id}.</span>
+            </div>
+            <div class="text-lg sm:text-xl font-bold text-ink-dark mb-6 leading-snug">
+              {q.text}
+            </div>
+            <div class="space-y-3">
+              {q.options.map((opt, i) => (
+                <button 
+                  type="button"
+                  class="option-btn w-full text-left px-5 py-4 bg-bg-light border-2 border-transparent rounded-md hover:border-red hover:bg-white transition-all duration-200 group"
+                  data-q={q.id}
+                  data-x={opt.x}
+                  data-y={opt.y}
+                  data-idx={i}
+                >
+                  <div class="flex items-center gap-3">
+                    <div class="w-7 h-7 rounded-full bg-white border-2 border-gray-300 group-hover:border-red flex items-center justify-center text-xs font-bold text-ink-mute group-hover:text-red flex-shrink-0">
+                      {String.fromCharCode(65 + i)}
+                    </div>
+                    <div class="text-sm sm:text-base font-medium text-ink-dark">{opt.label}</div>
+                  </div>
+                </button>
+              ))}
+            </div>
+            {q.id > 1 && (
+              <div class="mt-6 text-center">
+                <button type="button" class="back-btn text-xs text-ink-mute underline hover:text-red transition-colors" data-target={q.id - 1}>
+                  ← 이전 질문
+                </button>
+              </div>
+            )}
           </div>
-          <div class="text-lg sm:text-xl font-bold text-ink-dark mb-6">
-            현재 온라인 쇼핑몰 / 커머스 채널에서 상품을 판매하고 계신가요?
-          </div>
-          <div class="flex gap-3">
-            <button onclick="goToNext('q2')" class="flex-1 btn-secondary justify-center">✅ 예, 판매 중</button>
-            <button onclick="goToNext('q3')" class="flex-1 btn-secondary justify-center">❌ 아니오</button>
-          </div>
-        </div>
-        <div id="q2" class="q-block hidden">
-          <div class="text-sm font-bold text-red mb-2 flex items-center gap-2">
-            <span>❓</span> Q2.
-          </div>
-          <div class="text-lg sm:text-xl font-bold text-ink-dark mb-6">
-            판매 중인데, 매출·판매가 만족스러우신가요?
-          </div>
-          <div class="flex gap-3">
-            <button onclick="goToNext('q4')" class="flex-1 btn-secondary justify-center">✅ 예, 만족</button>
-            <button onclick="showResult('A')" class="flex-1 btn-secondary justify-center">❌ 아니오, 정체·하락</button>
-          </div>
-        </div>
-        <div id="q3" class="q-block hidden">
-          <div class="text-sm font-bold text-red mb-2 flex items-center gap-2">
-            <span>❓</span> Q3.
-          </div>
-          <div class="text-lg sm:text-xl font-bold text-ink-dark mb-6">
-            판매할 제품은 보유하고 계신가요?
-          </div>
-          <div class="flex gap-3">
-            <button onclick="showResult('B')" class="flex-1 btn-secondary justify-center">✅ 예, 보유</button>
-            <button onclick="showResult('C')" class="flex-1 btn-secondary justify-center">❌ 아니오, 미보유</button>
-          </div>
-        </div>
-        <div id="q4" class="q-block hidden">
-          <div class="text-sm font-bold text-red mb-2 flex items-center gap-2">
-            <span>❓</span> Q4.
-          </div>
-          <div class="text-lg sm:text-xl font-bold text-ink-dark mb-6">
-            신규 상품 / 브랜드 런칭 계획이 있으신가요?
-          </div>
-          <div class="flex gap-3">
-            <button onclick="showResult('D')" class="flex-1 btn-secondary justify-center">✅ 예, 계획 있음</button>
-            <button onclick="showResult('none')" class="flex-1 btn-secondary justify-center">❌ 아니오</button>
-          </div>
-        </div>
+        ))}
         
+        <!-- 결과 카드 -->
         <div id="result" class="hidden">
-          <div class="text-center">
-            <div class="text-4xl mb-3" id="result-emoji">🎯</div>
-            <div id="result-tag" class="inline-block font-en text-xs font-bold tracking-wide-en text-white px-3 py-1 rounded mb-4"></div>
-            <div id="result-name" class="text-2xl sm:text-3xl font-black text-ink-dark mb-3"></div>
-            <div id="result-desc" class="text-sm text-ink-body mb-6"></div>
-            <a href="#" id="result-link" class="btn-primary">
-              상세 보기
-              <span class="arrow-icon">↓</span>
-            </a>
-            <button onclick="resetDiagnosis()" class="block mx-auto mt-4 text-xs text-ink-mute underline">↺ 다시 진단하기</button>
+          <!-- 결과 헤더 -->
+          <div class="text-center mb-8">
+            <div id="result-emoji" class="text-5xl mb-3">🎯</div>
+            <div id="result-tag" class="inline-block font-en text-xs font-bold tracking-wide-en text-white px-3 py-1 rounded mb-3"></div>
+            <div id="result-name" class="text-2xl sm:text-3xl font-black text-ink-dark mb-2"></div>
+            <div id="result-confidence" class="text-xs text-ink-mute mb-4"></div>
+            <div id="result-desc" class="text-sm text-ink-body max-w-lg mx-auto"></div>
           </div>
+          
+          <!-- 매트릭스 시각화 -->
+          <div class="bg-bg-light rounded-md p-6 lg:p-8 mb-8">
+            <div class="text-xs font-bold text-ink-mute mb-3 text-center">📍 MATRIX POSITION</div>
+            <div class="relative mx-auto" style="max-width:340px;">
+              <svg id="matrix-svg" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+                <!-- 4사분면 배경 -->
+                <rect x="0" y="0" width="170" height="170" fill="#E3F2FD" opacity="0.4"/>
+                <rect x="170" y="0" width="170" height="170" fill="#F3E5F5" opacity="0.4"/>
+                <rect x="0" y="170" width="170" height="170" fill="#F5F5F5" opacity="0.5"/>
+                <rect x="170" y="170" width="170" height="170" fill="#FFEBEE" opacity="0.4"/>
+                
+                <!-- 축 -->
+                <line x1="170" y1="0" x2="170" y2="340" stroke="#999" stroke-width="1.5" stroke-dasharray="4,4"/>
+                <line x1="0" y1="170" x2="340" y2="170" stroke="#999" stroke-width="1.5" stroke-dasharray="4,4"/>
+                
+                <!-- 축 라벨 -->
+                <text x="170" y="12" text-anchor="middle" font-size="10" font-weight="700" fill="#666">↑ 확장 의지</text>
+                <text x="170" y="335" text-anchor="middle" font-size="10" font-weight="700" fill="#666">↓ 안정/축소</text>
+                <text x="6" y="174" text-anchor="start" font-size="10" font-weight="700" fill="#666">← 경험 적음</text>
+                <text x="334" y="174" text-anchor="end" font-size="10" font-weight="700" fill="#666">경험 많음 →</text>
+                
+                <!-- 4유형 라벨 (사분면 중심에 배치) -->
+                <!-- 좌상: TYPE B -->
+                <g>
+                  <circle cx="85" cy="85" r="22" fill="#1E88E5" opacity="0.15"/>
+                  <text x="85" y="80" text-anchor="middle" font-size="13" font-weight="900" fill="#1565C0">B</text>
+                  <text x="85" y="98" text-anchor="middle" font-size="8" font-weight="600" fill="#1565C0">첫 진입형</text>
+                </g>
+                <!-- 우상: TYPE D -->
+                <g>
+                  <circle cx="255" cy="85" r="22" fill="#AB47BC" opacity="0.15"/>
+                  <text x="255" y="80" text-anchor="middle" font-size="13" font-weight="900" fill="#6A1B9A">D</text>
+                  <text x="255" y="98" text-anchor="middle" font-size="8" font-weight="600" fill="#6A1B9A">신규 런칭</text>
+                </g>
+                <!-- 좌하: TYPE C -->
+                <g>
+                  <circle cx="85" cy="255" r="22" fill="#757575" opacity="0.15"/>
+                  <text x="85" y="250" text-anchor="middle" font-size="13" font-weight="900" fill="#424242">C</text>
+                  <text x="85" y="268" text-anchor="middle" font-size="8" font-weight="600" fill="#424242">무에서 유</text>
+                </g>
+                <!-- 우하: TYPE A -->
+                <g>
+                  <circle cx="255" cy="255" r="22" fill="#E53935" opacity="0.15"/>
+                  <text x="255" y="250" text-anchor="middle" font-size="13" font-weight="900" fill="#C62828">A</text>
+                  <text x="255" y="268" text-anchor="middle" font-size="8" font-weight="600" fill="#C62828">매출 정체</text>
+                </g>
+                
+                <!-- 사용자 위치 (JS에서 동적 업데이트) -->
+                <g id="user-dot">
+                  <circle id="user-dot-pulse" cx="170" cy="170" r="14" fill="#E53935" opacity="0.3">
+                    <animate attributeName="r" values="14;22;14" dur="2s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite"/>
+                  </circle>
+                  <circle id="user-dot-main" cx="170" cy="170" r="9" fill="#E53935" stroke="white" stroke-width="3"/>
+                </g>
+              </svg>
+            </div>
+            <!-- 좌표 표시 -->
+            <div class="text-center mt-3 text-xs text-ink-mute">
+              <span class="font-bold">좌표:</span>
+              <span id="result-coord" class="font-mono ml-1">(0.0, 0.0)</span>
+            </div>
+          </div>
+          
+          <!-- 다음 행동 3개 -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+            <a id="result-link-detail" href="#" class="bg-white border-2 border-red rounded-md p-4 text-center card-hover">
+              <div class="text-2xl mb-1">📋</div>
+              <div class="text-xs font-bold text-red">상세 보기</div>
+              <div class="text-xs text-ink-mute mt-1">유형별 상세</div>
+            </a>
+            <a href="/cases/" class="bg-white border-2 border-gray-200 rounded-md p-4 text-center card-hover hover:border-red">
+              <div class="text-2xl mb-1">📂</div>
+              <div class="text-xs font-bold text-ink-dark">사례 보기</div>
+              <div class="text-xs text-ink-mute mt-1">실제 적용 사례</div>
+            </a>
+            <a href="/contact/" class="bg-white border-2 border-gray-200 rounded-md p-4 text-center card-hover hover:border-red">
+              <div class="text-2xl mb-1">💬</div>
+              <div class="text-xs font-bold text-ink-dark">상담 신청</div>
+              <div class="text-xs text-ink-mute mt-1">맞춤 견적 받기</div>
+            </a>
+          </div>
+          
+          <!-- 다시 진단 / 자세히 보기 -->
+          <div class="text-center">
+            <button type="button" id="reset-btn" class="text-xs text-ink-mute underline hover:text-red transition-colors">
+              ↺ 다시 진단하기
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 매트릭스 안내 (진단 전 노출, 진단 중 숨김) -->
+      <div id="matrix-intro" class="mt-8 bg-white/60 backdrop-blur rounded-md p-5 fade-up">
+        <div class="text-xs font-bold text-ink-mute mb-3 text-center">📐 매트릭스 가이드</div>
+        <div class="grid grid-cols-2 gap-2 text-xs text-ink-body">
+          <div class="flex items-start gap-2"><span class="font-black text-asset">↑/→</span><span><b>가로축:</b> 온라인 운영 경험</span></div>
+          <div class="flex items-start gap-2"><span class="font-black text-conversion">↑/↓</span><span><b>세로축:</b> 사업 확장 의지</span></div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ───────────────────────────── -->
   <!-- 4유형 상세 카드 -->
+  <!-- ───────────────────────────── -->
   <section class="py-16 lg:py-20">
     <div class="container-page">
       <div class="fade-up">
@@ -220,43 +399,182 @@ const types = [
 </BaseLayout>
 
 <script is:inline>
-  var resultsMap = {
-    A: { tag: "TYPE A", color: "bg-typeA", emoji: "📉", name: "매출 정체형", desc: "판매 중이나 매출이 정체된 단계. 기존 채널 진단·재정비 + Conversion 매체 강화가 필요합니다.", link: "#type-a" },
-    B: { tag: "TYPE B", color: "bg-typeB", emoji: "🚀", name: "첫 진입형", desc: "제품은 있지만 온라인이 처음. 세팅부터 첫 매출까지 풀패키지로 함께합니다. RS 구조로 부담 없이 시작 가능.", link: "#type-b" },
-    C: { tag: "TYPE C", color: "bg-typeC", emoji: "💡", name: "무에서 유 창조형", desc: "제품도 채널도 없는 단계. 별도 컨설팅으로 상품 확보 후 Type B 프로세스로 전환합니다.", link: "#type-c" },
-    D: { tag: "TYPE D", color: "bg-typeD", emoji: "✨", name: "신규 브랜드 런칭형", desc: "기존 운영 + 신규 추가. 6대 모듈 전체 풀스택 + Conversion·Asset·Awareness 통합 운영.", link: "#type-d" },
-    none: { tag: "안내", color: "bg-ink-mute", emoji: "🤔", name: "현재 단계에서는 컨설팅이 불필요할 수 있습니다", desc: "이미 매출이 안정적이고 신규 계획이 없다면 본 솔루션이 적합하지 않을 수 있습니다. 향후 변화가 있을 때 다시 문의 주세요.", link: "/contact/" }
+(function() {
+  // ─── 진단 상태 ───
+  var state = {
+    current: 1,
+    total: 5,
+    answers: {},  // {1: {x, y, idx}, 2: {...}}
   };
-
-  function goToNext(id) {
+  
+  // ─── 결과 매핑 ───
+  var resultsMap = {
+    A: { tag: "TYPE A", color: "bg-typeA", emoji: "📉", name: "매출 정체형", 
+         desc: "판매 중이나 매출이 정체된 단계. 기존 채널 진단·재정비 + Conversion 매체 강화가 필요합니다.", 
+         link: "#type-a", dotColor: "#E53935" },
+    B: { tag: "TYPE B", color: "bg-typeB", emoji: "🚀", name: "첫 진입형", 
+         desc: "제품은 있지만 온라인이 처음. 세팅부터 첫 매출까지 풀패키지로 함께합니다. RS 구조로 부담 없이 시작 가능.", 
+         link: "#type-b", dotColor: "#1E88E5" },
+    C: { tag: "TYPE C", color: "bg-typeC", emoji: "💡", name: "무에서 유 창조형", 
+         desc: "제품도 채널도 없는 단계. 별도 컨설팅으로 상품 확보 후 Type B 프로세스로 전환합니다.", 
+         link: "#type-c", dotColor: "#757575" },
+    D: { tag: "TYPE D", color: "bg-typeD", emoji: "✨", name: "신규 브랜드 런칭형", 
+         desc: "기존 운영 + 신규 추가. 6대 모듈 전체 풀스택 + Conversion·Asset·Awareness 통합 운영.", 
+         link: "#type-d", dotColor: "#AB47BC" }
+  };
+  
+  // ─── 좌표 → 유형 매핑 ───
+  function getTypeFromCoord(x, y) {
+    // 4사분면 매핑:
+    //   (x≥0, y≥0): D (경험 O, 의지 O)
+    //   (x<0, y≥0): B (경험 X, 의지 O)
+    //   (x≥0, y<0): A (경험 O, 안정)
+    //   (x<0, y<0): C (경험 X, 의지 모호)
+    if (x >= 0 && y >= 0) return "D";
+    if (x < 0 && y >= 0) return "B";
+    if (x >= 0 && y < 0) return "A";
+    return "C";
+  }
+  
+  // ─── 확신도 계산 (원점에서 멀수록 확신) ───
+  function getConfidence(x, y) {
+    var distance = Math.sqrt(x * x + y * y);
+    // 최대 거리 ≈ √2 ≈ 1.414
+    var pct = Math.min(100, Math.round((distance / 1.0) * 100));
+    if (pct >= 70) return { label: "매우 명확", level: "high", pct: pct };
+    if (pct >= 40) return { label: "비교적 명확", level: "med", pct: pct };
+    return { label: "경계선", level: "low", pct: pct };
+  }
+  
+  // ─── 진행 표시줄 업데이트 ───
+  function updateProgress() {
+    var pct = (state.current / state.total) * 100;
+    document.getElementById("progress-bar").style.width = pct + "%";
+    document.getElementById("progress-current").textContent = state.current;
+  }
+  
+  // ─── 질문 전환 ───
+  function showQuestion(n) {
     var blocks = document.querySelectorAll(".q-block");
     for (var i = 0; i < blocks.length; i++) blocks[i].classList.add("hidden");
-    var target = document.getElementById(id);
-    if (target) target.classList.remove("hidden");
-  }
-
-  function showResult(key) {
-    var r = resultsMap[key];
-    if (!r) return;
-    var blocks = document.querySelectorAll(".q-block");
-    for (var i = 0; i < blocks.length; i++) blocks[i].classList.add("hidden");
-    var resultEl = document.getElementById("result");
-    var emojiEl = document.getElementById("result-emoji");
-    var tagEl = document.getElementById("result-tag");
-    var nameEl = document.getElementById("result-name");
-    var descEl = document.getElementById("result-desc");
-    var linkEl = document.getElementById("result-link");
-    if (emojiEl) emojiEl.textContent = r.emoji;
-    if (tagEl) { tagEl.textContent = r.tag; tagEl.className = "inline-block font-en text-xs font-bold tracking-wide-en text-white px-3 py-1 rounded mb-4 " + r.color; }
-    if (nameEl) nameEl.textContent = r.name;
-    if (descEl) descEl.textContent = r.desc;
-    if (linkEl) linkEl.href = r.link;
-    if (resultEl) resultEl.classList.remove("hidden");
-  }
-
-  function resetDiagnosis() {
     var resultEl = document.getElementById("result");
     if (resultEl) resultEl.classList.add("hidden");
-    goToNext("q1");
+    
+    var target = document.getElementById("q-" + n);
+    if (target) target.classList.remove("hidden");
+    
+    document.getElementById("progress-wrap").classList.remove("hidden");
+    var intro = document.getElementById("matrix-intro");
+    if (intro) intro.classList.remove("hidden");
+    
+    state.current = n;
+    updateProgress();
   }
+  
+  // ─── 결과 계산 및 표시 ───
+  function calculateAndShowResult() {
+    // 평균 좌표 계산
+    var sumX = 0, sumY = 0, count = 0;
+    for (var k in state.answers) {
+      sumX += state.answers[k].x;
+      sumY += state.answers[k].y;
+      count++;
+    }
+    var avgX = count > 0 ? sumX / count : 0;
+    var avgY = count > 0 ? sumY / count : 0;
+    
+    var typeKey = getTypeFromCoord(avgX, avgY);
+    var confidence = getConfidence(avgX, avgY);
+    var r = resultsMap[typeKey];
+    
+    // 결과 카드 채우기
+    document.getElementById("result-emoji").textContent = r.emoji;
+    var tagEl = document.getElementById("result-tag");
+    tagEl.textContent = r.tag;
+    tagEl.className = "inline-block font-en text-xs font-bold tracking-wide-en text-white px-3 py-1 rounded mb-3 " + r.color;
+    document.getElementById("result-name").textContent = r.name;
+    document.getElementById("result-desc").textContent = r.desc;
+    document.getElementById("result-link-detail").href = r.link;
+    
+    // 확신도 표시
+    var confLabel = "📊 진단 확신도: " + confidence.label + " (" + confidence.pct + "%)";
+    document.getElementById("result-confidence").textContent = confLabel;
+    
+    // 좌표 표시
+    document.getElementById("result-coord").textContent = 
+      "(" + avgX.toFixed(2) + ", " + avgY.toFixed(2) + ")";
+    
+    // SVG 점 위치 업데이트 (좌표계 변환: -1~+1 → 0~340)
+    // x: -1 → 20, +1 → 320 (양옆 여백 20)
+    // y: +1 → 20 (위), -1 → 320 (아래)
+    var svgX = 170 + avgX * 130;
+    var svgY = 170 - avgY * 130;
+    svgX = Math.max(20, Math.min(320, svgX));
+    svgY = Math.max(20, Math.min(320, svgY));
+    
+    var pulse = document.getElementById("user-dot-pulse");
+    var main = document.getElementById("user-dot-main");
+    if (pulse) {
+      pulse.setAttribute("cx", svgX);
+      pulse.setAttribute("cy", svgY);
+      pulse.setAttribute("fill", r.dotColor);
+    }
+    if (main) {
+      main.setAttribute("cx", svgX);
+      main.setAttribute("cy", svgY);
+      main.setAttribute("fill", r.dotColor);
+    }
+    
+    // 질문 숨기고 결과 표시
+    var blocks = document.querySelectorAll(".q-block");
+    for (var i = 0; i < blocks.length; i++) blocks[i].classList.add("hidden");
+    document.getElementById("result").classList.remove("hidden");
+    document.getElementById("progress-wrap").classList.add("hidden");
+    var intro = document.getElementById("matrix-intro");
+    if (intro) intro.classList.add("hidden");
+    
+    // 결과 위치로 부드럽게 스크롤
+    setTimeout(function() {
+      document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 100);
+  }
+  
+  // ─── 옵션 버튼 클릭 ───
+  document.querySelectorAll(".option-btn").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var q = parseInt(btn.getAttribute("data-q"), 10);
+      var x = parseFloat(btn.getAttribute("data-x"));
+      var y = parseFloat(btn.getAttribute("data-y"));
+      var idx = parseInt(btn.getAttribute("data-idx"), 10);
+      
+      state.answers[q] = { x: x, y: y, idx: idx };
+      
+      if (q < state.total) {
+        showQuestion(q + 1);
+      } else {
+        // 마지막 질문 → 결과
+        calculateAndShowResult();
+      }
+    });
+  });
+  
+  // ─── 이전 질문 버튼 ───
+  document.querySelectorAll(".back-btn").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var target = parseInt(btn.getAttribute("data-target"), 10);
+      showQuestion(target);
+    });
+  });
+  
+  // ─── 다시 진단 버튼 ───
+  document.getElementById("reset-btn").addEventListener("click", function() {
+    state.answers = {};
+    showQuestion(1);
+    // 위젯 시작 부분으로 스크롤
+    document.getElementById("diagnosis").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  
+  // ─── 초기 상태 ───
+  updateProgress();
+})();
 </script>
